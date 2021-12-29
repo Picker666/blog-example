@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import Home from '/@/component/Home'
-import Base from '/@/component/Base/'
 import NoMatch from '/@/component/NoMatch'
 
 import { navConfig, sidebarConfig } from '/@/constants/config'
@@ -22,6 +21,7 @@ const generateRouter = () => {
         sidebarLink = `${link}${sidebarLink}`
         if (!sidebarComp) {
           sidebarComp = NoMatch
+          console.log(link, c, 'no component to match...')
         }
 
         routers.push(<Route path={sidebarLink} exact component={sidebarComp} />)
