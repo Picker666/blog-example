@@ -1,16 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import { Layout, Menu, Breadcrumb } from 'antd'
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-} from '@ant-design/icons'
+import { withRouter } from 'react-router-dom'
+import { Layout, Menu } from 'antd'
 
-const { SubMenu } = Menu
 const { Header, Content, Sider } = Layout
 
-import { navConfig, sidebarConfig } from './config'
+import { navConfig, sidebarConfig } from '../constants/config'
 
 import './index.less'
 
