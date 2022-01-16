@@ -1,12 +1,15 @@
 import Base from '/@/component/base'
 import SourceAnalysis from '/@/component/sourceAnalysis'
+import CalcTable from '/@/component/CalcTable'
 
 export const navConfig = [
   { text: '基础梳理', link: '/base' },
   { text: '手写', link: '/newFunction' },
   { text: '源码分析', link: '/sourceAnalysis' },
   { text: 'React', link: '/react' },
-  { text: 'Git', link: '/git' }];
+  { text: 'Git', link: '/git' },
+  { text: 'Practice', link: '/practice' },
+];
 
 export const sidebarConfig = {
   '/base': [
@@ -16,5 +19,8 @@ export const sidebarConfig = {
   ],
   '/sourceAnalysis': [
     { text: 'sourceAnalysis默认的', link: '/index', component: SourceAnalysis },
+  ],
+  '/practice': [
+    { text: 'practice默认的', link: '/index', component: CalcTable },
   ]
 }
