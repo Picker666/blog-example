@@ -1,26 +1,28 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react';
 
 // import { Table } from 'antd';
-import VirtualTable from './VirtualTable'
+import VirtualTable from './VirtualTable';
 
-import useColumns from './useColumns'
+import { GetTitle } from '@/components';
 
-import './index.less'
+import useColumns from './useColumns';
+
+import './index.less';
 
 type calcTableProps = {
-  options: { label: string; value: string }[]
-  disabled: boolean
-}
+  options: { label: string; value: string }[];
+  disabled: boolean;
+};
 
-const validateFields = ['age', 'name', 'date', 'userName', 'customerName']
+const validateFields = ['age', 'name', 'date', 'userName', 'customerName'];
 
 const CalcTable = (props: calcTableProps) => {
-  const { options, disabled } = props
-  const [data, setData] = useState([])
-  const dataRef = useRef(data)
+  const { options, disabled } = props;
+  const [data, setData] = useState([]);
+  const dataRef = useRef(data);
 
   useEffect(() => {
-    const tableData = []
+    const tableData = [];
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < 1000; i++) {
       tableData.push({
@@ -35,69 +37,65 @@ const CalcTable = (props: calcTableProps) => {
         companyAddress: 'Lake Street 42',
         companyName: 'SoftLake Co',
         gender: 'M',
-      })
+      });
     }
-    setData(tableData)
-  }, [])
+    setData(tableData);
+  }, []);
 
   useEffect(() => {
-    dataRef.current = data
-  }, [data])
+    dataRef.current = data;
+  }, [data]);
 
   const updateToData = (index, key) => (value) => {
-    const newData = [...dataRef.current]
-    newData[index][key] = value
+    const newData = [...dataRef.current];
+    newData[index][key] = value;
     if (validateFields.includes(key)) {
       // remove warning, when change value
-      newData[index][`${key}Warning`] = undefined
+      newData[index][`${key}Warning`] = undefined;
     }
-    setData(newData)
-  }
+    setData(newData);
+  };
 
   const handldWithCopy = (index) => () => {
-    const newData = [...dataRef.current]
+    const newData = [...dataRef.current];
 
-    const preSetData = {}
-    const copiedRow = newData[index]
-    let canCopy = true
+    const preSetData = {};
+    const copiedRow = newData[index];
+    let canCopy = true;
 
     validateFields.forEach((field: string) => {
-      const temp = copiedRow[field]
-      preSetData[field] = temp
+      const temp = copiedRow[field];
+      preSetData[field] = temp;
       if ([undefined, null, ''].includes(temp)) {
-        copiedRow[`${field}Warning`] = true
-        canCopy = false
+        copiedRow[`${field}Warning`] = true;
+        canCopy = false;
       }
-    })
+    });
 
     if (canCopy) {
-      newData.splice(index + 1, 0, preSetData)
+      newData.splice(index + 1, 0, preSetData);
     } else {
-      newData.splice(index, 1, copiedRow)
+      newData.splice(index, 1, copiedRow);
     }
 
-    setData(newData)
-  }
+    setData(newData);
+  };
 
   const handldWithDelete = (index) => () => {
-    const newData = [...dataRef.current]
-    newData.splice(index, 1)
-    setData(newData)
-  }
+    const newData = [...dataRef.current];
+    newData.splice(index, 1);
+    setData(newData);
+  };
 
-  const [columns, setColumns] = useColumns(
-    updateToData,
-    handldWithCopy,
-    handldWithDelete,
-    options
-  )
+  const [columns, setColumns] = useColumns(updateToData, handldWithCopy, handldWithDelete, options);
 
   useEffect(() => {
-    setColumns(options)
-  }, [options, disabled])
+    setColumns(options);
+  }, [options, disabled]);
 
   return (
     <div className="tableContainer">
+      <GetTitle title="计算表" />
       <div
         className="mark"
         style={{
@@ -105,13 +103,9 @@ const CalcTable = (props: calcTableProps) => {
           marginTop: 24,
         }}
       />
-      <VirtualTable
-        columns={columns}
-        dataSource={data}
-        scroll={{ x: '100%', y: 1000 }}
-      />
+      <VirtualTable columns={columns} dataSource={data} scroll={{ x: '100%', y: 1000 }} />
     </div>
-  )
-}
+  );
+};
 
-export default CalcTable
+export default CalcTable;

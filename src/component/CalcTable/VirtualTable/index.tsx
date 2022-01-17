@@ -13,23 +13,27 @@ type tableProps = {
 
 const VirtualTableContainer = (props: tableProps) => {
   const { columns, scroll, dataSource } = props;
-  const [showOperateBtn, setShowOperateBtn] = useState(false);
+  const [showOperateBtn, setShowOperateBtn] = useState(true);
   const [showArrow, setShowArrow] = useState(false);
 
   const fixedColumnExecutor = (right) => {
-    const fixedCells = document.querySelectorAll('.virtual-table-cell-last-fixed');
+    const fixedCells = document.querySelectorAll('.tableContainer .virtual-table-cell-last-fixed');
+    const fixedHeaderCell = document.querySelector('.tableContainer .ant-table-cell-fix-right-first');
+
     if (showOperateBtn) {
       fixedCells.forEach((cell) => {
         const replacement = cell as HTMLElement;
         replacement.style.right = right;
         replacement.classList.remove('cell-last-fixed-slide');
       });
+      fixedHeaderCell.classList.replace('ant-table-cell-fix-right', 'ant-table-cell-fix-right-static');
     } else {
       fixedCells.forEach((cell) => {
         const replacement = cell as HTMLElement;
         replacement.style.right = right;
         replacement.classList.add('cell-last-fixed-slide');
       });
+      fixedHeaderCell.classList.replace('ant-table-cell-fix-right-static', 'ant-table-cell-fix-right');
     }
     setShowOperateBtn(!showOperateBtn);
   };
@@ -41,7 +45,7 @@ const VirtualTableContainer = (props: tableProps) => {
     if (showOperateBtn) {
       fixedColumnExecutor('auto');
     } else {
-      const right = `-${cuttent + 3}px`;
+      const right = `-${cuttent}px`;
       fixedColumnExecutor(right);
     }
   };
@@ -71,7 +75,7 @@ const VirtualTableContainer = (props: tableProps) => {
       if (tiemout) {
         return;
       }
-      scrollExecutor(e);
+      // scrollExecutor(e);
 
       tiemout = setTimeout(() => {
         scrollExecutor(e);
@@ -112,6 +116,7 @@ const VirtualTableContainer = (props: tableProps) => {
       <div className={arrowCls} onClick={handleArrowClick} role="alert">
         {showOperateBtn ? <DoubleRightOutlined /> : <DoubleLeftOutlined />}
       </div>
+      <span className="headerMark" />
       <VirtualTable scroll={scrollInfo} dataSource={data} columns={columnsInfo} />
     </>
   );
