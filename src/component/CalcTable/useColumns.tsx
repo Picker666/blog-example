@@ -11,7 +11,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
   const updateColumns = (dropdownOptions?: { label: string; value: string }[]) => {
     const columnsInit = [
       {
-        title: '基本信息',
+        title: 'section0',
         children: [
           {
             title: '#',
