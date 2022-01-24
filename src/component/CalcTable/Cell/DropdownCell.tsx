@@ -7,7 +7,7 @@ const { Option } = Select;
 type dropdownProps = {
   value: string | number | undefined;
   updateToData: (value: string | number | undefined) => void;
-  options: { label: string; value: string }[];
+  options: { label: string; value: string | number }[];
   onBlur: () => void;
 };
 

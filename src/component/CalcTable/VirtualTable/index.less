@@ -1,64 +1,79 @@
+.tableContainer {
 
-.virtual-table-cell  {
-  box-sizing: border-box;
-  padding: 12px  8px;
-  border: 1px solid #f0f0f0;
-  border-top: none;
-  border-right: none;
-}
-
-.ant-table-container table > .ant-table-thead > tr .ant-table-cell {
-  box-sizing: border-box;
-  padding: 12px  8px;
-  border: 1px solid #f0f0f0;
-  border-top: none;
-  border-right: none;
-
-  &:last-child {
-    padding-right: 7px;
+  .virtual-table-cell  {
+    box-sizing: border-box;
+    padding: 12px  8px;
+    border: 1px solid #f0f0f0;
+    border-top: none;
+    border-right: none;
   }
-}
 
-.ant-table .ant-table-header {
-  padding-right: 4px;
-  border: 1px solid #f0f0f0;
-  border-bottom: none;
-  border-left: none;
-}
+  .ant-table-container table {
+    border-top: none;
 
-.arrowContainer {
-  position: absolute;
-  z-index: 9;
-  top: 200px;
-  right: -100px;
-  width: 20px;
-  background: red;
-  transition: right 0.5s ease-in;
-}
+    &> .ant-table-thead > tr .ant-table-cell {
+      box-sizing: border-box;
+      padding: 12px  8px;
+      border: 1px solid #f0f0f0;
+      border-top: none;
+      border-right: none;
 
-.arrowShow {
-  right: 0;
-}
+      &:last-child {
+        padding-right: 7px;
+      }
+    }
+  }
 
-.headerMark {
-  position: absolute;
-  z-index: 1;
-  top: 50px;
-  right: 1px;
-  width: 5px;
-  height: 87px;
-  background-color: #fff;
-}
+  .ant-table .ant-table-header {
+    padding-right: 4px;
+    border: 1px solid #f0f0f0;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+  }
 
-.virtual-table-cell-last-fixed {
-  background-color: #fff;
-  transition: right 0.5s ease-in;
-}
+  .arrowContainer {
+    position: absolute;
+    z-index: 9;
+    top: 48px;
+    right: -100px;
+    width: 24px;
+    height: 90px;
+    background-color: #F7F9FC;
+    cursor: pointer;
+    transition: right 0.5s ease-in;
 
-.cell-last-fixed-slide {
-  left: auto !important;
-}
+    .arrow {
+      width: 100%;
+      margin-top: 21px;
+      color: #A4A9B2;
+      line-height:45px;
+      transform: scaleY(2);
+    }
 
-.ant-table-cell-fix-right-static {
-  position: static !important;
+    &:hover {
+
+      .arrow {
+        color: rgb(0, 120, 224);
+      }
+    }
+
+  }
+
+  .arrowShow {
+    right: 0;
+  }
+
+  .virtual-table-cell-last-fixed {
+    background-color: #fff;
+    transition: right 0.5s ease-in;
+  }
+
+  .cell-last-fixed-slide {
+    left: auto !important;
+  }
+
+  .ant-table-cell-fix-right-static {
+    position: static !important;
+  }
 }

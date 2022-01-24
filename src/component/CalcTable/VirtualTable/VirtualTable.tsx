@@ -67,6 +67,7 @@ const VirtualTable = (props: tableProps) => {
             'virtual-table-cell-last-fixed': lastOne && fixed,
           })}
           style={style}
+          key={`${rowIndex}_${columnIndex}`}
         >
           {(render && render(value, currentRecord, rowIndex)) || value}
         </div>
@@ -94,13 +95,13 @@ const VirtualTable = (props: tableProps) => {
         columnCount={columnCount}
         columnWidth={(index: number) => {
           const { width } = flatColumns[index] || { width: 0 };
-          return totalHeight > scroll!.y! && index === 15 - 1
+          return totalHeight > scroll!.y! && index === columnCount - 1
             ? (width as number) - scrollbarSize - 1
             : (width as number);
         }}
         height={scroll!.y as number}
         rowCount={rawData.length}
-        rowHeight={() => 54}
+        rowHeight={() => 50}
         // overscanRowCount={30}
         overscanColumnCount={columnCount}
         width={tableWidth}
@@ -118,10 +119,11 @@ const VirtualTable = (props: tableProps) => {
       }}
     >
       <Table
-        style={{ marginTop: 24, marginBottom: 64 }}
+        style={{ marginTop: 24}}
         scroll={scroll}
         dataSource={dataSource}
         className="virtual-table"
+        rowKey={(record) => record.dataIndex}
         columns={columns}
         pagination={false}
         components={{

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useState, memo, useEffect, useRef } from 'react';
 
 import { InputNumber } from 'antd';
@@ -10,7 +11,7 @@ type inputNumberProps = {
 };
 
 const InputNumberCell = (props: inputNumberProps) => {
-  const { value, updateToData, onBlur, focused = true } = props;
+  const { value, updateToData, onBlur, focused = true, ...rest } = props;
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef(null);
 
@@ -41,6 +42,7 @@ const InputNumberCell = (props: inputNumberProps) => {
       ref={inputRef}
       onChange={handleInputChange}
       onBlur={handleInputBlur}
+      {...rest}
     />
   );
 };

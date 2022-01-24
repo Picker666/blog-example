@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useState, memo, useEffect, useRef } from 'react';
 
 import { Input } from 'antd';
@@ -10,11 +11,11 @@ type inputProps = {
 };
 
 const InputCell = (props: inputProps) => {
-  const { value, updateToData, onBlur, focused = true } = props;
+  const { value, updateToData, onBlur, focused = true, ...rest } = props;
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef(null);
 
-  console.log('=============InputCell================');
+  console.log('=============InputCell===============');
 
   useEffect(() => {
     setInputValue(value);
@@ -34,7 +35,14 @@ const InputCell = (props: inputProps) => {
     }
   };
 
-  return <Input value={inputValue} ref={inputRef} onChange={handleInputChange} onBlur={handleInputBlur} />;
+  return <Input value={inputValue} ref={inputRef} onChange={handleInputChange} onBlur={handleInputBlur} {...rest} />;
 };
 
-export default memo(InputCell);
+const updateConfitions = (prevProps, nextProps) => {
+  const { value: preValue } = prevProps;
+  const { value } = nextProps;
+
+  return value !== preValue;
+};
+
+export default memo(InputCell, updateConfitions);
