@@ -29,7 +29,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '单元号',
+            title: 'tenantNo',
             dataIndex: 'tenantNo',
             key: 'tenantNo',
             width: 150,
@@ -38,7 +38,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: <HeaderCell label="期数" tooltipText="前后填写方式须保持一致" />,
+            title: <HeaderCell label="phaseNo" tooltipText="前后填写方式须保持一致" />,
             dataIndex: 'phaseNo',
             key: 'phaseNo',
             width: 150,
@@ -53,7 +53,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: <HeaderCell label="楼栋" tooltipText="前后填写方式须保持一致" />,
+            title: <HeaderCell label="buildingNo" tooltipText="前后填写方式须保持一致" />,
             dataIndex: 'buildingNo',
             key: 'buildingNo',
             width: 150,
@@ -68,7 +68,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: <HeaderCell label="楼层" tooltipText="前后填写方式须保持一致" />,
+            title: <HeaderCell label="floorNo" tooltipText="前后填写方式须保持一致" />,
             dataIndex: 'floorNo',
             key: 'floorNo',
             width: 150,
@@ -83,7 +83,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '状态',
+            title: 'status',
             dataIndex: 'status',
             key: 'status',
             width: 150,
@@ -109,7 +109,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '承租方',
+            title: 'alternatives',
             dataIndex: 'alternatives',
             key: 'alternatives',
             width: 150,
@@ -122,7 +122,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '业态',
+            title: 'propertyType',
             dataIndex: 'propertyType',
             key: 'propertyType',
             width: 150,
@@ -151,7 +151,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '物业类型',
+            title: 'propertySubtype',
             dataIndex: 'propertySubtype',
             key: 'propertySubtype',
             width: 150,
@@ -177,7 +177,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '租户属性',
+            title: 'tenantAttribute',
             dataIndex: 'tenantAttribute',
             key: 'tenantAttribute',
             width: 150,
@@ -203,7 +203,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '租户类型',
+            title: 'tenantType',
             dataIndex: 'tenantType',
             key: 'tenantType',
             width: 150,
@@ -227,7 +227,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '是否含税',
+            title: 'isTax',
             dataIndex: 'isTax',
             key: 'isTax',
             width: 150,
@@ -246,7 +246,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '计税口径',
+            title: 'rentAlternative',
             dataIndex: 'rentAlternative',
             key: 'rentAlternative',
             width: 150,
@@ -261,7 +261,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '建筑面积',
+            title: 'constructionArea',
             dataIndex: 'constructionArea',
             key: 'constructionArea',
             width: 150,
@@ -274,7 +274,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '建筑面积',
+            title: 'rentArea',
             dataIndex: 'rentArea',
             key: 'rentArea',
             width: 150,
@@ -289,10 +289,10 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
         ],
       },
       {
-        title: '租期内价值',
+        title: 'section1',
         children: [
           {
-            title: '起租日期',
+            title: 'rentStartDate',
             dataIndex: 'rentStartDate',
             key: 'rentStartDate',
             width: 150,
@@ -305,7 +305,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '终止日期',
+            title: 'rentEndDate',
             dataIndex: 'rentEndDate',
             key: 'rentEndDate',
             width: 150,
@@ -345,7 +345,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
           //   ),
           // },
           {
-            title: <HeaderCell label="免租起始日" text="选填" />,
+            title: <HeaderCell label="rentFreeStartDate" text="选填" />,
             dataIndex: 'rentFreeStartDate',
             key: 'rentFreeStartDate',
             width: 150,
@@ -358,7 +358,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: <HeaderCell label="免租终止日" text="选填" />,
+            title: <HeaderCell label="rentFreeEndDate" text="选填" />,
             dataIndex: 'rentFreeEndDate',
             key: 'rentFreeEndDate',
             width: 150,
@@ -371,7 +371,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '租金单位',
+            title: 'rentUnit',
             dataIndex: 'rentUnit',
             key: 'rentUnit',
             width: 150,
@@ -388,7 +388,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: <HeaderCell label="单位租金" tooltipText="如果已填写了免租期，此处请输入面价" />,
+            title: <HeaderCell label="rentUnitPrice" tooltipText="如果已填写了免租期，此处请输入面价" />,
             dataIndex: 'rentUnitPrice',
             key: 'rentUnitPrice',
             width: 150,
@@ -401,7 +401,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: <HeaderCell label="年租" tooltipText="如果已填写了免租期，此处请输入面价" />,
+            title: <HeaderCell label="annualRent" tooltipText="如果已填写了免租期，此处请输入面价" />,
             dataIndex: 'annualRent',
             key: 'annualRent',
             width: 150,
@@ -414,7 +414,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '应收',
+            title: 'actualRent',
             dataIndex: 'actualRent',
             key: 'actualRent',
             width: 150,
@@ -457,7 +457,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
           //   ),
           // },
           {
-            title: '租期内价值',
+            title: 'termValue',
             dataIndex: 'termValue',
             key: 'termValue',
             width: 150,
@@ -472,10 +472,10 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
         ],
       },
       {
-        title: '还原价值',
+        title: 'section2',
         children: [
           {
-            title: '市场租金',
+            title: 'marketRent',
             dataIndex: 'marketRent',
             key: 'marketRent',
             width: 150,
@@ -488,7 +488,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '空置率',
+            title: 'vacancyRate',
             dataIndex: 'vacancyRate',
             key: 'vacancyRate',
             width: 150,
@@ -501,7 +501,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '租期外年租',
+            title: 'annualRentOutOfLease',
             dataIndex: 'annualRentOutOfLease',
             key: 'annualRentOutOfLease',
             width: 150,
@@ -514,7 +514,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '剩余年期',
+            title: 'remainingYearPeriod',
             dataIndex: 'remainingYearPeriod',
             key: 'remainingYearPeriod',
             width: 150,
@@ -558,7 +558,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
           // },
 
           {
-            title: '还原价值',
+            title: 'reversionaryValue',
             dataIndex: 'reversionaryValue',
             key: 'reversionaryValue',
             width: 150,
@@ -573,10 +573,10 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
         ],
       },
       {
-        title: '市场价值',
+        title: 'section3',
         children: [
           {
-            title: '估值',
+            title: 'marketValuation',
             dataIndex: 'marketValuation',
             key: 'marketValuation',
             width: 150,
@@ -589,7 +589,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
             ),
           },
           {
-            title: '单价',
+            title: 'marketUnitPrice',
             dataIndex: 'marketUnitPrice',
             key: 'marketUnitPrice',
             width: 150,
@@ -604,7 +604,7 @@ const useColumns = (updateToData, handldWithCopy, handldWithDelete, options) => 
         ],
       },
       {
-        title: '操作',
+        title: 'operation',
         dataIndex: 'operation',
         key: 'operation',
         width: 200,

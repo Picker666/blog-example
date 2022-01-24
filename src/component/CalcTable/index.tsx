@@ -170,7 +170,7 @@ const CalcTable = (props: calcTableProps) => {
         }}
       />
       <VirtualTable columns={columns} dataSource={data} lengthChange={lengthChange} scroll={{ x: '100%', y: 500 }} />
-      <Button type="dashed" block onClick={handleAddLease}><PlusOutlined />添加租约</Button>
+      <Button type="dashed" block onClick={handleAddLease}><PlusOutlined />添加</Button>
     </div>
   );
 };
