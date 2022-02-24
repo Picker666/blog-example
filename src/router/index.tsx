@@ -24,7 +24,14 @@ const generateRouter = () => {
           console.log(link, c, 'no component to match...')
         }
 
-        routers.push(<Route path={sidebarLink} exact component={sidebarComp} />)
+        routers.push(
+          <Route
+            path={sidebarLink}
+            key={sidebarLink}
+            exact
+            component={sidebarComp}
+          />
+        );
       })
     }
   })
