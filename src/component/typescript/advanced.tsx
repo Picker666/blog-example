@@ -69,6 +69,13 @@ const TypescriptBase = () => {
     y: 2,
   } as const;
 
+
+  function foo(x?: number | string | null) {
+    if (!x) {
+      x; // Type is string | number | null | undefined
+    }
+  }
+
   return <div>this is Typescript advanced page</div>;
 };
 
