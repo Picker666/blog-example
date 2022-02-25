@@ -69,14 +69,51 @@ const TypescriptBase = () => {
     y: 2,
   } as const;
 
-
   function foo(x?: number | string | null) {
     if (!x) {
       x; // Type is string | number | null | undefined
     }
   }
 
+  let a: number[] = [1, 2, 3, 4];
+  let ro: ReadonlyArray<number> = a;
+  ro[0] = 12; // error! 类型“readonly number[]”中的索引签名仅允许读取。
+  ro.push(5); // error! 类型“readonly number[]”上不存在属性“push”。
+  ro.length = 100; // error! 无法分配到 "length" ，因为它是只读属性。ts(2540)
+  a = ro; // error! 类型 "readonly number[]" 为 "readonly"，不能分配给可变类型 "number[]"。ts(4104)
+
+  let a1: number[] = [1, 2, 3, 4];
+  let ro1: Array<number> = a1;
+  ro1[0] = 12;
+  ro1.push(5);
+  ro1.length = 100;
+  a1 = ro1;
+
+  interface Person {
+      name: string;
+      age?: number;
+      [propName: string]: string;
+  }
+
+  let tom: Person = {
+      name: 'Tom',
+      age: 25,
+      gender: 'male'
+  };
+
+  interface LabeledValue {
+    label: string;
+  }
+  function printLabel(labeledObj: LabeledValue) {
+    console.log(labeledObj.label);
+  }
+  let myObj = { size: 10, label: "Size 10 Object" };
+  printLabel(myObj); // OK
+  
+  printLabel({ size: 10, label: "Size 10 Object" }); // Error
+
+
   return <div>this is Typescript advanced page</div>;
-};
+};;
 
 export default TypescriptBase;
