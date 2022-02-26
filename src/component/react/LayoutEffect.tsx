@@ -3,6 +3,7 @@ import { useLayoutEffect, useState, useRef, useEffect } from 'react'
 function LayoutEffect2() {
   const [n, setN] = useState(0)
   const time = useRef<number | null>(null)
+
   const onClick = () => {
     setN((i) => i + 1)
     time.current = performance.now()
