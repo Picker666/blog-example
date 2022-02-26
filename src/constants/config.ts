@@ -3,6 +3,7 @@ import TypescriptBase from "/@/component/typescript";
 import TypescriptAdvanced from "/@/component/typescript";
 import SourceAnalysis from "/@/component/sourceAnalysis";
 import CalcTable from "/@/component/CalcTable";
+import LayoutEffect from '/@/component/react/LayoutEffect';
 
 export const navConfig = [
   { text: "基础梳理", link: "/base" },
@@ -34,4 +35,7 @@ export const sidebarConfig = {
   "/practice": [
     { text: "practice默认的", link: "/index", component: CalcTable },
   ],
+  "/react": [
+    { text: "useLayoutEffect", link: 'useLayoutEffect', component: LayoutEffect}
+  ]
 };
