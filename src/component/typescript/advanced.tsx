@@ -123,9 +123,34 @@ const TypescriptBase = () => {
   }
   const sem: Persons = { name: "semlinker", age: 30 };
   type Sem = typeof sem; // type Sem = Person
-  console.log(Sem === Persons);
+  console.log();
+
+  function prop0(obj: object, key: string) {
+    return obj[key];
+  }
+
+  type Todo = {
+    id: number;
+    text: string;
+    done: boolean;
+  };
+
+  const todo: Todo = {
+    id: 1,
+    text: "Learn TypeScript keyof",
+    done: false,
+  };
+
+  function prop<T extends object, K extends keyof T>(obj: T, key: K) {
+    return obj[key];
+  }
+
+  const id = prop(todo, "id"); // const id: number
+  const text = prop(todo, "text"); // const text: string
+  const done = prop(todo, "done"); // const done: boolean
+  const date = prop(todo, "date"); // 类型“"date"”的参数不能赋给类型“keyof Todo”的参数。 ts(2345)
 
   return <div>this is Typescript advanced page</div>;
-};;;
+};
 
 export default TypescriptBase;
