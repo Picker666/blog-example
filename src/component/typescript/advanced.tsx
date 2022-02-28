@@ -90,15 +90,15 @@ const TypescriptBase = () => {
   a1 = ro1;
 
   interface Person {
-      name: string;
-      age?: number;
-      [propName: string]: string;
+    name: string;
+    age?: number;
+    [propName: string]: string;
   }
 
   let tom: Person = {
-      name: 'Tom',
-      age: 25,
-      gender: 'male'
+    name: "Tom",
+    age: 25,
+    gender: "male",
   };
 
   interface LabeledValue {
@@ -109,11 +109,23 @@ const TypescriptBase = () => {
   }
   let myObj = { size: 10, label: "Size 10 Object" };
   printLabel(myObj); // OK
-  
+
   printLabel({ size: 10, label: "Size 10 Object" }); // Error
 
+  function trace<T>(arg: T): T {
+    console.log(arg.size); // Error: Property 'size doesn't exist on type 'T'
+    return arg;
+  }
+
+  interface Persons {
+    name: string;
+    age: number;
+  }
+  const sem: Persons = { name: "semlinker", age: 30 };
+  type Sem = typeof sem; // type Sem = Person
+  console.log(Sem === Persons);
 
   return <div>this is Typescript advanced page</div>;
-};;
+};;;
 
 export default TypescriptBase;
