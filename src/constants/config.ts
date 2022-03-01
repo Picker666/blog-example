@@ -4,6 +4,7 @@ import TypescriptAdvanced from "/@/component/typescript";
 import SourceAnalysis from "/@/component/sourceAnalysis";
 import CalcTable from "/@/component/CalcTable";
 import LayoutEffect from '/@/component/react/LayoutEffect';
+import Infer from "/@/component/react/Infer";
 
 export const navConfig = [
   { text: "基础梳理", link: "/base" },
@@ -28,6 +29,11 @@ export const sidebarConfig = {
       link: "/advanced",
       component: TypescriptAdvanced,
     },
+    {
+      text: "Practices - infer",
+      link: "/infer",
+      component: Infer,
+    },
   ],
   "/sourceAnalysis": [
     { text: "sourceAnalysis默认的", link: "/index", component: SourceAnalysis },
@@ -36,6 +42,10 @@ export const sidebarConfig = {
     { text: "practice默认的", link: "/index", component: CalcTable },
   ],
   "/react": [
-    { text: "useLayoutEffect", link: 'useLayoutEffect', component: LayoutEffect}
-  ]
+    {
+      text: "useLayoutEffect",
+      link: "useLayoutEffect",
+      component: LayoutEffect,
+    },
+  ],
 };
