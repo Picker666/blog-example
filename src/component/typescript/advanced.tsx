@@ -150,7 +150,19 @@ const TypescriptBase = () => {
   const done = prop(todo, "done"); // const done: boolean
   const date = prop(todo, "date"); // 类型“"date"”的参数不能赋给类型“keyof Todo”的参数。 ts(2345)
 
+  let person = {
+    name: "musion",
+    age: 35,
+  };
+
+  function getValues<T, K extends keyof T>(person: T, keys: K[]) {
+    return keys.map((key) => person[key]);
+  }
+
+  console.log(getValues(person, ["name", "age"])); // ['musion', 35]
+  console.log(getValues(person, ["gender"])); // [undefined]
+
   return <div>this is Typescript advanced page</div>;
-};
+};;
 
 export default TypescriptBase;
