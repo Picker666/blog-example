@@ -4,7 +4,8 @@ import TypescriptAdvanced from "/@/component/typescript";
 import SourceAnalysis from "/@/component/sourceAnalysis";
 import CalcTable from "/@/component/CalcTable";
 import LayoutEffect from '/@/component/react/LayoutEffect';
-import Infer from "/@/component/react/Infer";
+import ReactUseEffect from "/@/component/react/ReactUseEffect";
+import Infer from "/@/component/typescript/Infer";
 
 export const navConfig = [
   { text: "基础梳理", link: "/base" },
@@ -46,6 +47,11 @@ export const sidebarConfig = {
       text: "useLayoutEffect",
       link: "useLayoutEffect",
       component: LayoutEffect,
+    },
+    {
+      text: "useEffect",
+      link: "useEffect",
+      component: ReactUseEffect,
     },
   ],
 };

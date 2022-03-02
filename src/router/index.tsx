@@ -8,20 +8,20 @@ import { navConfig, sidebarConfig } from '/@/constants/config'
 
 const generateRouter = () => {
   let routers: any[] = []
-  navConfig.forEach((config) => {
-    const { link, component } = config
+  navConfig.forEach((config: { link: string; component: string }) => {
+    const { link, component } = config;
     if (component) {
-      routers.push(<Route path={link} exact component={component} />)
+      routers.push(<Route path={link} exact component={component} />);
     }
 
-    const sidebarC = sidebarConfig[link]
+    const sidebarC = sidebarConfig[link];
     if (sidebarC) {
       sidebarC.forEach((c) => {
-        let { link: sidebarLink, component: sidebarComp } = c
-        sidebarLink = `${link}${sidebarLink}`
+        let { link: sidebarLink, component: sidebarComp } = c;
+        sidebarLink = `${link}${sidebarLink}`;
         if (!sidebarComp) {
-          sidebarComp = NoMatch
-          console.log(link, c, 'no component to match...')
+          sidebarComp = NoMatch;
+          console.log(link, c, "no component to match...");
         }
 
         routers.push(
@@ -32,9 +32,9 @@ const generateRouter = () => {
             component={sidebarComp}
           />
         );
-      })
+      });
     }
-  })
+  });
 
   return routers
 }
