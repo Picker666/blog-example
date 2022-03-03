@@ -5,6 +5,7 @@ import SourceAnalysis from "/@/component/sourceAnalysis";
 import CalcTable from "/@/component/CalcTable";
 import LayoutEffect from '/@/component/react/LayoutEffect';
 import ReactUseEffect from "/@/component/react/ReactUseEffect";
+import ReactUseCallback from "/@/component/react/ReactUseCallback";
 import Infer from "/@/component/typescript/Infer";
 
 export const navConfig = [
@@ -52,6 +53,11 @@ export const sidebarConfig = {
       text: "useEffect",
       link: "useEffect",
       component: ReactUseEffect,
+    },
+    {
+      text: "useCallback",
+      link: "useCallback",
+      component: ReactUseCallback,
     },
   ],
 };
