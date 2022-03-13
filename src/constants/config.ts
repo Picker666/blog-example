@@ -7,6 +7,7 @@ import LayoutEffect from '/@/component/react/LayoutEffect';
 import ReactUseEffect from "/@/component/react/ReactUseEffect";
 import ReactUseCallback from "/@/component/react/ReactUseCallback";
 import StrategyPattern from '/@/component/designPattern/StrategyPattern';
+import ReactUseRef from "/@/component/react/ReactUseRef";
 import Infer from "/@/component/typescript/Infer";
 
 export const navConfig = [
@@ -63,6 +64,11 @@ export const sidebarConfig = {
       text: "useCallback",
       link: "useCallback",
       component: ReactUseCallback,
+    },
+    {
+      text: "useRef",
+      link: "useRef",
+      component: ReactUseRef,
     },
   ],
 };
