@@ -6,6 +6,7 @@ import CalcTable from "/@/component/CalcTable";
 import LayoutEffect from '/@/component/react/LayoutEffect';
 import ReactUseEffect from "/@/component/react/ReactUseEffect";
 import ReactUseCallback from "/@/component/react/ReactUseCallback";
+import StrategyPattern from '/@/component/designPattern/StrategyPattern';
 import Infer from "/@/component/typescript/Infer";
 
 export const navConfig = [
@@ -15,6 +16,7 @@ export const navConfig = [
   { text: "源码分析", link: "/sourceAnalysis" },
   { text: "React", link: "/react" },
   { text: "Git", link: "/git" },
+  {text: '设计模式', link: "/designPattern"},
   { text: "Practice", link: "/practice" },
 ];
 
@@ -39,6 +41,9 @@ export const sidebarConfig = {
   ],
   "/sourceAnalysis": [
     { text: "sourceAnalysis默认的", link: "/index", component: SourceAnalysis },
+  ],
+  "/designPattern": [
+    { text: "策略模式", link: "/strategyPattern", component: StrategyPattern },
   ],
   "/practice": [
     { text: "practice默认的", link: "/index", component: CalcTable },
