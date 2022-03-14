@@ -7,6 +7,7 @@ import LayoutEffect from '/@/component/react/LayoutEffect';
 import ReactUseEffect from "/@/component/react/ReactUseEffect";
 import ReactUseCallback from "/@/component/react/ReactUseCallback";
 import StrategyPattern from '/@/component/designPattern/StrategyPattern';
+import FactoryPattern from '/@/component/designPattern/FactoryPattern';
 import ReactUseRef from "/@/component/react/ReactUseRef";
 import Infer from "/@/component/typescript/Infer";
 
@@ -45,6 +46,7 @@ export const sidebarConfig = {
   ],
   "/designPattern": [
     { text: "策略模式", link: "/strategyPattern", component: StrategyPattern },
+    { text: "工厂模式", link: "/FactoryPattern", component: FactoryPattern },
   ],
   "/practice": [
     { text: "practice默认的", link: "/index", component: CalcTable },
