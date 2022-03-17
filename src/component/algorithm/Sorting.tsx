@@ -19,8 +19,23 @@ const Sorting = () => {
     console.log(`冒泡排序===result===`, array)
   }
 
-  bubbleSort(arr)
-  // changeSort(arr)
+  function changeSort(array: number[]) {
+    let temp
+    for (let i = 0; i < array.length - 1; i++) {
+      for (let j = i + 1; j < array.length; j++) {
+        if (array[i] > array[j]) {
+          temp = array[i]
+          array[i] = array[j]
+          array[j] = temp
+        }
+      }
+      console.log(`选择排序======${i}=====`, array)
+    }
+    console.log(`选择排序===result===`, array)
+  }
+
+  // bubbleSort(arr)
+  changeSort(arr)
 
   return <div>this is Sorting page</div>
 }
