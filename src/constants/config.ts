@@ -11,6 +11,8 @@ import FactoryPattern from '/@/component/designPattern/FactoryPattern';
 import ReactUseRef from "/@/component/react/ReactUseRef";
 import Infer from "/@/component/typescript/Infer";
 
+import Sorting from '/@/component/algorithm/Sorting';
+
 export const navConfig = [
   { text: "基础梳理", link: "/base" },
   { text: "Typescript", link: "/typescript" },
@@ -20,6 +22,7 @@ export const navConfig = [
   { text: "Git", link: "/git" },
   {text: '设计模式', link: "/designPattern"},
   { text: "Practice", link: "/practice" },
+  { text: "算法", link: "/algorithm" },
 ];
 
 export const sidebarConfig = {
@@ -73,4 +76,7 @@ export const sidebarConfig = {
       component: ReactUseRef,
     },
   ],
+  "/algorithm": [
+    { text: "排序算法", link: "/sorting", component: Sorting },
+  ]
 };

@@ -96,7 +96,7 @@ const LayoutRoot = (props: any) => {
     <Layout>
       <Header className="header">
         <div className="logo">
-          <img src="/@/image/logo.png" alt="logo" />
+          <img src="/src/image/logo.png" alt="logo" />
         </div>
         <Menu
           theme="dark"
