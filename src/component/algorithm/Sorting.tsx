@@ -75,11 +75,38 @@ const Sorting = () => {
     }
     console.log(`二路归并排序===result===`, array, 'tempArray', tempArray)
   }
+  // const arr: number[] = [2, 4, 6, 1, 10, 8, 7, 3, 9, 5]
+  function quickSort(array: number[], left: number, right: number) {
+    if (left >= right) {
+      //如果left >= right就说明已经整理完一个组
+      return
+    }
+    let i = left
+    let j = right
+    let temp = array[left] //找出一个枢纽存储值
+    while (i < j) {
+      while (i < j && array[j] >= temp) {
+        j--
+      }
+      array[i] = array[j]
+      while (i < j && array[i] <= temp) {
+        i++
+      }
+      array[j] = array[i]
+    }
+    array[i] = temp
+
+    console.log(`快速排序===result===`, array)
+
+    quickSort(array, left, i) //左边递归
+    quickSort(array, i + 1, right) //右边递归
+  }
 
   // bubbleSort(arr)
   // changeSort(arr)
   // insertSorting(arr)
-  mergeSort(arr, 0, arr.length - 1)
+  // mergeSort(arr, 0, arr.length - 1)
+  quickSort(arr, 0, arr.length - 1)
 
   return <div>this is Sorting page</div>
 }
