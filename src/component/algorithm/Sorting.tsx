@@ -34,8 +34,23 @@ const Sorting = () => {
     console.log(`选择排序===result===`, array)
   }
 
+  function insertSorting(array: number[]) {
+    let j, temp
+    for (let i = 1; i < array.length; i++) {
+      temp = array[i]
+      for (j = i - 1; j >= 0 && array[j] > temp; j--) {
+        array[j + 1] = array[j]
+      }
+      array[j + 1] = temp
+
+      console.log(`插入排序======${i}=====`, array)
+    }
+    console.log(`插入排序===result===`, array)
+  }
+
   // bubbleSort(arr)
-  changeSort(arr)
+  // changeSort(arr)
+  insertSorting(arr)
 
   return <div>this is Sorting page</div>
 }
