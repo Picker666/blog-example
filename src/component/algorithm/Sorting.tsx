@@ -102,10 +102,10 @@ const Sorting = () => {
     quickSort(array, i + 1, right) //右边递归
   }
 
-  // bubbleSort(arr)
-  // changeSort(arr)
-  // insertSorting(arr)
-  // mergeSort(arr, 0, arr.length - 1)
+  bubbleSort(arr)
+  changeSort(arr)
+  insertSorting(arr)
+  mergeSort(arr, 0, arr.length - 1)
   quickSort(arr, 0, arr.length - 1)
 
   return <div>this is Sorting page</div>
