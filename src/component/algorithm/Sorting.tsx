@@ -1,5 +1,5 @@
 const Sorting = () => {
-  const arr: number[] = [2, 4, 6, 1, 10, 8, 7, 3, 9, 5]
+  const arr: number[] = [10, 4, 6, 2, 1, 8, 7, 3, 9, 5]
 
   function bubbleSort(array: number[]) {
     let temp
@@ -48,6 +48,7 @@ const Sorting = () => {
     console.log(`插入排序===result===`, array)
   }
   // const arr: number[] = [2, 4, 6, 1, 10, 8, 7, 3, 9, 5]
+  // left: 0, right: 4, mid: 2
   function mergeSort(array: number[], left: number, right: number) {
     if (left == right) {
       return
@@ -57,8 +58,8 @@ const Sorting = () => {
     mergeSort(array, mid + 1, right) //右边递归求解
 
     let tempArray = new Array(array.length)
-    let i = left
-    let j = mid + 1
+    let i = left //0
+    let j = mid + 1 //3
     let k = left
     while (i <= mid || j <= right) {
       //当右区间比较完毕，或者左区间的值存在并且比右区间的值小
@@ -102,11 +103,11 @@ const Sorting = () => {
     quickSort(array, i + 1, right) //右边递归
   }
 
-  bubbleSort(arr)
-  changeSort(arr)
-  insertSorting(arr)
+  // bubbleSort(arr)
+  // changeSort(arr)
+  // insertSorting(arr)
   mergeSort(arr, 0, arr.length - 1)
-  quickSort(arr, 0, arr.length - 1)
+  // quickSort(arr, 0, arr.length - 1)
 
   return <div>this is Sorting page</div>
 }

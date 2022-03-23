@@ -1,4 +1,5 @@
 import Base from '/@/component/base'
+import SetMap from '/@/component/Base/SetMap'
 import TypescriptBase from "/@/component/typescript";
 import TypescriptAdvanced from "/@/component/typescript";
 import SourceAnalysis from "/@/component/sourceAnalysis";
@@ -29,7 +30,7 @@ export const sidebarConfig = {
   "/base": [
     { text: "base默认的", link: "/index", component: Base },
     { text: "base1", link: "/home" },
-    { text: "base2", link: "/home1" },
+    { text: "SetMap", link: "/setMap", component: SetMap },
   ],
   "/typescript": [
     { text: "typescript基础", link: "/index", component: TypescriptBase },
