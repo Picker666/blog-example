@@ -74,6 +74,22 @@ const Index = () => {
     console.log(newArrayCD); //[2,7,8]
   };
 
+  const printSet = () => {
+    let set = new Set([1, 2, 8]);
+    console.log(set.keys());
+    console.log(set.values());
+    console.log(set.entries());
+
+    set.forEach((value, key) => {
+      console.log(key, ': ', value);
+    });
+
+    console.log(
+      ' Set.prototype[Symbol.iterator] === Set.prototype.values;',
+      Set.prototype[Symbol.iterator] === Set.prototype.values
+    );
+  };
+
   return (
     <div>
       <h1>this is base Set Map page</h1>
@@ -86,6 +102,8 @@ const Index = () => {
       <button onClick={removeDuplicate}>求交集</button>
       <br />
       <button onClick={differenceArr}>求差集</button>
+      <br />
+      <button onClick={printSet}>printSet</button>
     </div>
   );
 };
