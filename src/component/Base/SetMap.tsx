@@ -90,9 +90,36 @@ const Index = () => {
     );
   };
 
+  // =================================================================
+
+  const weakSetConstructor = () => {
+    const arr = [
+      [1, 2],
+      [3, 4],
+    ];
+    const weakSet = new WeakSet(arr);
+    console.log(weakSet);
+  };
+
+  const weakSetFunc = () => {
+    let ws = new WeakSet();
+    const obj = {};
+    const foo = {};
+
+    ws.add(window);
+    ws.add(obj);
+
+    ws.has(window); // true
+    ws.has(obj); // false
+
+    ws.delete(window); // true
+    ws.has(window); // false
+  };
+
   return (
     <div>
       <h1>this is base Set Map page</h1>
+      <h2>Set</h2>
       <button onClick={testingUnique}>唯一性</button>
       <br />
       <button onClick={removeDuplicate}>去重</button>
@@ -104,6 +131,10 @@ const Index = () => {
       <button onClick={differenceArr}>求差集</button>
       <br />
       <button onClick={printSet}>printSet</button>
+      <h2>WeakSet</h2>
+      <button onClick={weakSetConstructor}>weakSet Constructor</button>
+      <br />
+      <button onClick={weakSetFunc}>weakSet function</button>
     </div>
   );
 };
