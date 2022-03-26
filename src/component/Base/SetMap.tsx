@@ -165,6 +165,44 @@ const Index = () => {
     console.log(map);
   };
 
+  // weakmap =================================================
+
+  const weakMap = () => {
+    //weakmap
+    let Person = (function () {
+      let privateData = new WeakMap();
+
+      function Person(name, age) {
+        privateData.set(this, { name: name, age: age });
+      }
+
+      Person.prototype.getName = function () {
+        return privateData.get(this).name;
+      };
+      Person.prototype.getAge = function () {
+        return privateData.get(this).age;
+      };
+      Person.prototype.setName = function (name) {
+        let obj = privateData.get(this);
+        obj.name = name;
+      };
+      Person.prototype.setAge = function (age) {
+        let obj = privateData.get(this);
+        obj.age = age;
+      };
+
+      return Person;
+    })();
+
+    let ssf = new Person('picker', 19);
+    console.log(ssf.getName());
+    console.log(ssf.getAge());
+    ssf.setName('ren');
+    ssf.setAge(18);
+    console.log(ssf.getName());
+    console.log(ssf.getAge());
+  };
+
   return (
     <div>
       <h1>this is base Set Map page</h1>
@@ -190,6 +228,8 @@ const Index = () => {
       <button onClick={mapKey}>map Key</button>
       <br />
       <button onClick={compareObject}>compare with object</button>
+      <h2>weakMap</h2>
+      <button onClick={weakMap}>weakMap</button>
     </div>
   );
 };
