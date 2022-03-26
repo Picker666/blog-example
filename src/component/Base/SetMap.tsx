@@ -116,6 +116,55 @@ const Index = () => {
     ws.has(window); // false
   };
 
+  // =================================================================
+
+  const mapExample = () => {
+    const set = new Set([
+      ['foo', 1],
+      ['bar', 2],
+    ]);
+    const m1 = new Map(set);
+    m1.get('foo'); // 1
+
+    const m2 = new Map([['baz', 3]]);
+    const m3 = new Map(m2);
+    m3.get('baz'); // 3
+
+    new Map().get('asfddfsasadf'); // undefined
+  };
+
+  const mapKey = () => {
+    const map = new Map();
+
+    map.set(['a'], 555);
+    const map1 = map.get(['a']); // undefined
+
+    let arr = ['aa'];
+    map.set(arr, 666);
+    const map2 = map.get(arr); // 666
+
+    console.log(map1, '==============', map2);
+  };
+
+  const compareObject = () => {
+    let map = new Map();
+    let s = {
+      name: 'cc',
+      job: 'programmer',
+    };
+    let m = {
+      dd: 'cdcdcd',
+      do: function (str) {
+        console.log(str);
+      },
+    };
+    map.set(s, m);
+    map.set(m, s);
+    map.set(0, s);
+    map.set(0, m);
+    console.log(map);
+  };
+
   return (
     <div>
       <h1>this is base Set Map page</h1>
@@ -135,6 +184,12 @@ const Index = () => {
       <button onClick={weakSetConstructor}>weakSet Constructor</button>
       <br />
       <button onClick={weakSetFunc}>weakSet function</button>
+      <h2>Map</h2>
+      <button onClick={mapExample}>map Example</button>
+      <br />
+      <button onClick={mapKey}>map Key</button>
+      <br />
+      <button onClick={compareObject}>compare with object</button>
     </div>
   );
 };
