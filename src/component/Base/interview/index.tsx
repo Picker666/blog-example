@@ -16,10 +16,19 @@ const InterviewIndex = () => {
     console.log(obj);
   };
 
+  const OperationPriority = () => {
+    var a = { n: 1 };
+    var b = a;
+    a.x = a = { n: 2 };
+    console.log(a, '====', b);
+  };
+
   return (
     <div>
       <h1>this is interview index page</h1>
       <button onClick={objWithArray}>object With Array</button>
+      <br />
+      <button onClick={OperationPriority}>Operation Priority</button>
       <br />
     </div>
   );
