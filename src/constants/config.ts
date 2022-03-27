@@ -1,16 +1,21 @@
 import Base from '/@/component/base'
+import InterviewIndex from '/@/component/Base/interview';
 import SetMap from '/@/component/Base/SetMap'
+
 import TypescriptBase from "/@/component/typescript";
 import TypescriptAdvanced from "/@/component/typescript";
 import SourceAnalysis from "/@/component/sourceAnalysis";
+import Infer from "/@/component/typescript/Infer";
+
 import CalcTable from "/@/component/CalcTable";
+
 import LayoutEffect from '/@/component/react/LayoutEffect';
 import ReactUseEffect from "/@/component/react/ReactUseEffect";
 import ReactUseCallback from "/@/component/react/ReactUseCallback";
+import ReactUseRef from "/@/component/react/ReactUseRef";
+
 import StrategyPattern from '/@/component/designPattern/StrategyPattern';
 import FactoryPattern from '/@/component/designPattern/FactoryPattern';
-import ReactUseRef from "/@/component/react/ReactUseRef";
-import Infer from "/@/component/typescript/Infer";
 
 import Sorting from '/@/component/algorithm/Sorting';
 
@@ -29,6 +34,7 @@ export const navConfig = [
 export const sidebarConfig = {
   "/base": [
     { text: "base默认的", link: "/index", component: Base },
+    { text: "interview", link: "/interview/index", component: InterviewIndex },
     { text: "base1", link: "/home" },
     { text: "SetMap", link: "/setMap", component: SetMap },
   ],
