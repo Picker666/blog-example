@@ -35,6 +35,18 @@ const InterviewIndex = () => {
     console.timeEnd(`arrLength=${arrLength} forEach`);
   };
 
+  const arrayTime = () => {
+    let arr = new Array(10000000).fill(1);
+
+    console.time('======0');
+    arr[0];
+    console.timeEnd('======0');
+
+    console.time('======9999999');
+    arr[99999];
+    console.timeEnd('======9999999');
+  };
+
   return (
     <div>
       <h1>this is interview index page</h1>
@@ -70,6 +82,8 @@ const InterviewIndex = () => {
       >
         for And ForEach 100000000
       </button>
+      <br />
+      <button onClick={arrayTime}>array Time</button>
       <br />
     </div>
   );
