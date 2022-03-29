@@ -35,16 +35,60 @@ const InterviewIndex = () => {
     console.timeEnd(`arrLength=${arrLength} forEach`);
   };
 
-  const arrayTime = () => {
-    let arr = new Array(10000000).fill(1);
+  const arrayInsertTime = () => {
+    console.time('======array create');
+    let arr = new Array(10000000);
+    for (var i = 0; i < 10000000; i++) {
+      arr[i] = i;
+    }
+    console.timeEnd('======array create');
 
-    console.time('======0');
+    console.time('======array1 create');
+    let arr1 = new Array(10000000);
+    arr1.push([{ a: 1 }]);
+    for (var i = 0; i < 10000000; i++) {
+      arr1[i] = i;
+    }
+    console.timeEnd('======array1 create');
+
+    console.log(arr.length, arr1.length);
+
+    console.time('arr======0');
     arr[0];
-    console.timeEnd('======0');
+    console.timeEnd('arr======0');
 
-    console.time('======9999999');
-    arr[99999];
-    console.timeEnd('======9999999');
+    console.time('arr1======0');
+    arr1[0];
+    console.timeEnd('arr1======0');
+
+    console.time('arr-------10000000');
+    arr[10000000];
+    console.timeEnd('arr-------10000000');
+
+    console.time('arr1-------10000000');
+    arr1[10000000];
+    console.timeEnd('arr1-------10000000');
+  };
+
+  const arrayReadTime = () => {
+    let a;
+    console.time('======array create');
+    let arr = new Array(10000000);
+    for (var i = 0; i < 10000000; i++) {
+      a = arr[i];
+    }
+    console.timeEnd('======array create');
+
+    let a1;
+    console.time('======array1 create');
+    let arr1 = new Array(10000000);
+    arr1.push([{ a: 1 }]);
+    for (var i = 0; i < 10000000; i++) {
+      a1 = arr1[i];
+    }
+    console.timeEnd('======array1 create');
+
+    console.log(arr.length, arr1.length);
   };
 
   return (
@@ -83,7 +127,9 @@ const InterviewIndex = () => {
         for And ForEach 100000000
       </button>
       <br />
-      <button onClick={arrayTime}>array Time</button>
+      <button onClick={arrayInsertTime}>array Insert Time</button>
+      <br />
+      <button onClick={arrayReadTime}>array Read Time</button>
       <br />
     </div>
   );
