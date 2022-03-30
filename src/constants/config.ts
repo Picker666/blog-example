@@ -1,5 +1,6 @@
 import Base from '/@/component/base'
 import InterviewIndex from '/@/component/Base/interview';
+import InterviewScope from '/@/component/Base/interview/scope';
 import SetMap from '/@/component/Base/SetMap'
 
 import TypescriptBase from "/@/component/typescript";
@@ -35,6 +36,7 @@ export const sidebarConfig = {
   "/base": [
     { text: "base默认的", link: "/index", component: Base },
     { text: "interview", link: "/interview/index", component: InterviewIndex },
+    { text: "interviewScope", link: "/interview/scope", component: InterviewScope },
     { text: "base1", link: "/home" },
     { text: "SetMap", link: "/setMap", component: SetMap },
   ],
