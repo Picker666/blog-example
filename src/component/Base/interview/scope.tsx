@@ -48,6 +48,13 @@ const Index = () => {
     Foo.a();
   }
 
+  function handleOperator() {
+    // console.log(1 + '1')
+    // console.log(2 * '2');
+    // console.log([1,2] + [1,2]);
+    // console.log('a' ++ 'b');
+  }
+
   return (
     <div>
       <h1>this is interview scope page</h1>
@@ -56,6 +63,8 @@ const Index = () => {
       <button onClick={formalParameter2}>formal Parameter2</button>
       <br />
       <button onClick={prototypeAndInstance}>prototype And Instance</button>
+      <br />
+      <button onClick={handleOperator}>handle Operator</button>
       <br />
     </div>
   );
