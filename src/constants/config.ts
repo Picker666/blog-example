@@ -1,4 +1,4 @@
-import Base from '/@/component/base'
+import Base from '/@/component/Base'
 import InterviewIndex from '/@/component/Base/interview';
 import InterviewScope from '/@/component/Base/interview/scope';
 import SetMap from '/@/component/Base/SetMap'
@@ -20,6 +20,8 @@ import FactoryPattern from '/@/component/designPattern/FactoryPattern';
 
 import Sorting from '/@/component/algorithm/Sorting';
 import Algorithm1 from '/@/component/algorithm/Algorithm1';
+
+import NewFunction from '/@/component/newFunction';
 
 export const navConfig = [
   { text: "基础梳理", link: "/base" },
@@ -53,6 +55,9 @@ export const sidebarConfig = {
       link: "/infer",
       component: Infer,
     },
+  ],
+  "/newFunction": [
+    { text: "newFunction", link: "/newFunction", component: NewFunction },
   ],
   "/sourceAnalysis": [
     { text: "sourceAnalysis默认的", link: "/index", component: SourceAnalysis },
