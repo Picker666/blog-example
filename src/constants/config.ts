@@ -2,6 +2,7 @@ import Base from '/@/component/Base'
 import InterviewIndex from '/@/component/Base/interview';
 import InterviewScope from '/@/component/Base/interview/scope';
 import SetMap from '/@/component/Base/SetMap'
+import ColumnsLayout from '/@/component/Base/columnsLayout'
 
 import TypescriptBase from "/@/component/typescript";
 import TypescriptAdvanced from "/@/component/typescript";
@@ -10,6 +11,7 @@ import Infer from "/@/component/typescript/Infer";
 
 import CalcTable from "/@/component/CalcTable";
 
+import ReactUseState from '../component/react/ReactUseState';
 import LayoutEffect from '/@/component/react/LayoutEffect';
 import ReactUseEffect from "/@/component/react/ReactUseEffect";
 import ReactUseCallback from "/@/component/react/ReactUseCallback";
@@ -42,6 +44,7 @@ export const sidebarConfig = {
     { text: "interviewScope", link: "/interview/scope", component: InterviewScope },
     { text: "base1", link: "/home" },
     { text: "SetMap", link: "/setMap", component: SetMap },
+    { text: "ColumnsLayout", link: "/columnsLayout", component: ColumnsLayout },
   ],
   "/typescript": [
     { text: "typescript基础", link: "/index", component: TypescriptBase },
@@ -70,6 +73,11 @@ export const sidebarConfig = {
     { text: "practice默认的", link: "/index", component: CalcTable },
   ],
   "/react": [
+    {
+      text: "useState",
+      link: "useState",
+      component: ReactUseState,
+    },
     {
       text: "useLayoutEffect",
       link: "useLayoutEffect",

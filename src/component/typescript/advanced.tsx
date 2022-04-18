@@ -1,19 +1,19 @@
 const TypescriptBase = () => {
   //
-  let str = "this is picker string";
+  let str = 'this is picker string';
   str = undefined;
   str = 9;
   str = null;
 
-  let strFun = (name = "picker666") => console.log(name, "=====");
+  let strFun = (name = 'picker666') => console.log(name, '=====');
   strFun();
   strFun(null);
 
-  const name: "picker" = "picker";
+  const name: 'picker' = 'picker';
   let anotherName = name;
-  anotherName = "picker666";
+  anotherName = 'picker666';
 
-  let names: "picker6" = "picker6";
+  let names: 'picker6' = 'picker6';
 
   let x = null; // 类型拓宽成 any
   let y = undefined; // 类型拓宽成 any
@@ -34,9 +34,9 @@ const TypescriptBase = () => {
   let nul1: null = null;
   let nul11 = nul1; //null
 
-  let xx = "picker";
-  xx = "picker6";
-  xx = "picker666";
+  let xx = 'picker';
+  xx = 'picker6';
+  xx = 'picker666';
 
   const obj = {
     x: 1,
@@ -44,11 +44,11 @@ const TypescriptBase = () => {
 
   obj.x = 6; // OK
   // Type '"6"' is not assignable to type 'number'.
-  obj.x = "6"; // Error
+  obj.x = '6'; // Error
   // Property 'y' does not exist on type '{ x: number; }'.
   obj.y = 8; // Error
   // Property 'name' does not exist on type '{ x: number; }'.
-  obj.name = "picker"; // Error
+  obj.name = 'picker'; // Error
 
   const obj1: { x: 1 | 3 | 5 } = {
     x: 1,
@@ -96,9 +96,9 @@ const TypescriptBase = () => {
   }
 
   let tom: Person = {
-    name: "Tom",
+    name: 'Tom',
     age: 25,
-    gender: "male",
+    gender: 'male',
   };
 
   interface LabeledValue {
@@ -107,10 +107,10 @@ const TypescriptBase = () => {
   function printLabel(labeledObj: LabeledValue) {
     console.log(labeledObj.label);
   }
-  let myObj = { size: 10, label: "Size 10 Object" };
+  let myObj = { size: 10, label: 'Size 10 Object' };
   printLabel(myObj); // OK
 
-  printLabel({ size: 10, label: "Size 10 Object" }); // Error
+  printLabel({ size: 10, label: 'Size 10 Object' }); // Error
 
   function trace<T>(arg: T): T {
     console.log(arg.size); // Error: Property 'size doesn't exist on type 'T'
@@ -121,7 +121,7 @@ const TypescriptBase = () => {
     name: string;
     age: number;
   }
-  const sem: Persons = { name: "semlinker", age: 30 };
+  const sem: Persons = { name: 'semlinker', age: 30 };
   type Sem = typeof sem; // type Sem = Person
   console.log();
 
@@ -137,7 +137,7 @@ const TypescriptBase = () => {
 
   const todo: Todo = {
     id: 1,
-    text: "Learn TypeScript keyof",
+    text: 'Learn TypeScript keyof',
     done: false,
   };
 
@@ -145,13 +145,13 @@ const TypescriptBase = () => {
     return obj[key];
   }
 
-  const id = prop(todo, "id"); // const id: number
-  const text = prop(todo, "text"); // const text: string
-  const done = prop(todo, "done"); // const done: boolean
-  const date = prop(todo, "date"); // 类型“"date"”的参数不能赋给类型“keyof Todo”的参数。 ts(2345)
+  const id = prop(todo, 'id'); // const id: number
+  const text = prop(todo, 'text'); // const text: string
+  const done = prop(todo, 'done'); // const done: boolean
+  const date = prop(todo, 'date'); // 类型“"date"”的参数不能赋给类型“keyof Todo”的参数。 ts(2345)
 
   let person = {
-    name: "musion",
+    name: 'musion',
     age: 35,
   };
 
@@ -159,10 +159,10 @@ const TypescriptBase = () => {
     return keys.map((key) => person[key]);
   }
 
-  console.log(getValues(person, ["name", "age"])); // ['musion', 35]
-  console.log(getValues(person, ["gender"])); // [undefined]
+  console.log(getValues(person, ['name', 'age'])); // ['musion', 35]
+  console.log(getValues(person, ['gender'])); // [undefined]
 
   return <div>this is Typescript advanced page</div>;
-};;
+};
 
 export default TypescriptBase;
