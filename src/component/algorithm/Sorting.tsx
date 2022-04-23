@@ -1,5 +1,5 @@
 const Sorting = () => {
-  const arr: number[] = [10, 4, 6, 2, 1, 8, 7, 3, 9, 5];
+  let arr: number[] = [10, 4, 6, 2, 1, 8, 7, 3, 9, 5];
 
   function bubbleSort(array: number[]) {
     let temp;
@@ -47,7 +47,7 @@ const Sorting = () => {
     }
     console.log(`插入排序===result===`, array);
   }
-  // const arr: number[] = [2, 4, 6, 1, 10, 8, 7, 3, 9, 5]
+  arr = [2, 4, 6, 1, 10, 8, 7, 3, 9, 5];
   // left: 0, right: 4, mid: 2
   function mergeSort(array: number[], left: number, right: number) {
     if (left == right) {
@@ -76,8 +76,10 @@ const Sorting = () => {
     }
     console.log(`二路归并排序===result===`, array, 'tempArray', tempArray);
   }
-  // const arr: number[] = [10, 4, 6, 2, 1, 8, 7, 3, 9, 5]
+
+  const arrQ: number[] = [5, 4, 6, 2, 1, 10, 7, 3, 8, 9];
   function quickSort(array: number[], left: number, right: number) {
+    // console.log('====', array);
     if (left >= right) {
       //如果left >= right就说明已经整理完一个组
       return;
@@ -90,6 +92,7 @@ const Sorting = () => {
         j--;
       }
       array[i] = array[j];
+      // console.log(`快速排序=step1=`, array);
       while (i < j && array[i] <= temp) {
         i++;
       }
@@ -106,8 +109,8 @@ const Sorting = () => {
   // bubbleSort(arr)
   // changeSort(arr)
   // insertSorting(arr)
-  // mergeSort(arr, 0, arr.length - 1);
-  quickSort(arr, 0, arr.length - 1);
+  mergeSort(arr, 0, arr.length - 1);
+  // quickSort(arrQ, 0, arrQ.length - 1);
 
   return <div>this is Sorting page</div>;
 };

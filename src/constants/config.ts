@@ -3,6 +3,7 @@ import InterviewIndex from '/@/component/Base/interview';
 import InterviewScope from '/@/component/Base/interview/scope';
 import SetMap from '/@/component/Base/SetMap'
 import ColumnsLayout from '/@/component/Base/columnsLayout'
+import DeDuplication from '/@/component/Base/deDuplication'
 
 import TypescriptBase from "/@/component/typescript";
 import TypescriptAdvanced from "/@/component/typescript";
@@ -22,6 +23,7 @@ import FactoryPattern from '/@/component/designPattern/FactoryPattern';
 
 import Sorting from '/@/component/algorithm/Sorting';
 import Algorithm1 from '/@/component/algorithm/Algorithm1';
+import TestAlgorithm from '/@/component/algorithm/TestAlgorithm'
 
 import NewFunction from '/@/component/newFunction';
 
@@ -45,6 +47,7 @@ export const sidebarConfig = {
     { text: "base1", link: "/home" },
     { text: "SetMap", link: "/setMap", component: SetMap },
     { text: "ColumnsLayout", link: "/columnsLayout", component: ColumnsLayout },
+    { text: "DeDuplication", link: "/deDuplication", component: DeDuplication },
   ],
   "/typescript": [
     { text: "typescript基础", link: "/index", component: TypescriptBase },
@@ -102,5 +105,6 @@ export const sidebarConfig = {
   "/algorithm": [
     { text: "排序算法", link: "/sorting", component: Sorting },
     { text: "算法题1", link: "/algorithm1", component: Algorithm1 },
+    { text: "合并数组", link: "/testAlgorithm", component: TestAlgorithm },
   ]
 };
