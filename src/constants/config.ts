@@ -25,6 +25,7 @@ import Sorting from '/@/component/algorithm/Sorting';
 import Algorithm1 from '/@/component/algorithm/Algorithm1';
 import TestAlgorithm from '/@/component/algorithm/TestAlgorithm'
 import MaxDuplication from '/@/component/algorithm/MaxDuplication'
+import Fibonacci from '/@/component/algorithm/Fibonacci'
 
 import NewFunction from '/@/component/newFunction';
 
@@ -108,5 +109,6 @@ export const sidebarConfig = {
     { text: "算法题1", link: "/algorithm1", component: Algorithm1 },
     { text: "合并数组", link: "/testAlgorithm", component: TestAlgorithm },
     { text: "最大重复数组", link: "/maxDuplication", component: MaxDuplication },
+    { text: "斐波那契数列", link: "/fibonacci", component: Fibonacci },
   ]
 };
