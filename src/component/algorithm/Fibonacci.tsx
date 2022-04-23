@@ -11,6 +11,35 @@ const Home = () => {
     }
     console.log(arr, '============');
   };
+
+  const MySort = (arr, start, end) => {
+    if (start >= end) {
+      return arr;
+    }
+
+    const base = arr[start];
+    let i = end,
+      j = start;
+    while (i > j) {
+      while (i > j && arr[i] >= base) {
+        i--;
+      }
+      arr[start] = arr[i];
+
+      while (i > j && arr[j] < base) {
+        j++;
+      }
+      arr[i] = arr[j];
+    }
+    arr[j] = base;
+
+    let formatArr: number[] = MySort(arr, start, i);
+    formatArr = MySort(formatArr, i + 1, end);
+
+    return formatArr;
+  };
+
+  console.log(MySort([5, 2, 3, 1, 4], 0, 4));
   return (
     <div>
       <h1>this is Fibonacci page</h1>
