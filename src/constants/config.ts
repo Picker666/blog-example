@@ -26,6 +26,7 @@ import Algorithm1 from '/@/component/algorithm/Algorithm1';
 import TestAlgorithm from '/@/component/algorithm/TestAlgorithm'
 import MaxDuplication from '/@/component/algorithm/MaxDuplication'
 import Fibonacci from '/@/component/algorithm/Fibonacci'
+import Palindrome from '/@/component/algorithm/Palindrome'
 
 import NewFunction from '/@/component/newFunction';
 
@@ -110,5 +111,6 @@ export const sidebarConfig = {
     { text: "合并数组", link: "/testAlgorithm", component: TestAlgorithm },
     { text: "最大重复数组", link: "/maxDuplication", component: MaxDuplication },
     { text: "斐波那契数列", link: "/fibonacci", component: Fibonacci },
+    { text: "回文", link: "/palindrome", component: Palindrome },
   ]
 };
