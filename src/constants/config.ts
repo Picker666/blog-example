@@ -4,6 +4,7 @@ import InterviewScope from '/@/component/Base/interview/scope';
 import SetMap from '/@/component/Base/SetMap'
 import ColumnsLayout from '/@/component/Base/columnsLayout'
 import DeDuplication from '/@/component/Base/deDuplication'
+import Flex from '/@/component/Base/Flex'
 
 import TypescriptBase from "/@/component/typescript";
 import TypescriptAdvanced from "/@/component/typescript";
@@ -51,6 +52,7 @@ export const sidebarConfig = {
     { text: "SetMap", link: "/setMap", component: SetMap },
     { text: "ColumnsLayout", link: "/columnsLayout", component: ColumnsLayout },
     { text: "DeDuplication", link: "/deDuplication", component: DeDuplication },
+    { text: "Flex", link: "/flex", component: Flex },
   ],
   "/typescript": [
     { text: "typescript基础", link: "/index", component: TypescriptBase },

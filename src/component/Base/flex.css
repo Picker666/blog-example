@@ -1,0 +1,260 @@
+.flexItem {
+  background-color: lightblue;
+  color: #fff;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.flexItem h1 {
+  margin: 16px 0 32px;
+  font-size: 32px;
+}
+
+.instruction {
+  border: solid 1px #fff;
+  color: red;
+}
+
+.flexDefault {
+  border: solid 1px #fff;
+  padding: 16px;
+}
+
+/* 默认值 宽度充足 */
+.flexDefault .flexContainer {
+  width: 600px;
+  height: 50px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexDefault .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 0 1 auto;
+}
+.flexDefault .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 0 1 auto;
+}
+
+/* 默认值宽度不足 */
+.flexDefault .flexContainer1 {
+  width: 400px;
+  height: 50px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexDefault .flexContainer1 .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 0 1 auto;
+}
+.flexDefault .flexContainer1 .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 0 1 auto;
+}
+
+/* =============================== */
+
+/* flex: none */
+.flexNone {
+  border: solid 1px #fff;
+  padding: 16px;
+}
+
+/* 宽度充足 */
+.flexNone .flexContainer {
+  width: 600px;
+  height: 50px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexNone .flexContainer .flexLeft {
+  width: 300px;
+  background: red;
+  flex: none;
+}
+.flexNone .flexContainer .flexRight {
+  width: 200px;
+  background: blue;
+  flex: none;
+}
+
+/* 宽度不足 */
+.flexNone .flexContainer1 {
+  width: 400px;
+  height: 50px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexNone .flexContainer1 .flexLeft {
+  width: 300px;
+  background: red;
+  flex: none;
+}
+.flexNone .flexContainer1 .flexRight {
+  width: 200px;
+  background: blue;
+  flex: none;
+}
+
+/* =============================== */
+/* flex: 1 */
+.flexN {
+  border: solid 1px #fff;
+  padding: 16px;
+}
+
+/* 宽度充足 */
+.flexN .flexContainer {
+  width: 700px;
+  height: 50px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexN .flexContainer .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 1;
+}
+.flexN .flexContainer .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 1;
+}
+
+/* 宽度不足 */
+.flexN .flexContainer1 {
+  width: 300px;
+  height: 50px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexN .flexContainer1 .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 1;
+}
+.flexN .flexContainer1 .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 1;
+}
+
+/* =============================== */
+/* flex: 1 1 npx*/
+.flexBasisN {
+  border: solid 1px #fff;
+  padding: 16px;
+}
+
+/* 宽度充足 */
+.flexBasisN .flexContainer {
+  width: 600px;
+  height: 70px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexBasisN .flexContainer .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 1 1 200px;
+}
+.flexBasisN .flexContainer .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 1 1 300px;;
+}
+
+/* 宽度不足 */
+.flexBasisN .flexContainer1 {
+  width: 400px;
+  height: 70px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexBasisN .flexContainer1 .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 1 1 200px;
+}
+.flexBasisN .flexContainer1 .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 1 1 300px;
+}
+
+/* =============================== */
+/* flex: x y npx*/
+.flexLast {
+  border: solid 1px #fff;
+  padding: 16px;
+}
+
+/* 宽度充足 */
+.flexLast .flexContainer {
+  width: 600px;
+  height: 70px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexLast .flexContainer .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 3 2 200px;
+}
+.flexLast .flexContainer .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 2 3 300px;;
+}
+
+/* 宽度不足 */
+.flexLast .flexContainer1 {
+  width: 400px;
+  height: 70px;
+  display: flex;
+  background-color: #aaa;
+  /* border: solid 10px orange; */
+  box-sizing: content-box;
+  
+}
+.flexLast .flexContainer1 .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 3 2 200px;
+}
+.flexLast .flexContainer1 .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 2 3 300px;;
+}
