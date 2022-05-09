@@ -244,7 +244,7 @@
   height: 70px;
   display: flex;
   background-color: #aaa;
-  /* border: solid 10px orange; */
+  border: solid 10px orange;
   box-sizing: content-box;
   
 }
@@ -257,4 +257,102 @@
   width: 200px;
   background: blue;
   flex: 2 3 300px;;
+}
+
+/* =============================== */
+/* flex: x 小于1*/
+.flexGrowDecimal {
+  border: solid 1px #fff;
+  padding: 16px;
+}
+
+/* 大于1 */
+.flexGrowDecimal .flexContainer {
+  width: 600px;
+  height: 70px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexGrowDecimal .flexContainer .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 0.6 2 200px;
+}
+.flexGrowDecimal .flexContainer .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 0.9 3 300px;
+}
+
+/* 小于1 */
+.flexGrowDecimal .flexContainer1 {
+  width: 600px;
+  height: 70px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexGrowDecimal .flexContainer1 .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 0.2 2 200px;
+}
+.flexGrowDecimal .flexContainer1 .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 0.3 3 300px;
+}
+
+/* =============================== */
+/* flex: 1 x npx 小于1*/
+.flexShrinkDecimal {
+  border: solid 1px #fff;
+  padding: 16px;
+}
+
+/* 大于1 */
+.flexShrinkDecimal .flexContainer {
+  width: 400px;
+  height: 70px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexShrinkDecimal .flexContainer .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 2 0.6 200px;
+}
+.flexShrinkDecimal .flexContainer .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 3 0.9 300px;
+}
+
+/* 小于1 */
+.flexShrinkDecimal .flexContainer1 {
+  width: 400px;
+  height: 70px;
+  display: flex;
+  background-color: #aaa;
+  border: solid 10px orange;
+  box-sizing: content-box;
+  
+}
+.flexShrinkDecimal .flexContainer1 .flexLeft {
+  width: 300px;
+  background: red;
+  flex: 2 0.2 200px;
+}
+.flexShrinkDecimal .flexContainer1 .flexRight {
+  width: 200px;
+  background: blue;
+  flex: 3 0.3 300px;
 }
