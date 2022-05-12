@@ -30,6 +30,7 @@ import Fibonacci from '/@/component/algorithm/Fibonacci'
 import Palindrome from '/@/component/algorithm/Palindrome'
 
 import NewFunction from '/@/component/newFunction';
+import Promise from '/@/component/newFunction/Promise';
 
 export const navConfig = [
   { text: "基础梳理", link: "/base" },
@@ -69,6 +70,7 @@ export const sidebarConfig = {
   ],
   "/newFunction": [
     { text: "newFunction", link: "/newFunction", component: NewFunction },
+    { text: "promise", link: "/promise", component: Promise },
   ],
   "/sourceAnalysis": [
     { text: "sourceAnalysis默认的", link: "/index", component: SourceAnalysis },
