@@ -31,6 +31,7 @@ import Palindrome from '/@/component/algorithm/Palindrome'
 
 import NewFunction from '/@/component/newFunction';
 import Promise from '/@/component/newFunction/Promise';
+import Bind from '/@/component/newFunction/Bind';
 
 export const navConfig = [
   { text: "基础梳理", link: "/base" },
@@ -71,6 +72,7 @@ export const sidebarConfig = {
   "/newFunction": [
     { text: "newFunction", link: "/newFunction", component: NewFunction },
     { text: "promise", link: "/promise", component: Promise },
+    { text: "bind", link: "/bind", component: Bind },
   ],
   "/sourceAnalysis": [
     { text: "sourceAnalysis默认的", link: "/index", component: SourceAnalysis },
