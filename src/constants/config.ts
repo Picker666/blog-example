@@ -18,6 +18,7 @@ import LayoutEffect from '/@/component/react/LayoutEffect';
 import ReactUseEffect from "/@/component/react/ReactUseEffect";
 import ReactUseCallback from "/@/component/react/ReactUseCallback";
 import ReactUseRef from "/@/component/react/ReactUseRef";
+import UseCallbackPractice from '/@/component/react/UseCallbackPractice'
 
 import StrategyPattern from '/@/component/designPattern/StrategyPattern';
 import FactoryPattern from '/@/component/designPattern/FactoryPattern';
@@ -109,6 +110,11 @@ export const sidebarConfig = {
       text: "useRef",
       link: "useRef",
       component: ReactUseRef,
+    },
+    {
+      text: "useCallbackPractice",
+      link: "useCallbackPractice",
+      component: UseCallbackPractice,
     },
   ],
   "/algorithm": [
