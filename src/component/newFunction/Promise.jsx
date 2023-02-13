@@ -7,15 +7,21 @@ const PromiseComponent = () => {
     _this.rejectSolutions = [];
   
     _this.resolve = function (val) {
-      _this.value = val;
-      _this.currentState = 'fulfilled';
-      _this.resolveSolutions?.forEach((cb) => cb(_this.value));
+      if (val instanceof PM) {// PM.resolve 时候，参数肯能是PM实例
+        return val.then(_this.resolve, _this.reject)
+      } else {
+        if (_this.currentState === 'pending'){ // PM.race 时候存在多个PM 实例在同一个 PM中resolve
+          _this.value = val;
+          _this.currentState = 'fulfilled';
+          _this.resolveSolutions?.forEach((cb) => cb(_this.value));
+        }
+      }
     };
   
     _this.reject = function (err) {
       _this.value = err;
-      _this.currentState = 'fulfilled';
-      _this.resolveSolutions?.forEach((cb) => cb(_this.value));
+      _this.currentState = 'rejected';
+      _this.rejectSolutions?.forEach((cb) => cb(_this.value));
     };
   
     callback(_this.resolve, _this.reject);
@@ -30,6 +36,9 @@ const PromiseComponent = () => {
   };
   
   PM.resolve = function (val) {
+    if (val instanceof PM) {
+      return val;
+    }
     return new PM((resolve, reject) => {
       resolve(val);
     });
@@ -71,7 +80,7 @@ const PromiseComponent = () => {
   
         _this.rejectSolutions.push((val) => {
           try {
-            const lastResult = successCB(val);
+            const lastResult = failCB(val);
             thenHandler(nextThis, lastResult, resolve, reject);
           } catch (err) {
             failCB(err);
@@ -96,7 +105,7 @@ const PromiseComponent = () => {
       return new PM((resolve, reject) => {
         const nextThis = this;
         try {
-          const lastResult = successCB(_this.value);
+          const lastResult = failCB(_this.value);
           thenHandler(nextThis, lastResult, resolve, reject);
         } catch (err) {
           failCB(err);
@@ -104,6 +113,53 @@ const PromiseComponent = () => {
       });
     }
   };
+  
+  PM.race = function (pms) {
+    return new PM((resolve, reject) => {
+      pms.forEach((pm) => {
+        PM.resolve(pm).then(resolve, reject);
+      })
+    })
+  }
+
+  PM.all = function(pms){
+    return new PM((resolve, reject) => {
+      let length = pms.length;
+      const res = new Array(length);
+      pms.forEach((pm, index) => {
+        PM.resolve(pm).then((value) => {
+          length --;
+          res[index] = value;
+          if (length === 0) {
+            resolve(res);
+          }
+        }, reject);
+      })
+    })
+  }
+
+  PM.allSettled = function(pms){
+    return new PM((resolve, reject) => {
+      let length = pms.length;
+      const res = new Array(length);
+
+      pms.forEach((pm, index) => {
+        PM.resolve(pm).then((value) => {
+          length --;
+          res[index] = {status: 'fulfilled',value};
+          if (length === 0) {
+            resolve(res);
+          }
+        }, (value) => {
+          length --;
+          res[index] = {status: 'rejected',value};
+          if (length === 0) {
+            resolve(res);
+          }
+        });
+      })
+    })
+  }
   
   PM.prototype.catch = function (rejected) {
     this.then(null, rejected);
@@ -211,16 +267,120 @@ const PromiseComponent = () => {
       }, (err) => {
         console.log('======================err==========', err);
       }).then((v) => {
+        console.log(v);
+        return MP.resolve(new PM((resolve, reject) => {
+          setTimeout(() => {
+            resolve('999');
+          }, 1000);
+        }))
+      }).then((v) => {
         console.log('======', v);
         lastResolved && lastResolved();
       });
 
+  const forRace = (MP, lastResolved) => {
+    const p1 = new MP((resolved, reject) => {
+      setTimeout(() => {
+        console.log('1000s====');
+        resolved('1000s')
+      }, 1000);
+    });
+    const p2 = new MP((resolved, reject) => {
+      setTimeout(() => {
+        console.log('2000s====');
+        resolved('2000s')
+      }, 2000);
+    });
+    const p3 = new MP((resolved, reject) => {
+      setTimeout(() => {
+        console.log('3000s====');
+        resolved('3000s')
+      }, 3000);
+    });
+
+    MP.race([p1, p2, p3]).then((val) =>{
+      console.log('val: ', val);
+    }, err =>{
+      console.log('err: ', err);
+    }).then(() => {
+      lastResolved && lastResolved();
+    })
+  }    
+  
+  const forAll = (MP, lastResolved) => {
+    const p1 = new MP((resolved, reject) => {
+      setTimeout(() => {
+        console.log('1000s====');
+        resolved('1000s')
+      }, 1000);
+    });
+    const p2 = new MP((resolved, reject) => {
+      setTimeout(() => {
+        console.log('2000s====');
+        // resolved('2000s')
+        reject('2000s')
+      }, 2000);
+    });
+    const p3 = new MP((resolved, reject) => {
+      setTimeout(() => {
+        console.log('3000s====');
+        resolved('3000s')
+      }, 3000);
+    });
+
+    MP.all([p1, p2, p3]).then((val) =>{
+      console.log('val: ', val);
+    }, err =>{
+      console.log('err: ', err);
+    }).then(() => {
+      lastResolved && lastResolved();
+    })
+  };
+
+  const forAllSettled = (MP, lastResolved) => {
+    const p1 = new MP((resolved, reject) => {
+      setTimeout(() => {
+        console.log('1000s====');
+        resolved('1000s')
+      }, 1000);
+    });
+    const p2 = new MP((resolved, reject) => {
+      setTimeout(() => {
+        console.log('2000s====');
+        // resolved('2000s')
+        reject('2000s')
+      }, 2000);
+    });
+    const p3 = new MP((resolved, reject) => {
+      setTimeout(() => {
+        console.log('3000s====');
+        resolved('3000s')
+      }, 3000);
+    });
+
+    MP.allSettled([p1, p2, p3]).then((val) =>{
+      console.log('val: ', val);
+    }, err =>{
+      console.log('err: ', err);
+    }).then(() => {
+      lastResolved && lastResolved();
+    })
+  };
+  
+
   const handleClick = () =>testing(Promise, () => testing(PM))
+  const handleClick1 = () =>forRace(Promise, () => forRace(PM))
+  const handleClick2 = () =>forAll(Promise, () => forAll(PM))
+  const handleClick3 = () =>forAllSettled(Promise, () => forAllSettled(PM))
+
 
   return (
     <div>
       <h1>this is 404 page</h1>
-      <button onClick={handleClick}>执行</button>
+      <button onClick={handleClick}>promise.then执行</button>
+      <button onClick={handleClick1}>race执行</button>
+      <button onClick={handleClick2}>all执行</button>
+      <button onClick={handleClick3}>all settled执行</button>
     </div>
   );
 };
