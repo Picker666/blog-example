@@ -33,96 +33,108 @@ import Palindrome from '/@/component/algorithm/Palindrome'
 import NewFunction from '/@/component/newFunction';
 import Promise from '/@/component/newFunction/Promise';
 import Bind from '/@/component/newFunction/Bind';
+import Throttle from '/@/component/newFunction/Throttle';
+import Debounce from '/@/component/newFunction/Debounce';
 
 export const navConfig = [
-  { text: "基础梳理", link: "/base" },
-  { text: "Typescript", link: "/typescript" },
-  { text: "手写", link: "/newFunction" },
-  { text: "源码分析", link: "/sourceAnalysis" },
-  { text: "React", link: "/react" },
-  { text: "Git", link: "/git" },
-  {text: '设计模式', link: "/designPattern"},
-  { text: "Practice", link: "/practice" },
-  { text: "算法", link: "/algorithm" },
+  { text: '基础梳理', link: '/base' },
+  { text: 'Typescript', link: '/typescript' },
+  { text: '手写', link: '/newFunction' },
+  { text: '源码分析', link: '/sourceAnalysis' },
+  { text: 'React', link: '/react' },
+  { text: 'Git', link: '/git' },
+  { text: '设计模式', link: '/designPattern' },
+  { text: 'Practice', link: '/practice' },
+  { text: '算法', link: '/algorithm' },
 ];
 
 export const sidebarConfig = {
-  "/base": [
-    { text: "base默认的", link: "/index", component: Base },
-    { text: "interview", link: "/interview/index", component: InterviewIndex },
-    { text: "interviewScope", link: "/interview/scope", component: InterviewScope },
-    { text: "base1", link: "/home" },
-    { text: "SetMap", link: "/setMap", component: SetMap },
-    { text: "ColumnsLayout", link: "/columnsLayout", component: ColumnsLayout },
-    { text: "DeDuplication", link: "/deDuplication", component: DeDuplication },
-    { text: "Flex", link: "/flex", component: Flex },
-  ],
-  "/typescript": [
-    { text: "typescript基础", link: "/index", component: TypescriptBase },
+  '/base': [
+    { text: 'envent loop', link: '/index', component: Base },
+    { text: 'interview', link: '/interview/index', component: InterviewIndex },
     {
-      text: "typescript进阶",
-      link: "/advanced",
+      text: 'interviewScope',
+      link: '/interview/scope',
+      component: InterviewScope,
+    },
+    { text: 'base1', link: '/home' },
+    { text: 'SetMap', link: '/setMap', component: SetMap },
+    { text: 'ColumnsLayout', link: '/columnsLayout', component: ColumnsLayout },
+    { text: 'DeDuplication', link: '/deDuplication', component: DeDuplication },
+    { text: 'Flex', link: '/flex', component: Flex },
+  ],
+  '/typescript': [
+    { text: 'typescript基础', link: '/index', component: TypescriptBase },
+    {
+      text: 'typescript进阶',
+      link: '/advanced',
       component: TypescriptAdvanced,
     },
     {
-      text: "Practices - infer",
-      link: "/infer",
+      text: 'Practices - infer',
+      link: '/infer',
       component: Infer,
     },
   ],
-  "/newFunction": [
-    { text: "newFunction", link: "/newFunction", component: NewFunction },
-    { text: "promise", link: "/promise", component: Promise },
-    { text: "bind", link: "/bind", component: Bind },
+  '/newFunction': [
+    { text: 'newFunction', link: '/newFunction', component: NewFunction },
+    { text: 'promise', link: '/promise', component: Promise },
+    { text: 'bind', link: '/bind', component: Bind },
+    { text: 'throttle', link: '/throttle', component: Throttle },
+    { text: 'debounce', link: '/debounce', component: Debounce },
   ],
-  "/sourceAnalysis": [
-    { text: "sourceAnalysis默认的", link: "/index", component: SourceAnalysis },
+  '/sourceAnalysis': [
+    { text: 'sourceAnalysis默认的', link: '/index', component: SourceAnalysis },
   ],
-  "/designPattern": [
-    { text: "策略模式", link: "/strategyPattern", component: StrategyPattern },
-    { text: "工厂模式", link: "/FactoryPattern", component: FactoryPattern },
+  '/designPattern': [
+    { text: '策略模式', link: '/strategyPattern', component: StrategyPattern },
+    { text: '工厂模式', link: '/FactoryPattern', component: FactoryPattern },
   ],
-  "/practice": [
-    { text: "practice默认的", link: "/index", component: CalcTable },
+  '/practice': [
+    { text: 'practice默认的', link: '/index', component: CalcTable },
   ],
-  "/react": [
+  '/react': [
     {
-      text: "useState",
-      link: "useState",
+      text: 'useState',
+      link: 'useState',
       component: ReactUseState,
     },
     {
-      text: "useLayoutEffect",
-      link: "useLayoutEffect",
+      text: 'useLayoutEffect',
+      link: 'useLayoutEffect',
       component: LayoutEffect,
     },
     {
-      text: "useEffect",
-      link: "useEffect",
+      text: 'useEffect',
+      link: 'useEffect',
       component: ReactUseEffect,
     },
     {
-      text: "useCallback",
-      link: "useCallback",
+      text: 'useCallback',
+      link: 'useCallback',
       component: ReactUseCallback,
     },
     {
-      text: "useRef",
-      link: "useRef",
+      text: 'useRef',
+      link: 'useRef',
       component: ReactUseRef,
     },
     {
-      text: "useCallbackPractice",
-      link: "useCallbackPractice",
+      text: 'useCallbackPractice',
+      link: 'useCallbackPractice',
       component: UseCallbackPractice,
     },
   ],
-  "/algorithm": [
-    { text: "排序算法", link: "/sorting", component: Sorting },
-    { text: "算法题1", link: "/algorithm1", component: Algorithm1 },
-    { text: "合并数组", link: "/testAlgorithm", component: TestAlgorithm },
-    { text: "最大重复数组", link: "/maxDuplication", component: MaxDuplication },
-    { text: "斐波那契数列", link: "/fibonacci", component: Fibonacci },
-    { text: "回文", link: "/palindrome", component: Palindrome },
-  ]
+  '/algorithm': [
+    { text: '排序算法', link: '/sorting', component: Sorting },
+    { text: '算法题1', link: '/algorithm1', component: Algorithm1 },
+    { text: '合并数组', link: '/testAlgorithm', component: TestAlgorithm },
+    {
+      text: '最大重复数组',
+      link: '/maxDuplication',
+      component: MaxDuplication,
+    },
+    { text: '斐波那契数列', link: '/fibonacci', component: Fibonacci },
+    { text: '回文', link: '/palindrome', component: Palindrome },
+  ],
 };

@@ -6,11 +6,9 @@ import { resolve } from 'path';
 export default defineConfig({
   resolve: {
     // alias: {
-    //   '/@/': resolve(__dirname, 'src'),
+    //   '/@': resolve(__dirname, 'src'),
     // },
-    alias: [
-      { find: '/@', replacement: resolve(__dirname, 'src') }
-    ],
+    alias: [{ find: '/@', replacement: resolve(__dirname, 'src') }],
   },
   css: {
     // css预处理器
@@ -20,5 +18,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react()]
-})
+  plugins: [react()],
+});
