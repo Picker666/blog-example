@@ -1,36 +1,37 @@
-import Base from '/@/component/Base'
+import Base from '/@/component/Base';
 import InterviewIndex from '/@/component/Base/interview';
 import InterviewScope from '/@/component/Base/interview/scope';
-import SetMap from '/@/component/Base/SetMap'
-import ColumnsLayout from '/@/component/Base/columnsLayout'
-import DeDuplication from '/@/component/Base/deDuplication'
-import Flex from '/@/component/Base/Flex'
+import SetMap from '/@/component/Base/SetMap';
+import ColumnsLayout from '/@/component/Base/columnsLayout';
+import DeDuplication from '/@/component/Base/deDuplication';
+import Flex from '/@/component/Base/Flex';
 
-import TypescriptBase from "/@/component/typescript";
-import TypescriptAdvanced from "/@/component/typescript";
-import SourceAnalysis from "/@/component/sourceAnalysis";
-import Infer from "/@/component/typescript/Infer";
+import TypescriptBase from '/@/component/typescript';
+import TypescriptAdvanced from '/@/component/typescript';
+import SourceAnalysis from '/@/component/sourceAnalysis';
+import Infer from '/@/component/typescript/Infer';
 
-import CalcTable from "/@/component/CalcTable";
+import CalcTable from '/@/component/CalcTable';
 
 import ReactUseState from '../component/react/ReactUseState';
 import LayoutEffect from '/@/component/react/LayoutEffect';
-import ReactUseEffect from "/@/component/react/ReactUseEffect";
-import ReactUseCallback from "/@/component/react/ReactUseCallback";
-import ReactUseRef from "/@/component/react/ReactUseRef";
-import UseCallbackPractice from '/@/component/react/UseCallbackPractice'
+import ReactUseEffect from '/@/component/react/ReactUseEffect';
+import ReactUseCallback from '/@/component/react/ReactUseCallback';
+import ReactUseRef from '/@/component/react/ReactUseRef';
+import UseCallbackPractice from '/@/component/react/UseCallbackPractice';
 
 import StrategyPattern from '/@/component/designPattern/StrategyPattern';
 import FactoryPattern from '/@/component/designPattern/FactoryPattern';
 
 import Sorting from '/@/component/algorithm/Sorting';
 import Algorithm1 from '/@/component/algorithm/Algorithm1';
-import TestAlgorithm from '/@/component/algorithm/TestAlgorithm'
-import MaxDuplication from '/@/component/algorithm/MaxDuplication'
-import Fibonacci from '/@/component/algorithm/Fibonacci'
-import Palindrome from '/@/component/algorithm/Palindrome'
+import TestAlgorithm from '/@/component/algorithm/TestAlgorithm';
+import MaxDuplication from '/@/component/algorithm/MaxDuplication';
+import Fibonacci from '/@/component/algorithm/Fibonacci';
+import Palindrome from '/@/component/algorithm/Palindrome';
 
 import NewFunction from '/@/component/newFunction';
+import CallApply from '/@/component/newFunction/CallApply';
 import Promise from '/@/component/newFunction/Promise';
 import Bind from '/@/component/newFunction/Bind';
 import Throttle from '/@/component/newFunction/Throttle';
@@ -78,6 +79,7 @@ export const sidebarConfig = {
   ],
   '/newFunction': [
     { text: 'newFunction', link: '/newFunction', component: NewFunction },
+    { text: 'callApply', link: '/callApply', component: CallApply },
     { text: 'promise', link: '/promise', component: Promise },
     { text: 'bind', link: '/bind', component: Bind },
     { text: 'throttle', link: '/throttle', component: Throttle },
