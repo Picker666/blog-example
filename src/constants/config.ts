@@ -23,6 +23,7 @@ import UseCallbackPractice from '/@/component/react/UseCallbackPractice';
 import StrategyPattern from '/@/component/designPattern/StrategyPattern';
 import FactoryPattern from '/@/component/designPattern/FactoryPattern';
 
+import Algorithm from '/@/component/algorithm';
 import Sorting from '/@/component/algorithm/Sorting';
 import Algorithm1 from '/@/component/algorithm/Algorithm1';
 import TestAlgorithm from '/@/component/algorithm/TestAlgorithm';
@@ -128,6 +129,7 @@ export const sidebarConfig = {
     },
   ],
   '/algorithm': [
+    { text: '排序testing', link: '/index', component: Algorithm },
     { text: '排序算法', link: '/sorting', component: Sorting },
     { text: '算法题1', link: '/algorithm1', component: Algorithm1 },
     { text: '合并数组', link: '/testAlgorithm', component: TestAlgorithm },
