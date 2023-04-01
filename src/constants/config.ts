@@ -5,6 +5,7 @@ import SetMap from '/@/component/Base/SetMap';
 import ColumnsLayout from '/@/component/Base/columnsLayout';
 import DeDuplication from '/@/component/Base/deDuplication';
 import Flex from '/@/component/Base/Flex';
+import Inherit from '/@/component/Base/inherit';
 
 import TypescriptBase from '/@/component/typescript';
 import TypescriptAdvanced from '/@/component/typescript';
@@ -64,6 +65,7 @@ export const sidebarConfig = {
     { text: 'ColumnsLayout', link: '/columnsLayout', component: ColumnsLayout },
     { text: 'DeDuplication', link: '/deDuplication', component: DeDuplication },
     { text: 'Flex', link: '/flex', component: Flex },
+    { text: 'inherit', link: '/inherit', component: Inherit },
   ],
   '/typescript': [
     { text: 'typescript基础', link: '/index', component: TypescriptBase },
