@@ -6,6 +6,7 @@ import ColumnsLayout from '/@/component/Base/columnsLayout';
 import DeDuplication from '/@/component/Base/deDuplication';
 import Flex from '/@/component/Base/Flex';
 import Inherit from '/@/component/Base/inherit';
+import ClassInherit from '/@/component/Base/classInherit';
 
 import TypescriptBase from '/@/component/typescript';
 import TypescriptAdvanced from '/@/component/typescript';
@@ -66,6 +67,7 @@ export const sidebarConfig = {
     { text: 'DeDuplication', link: '/deDuplication', component: DeDuplication },
     { text: 'Flex', link: '/flex', component: Flex },
     { text: 'inherit', link: '/inherit', component: Inherit },
+    { text: 'classInherit', link: '/classInherit', component: ClassInherit },
   ],
   '/typescript': [
     { text: 'typescript基础', link: '/index', component: TypescriptBase },
