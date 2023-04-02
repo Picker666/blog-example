@@ -13,7 +13,8 @@ import TypescriptAdvanced from '/@/component/typescript';
 import SourceAnalysis from '/@/component/sourceAnalysis';
 import Infer from '/@/component/typescript/Infer';
 
-import CalcTable from '/@/component/CalcTable';
+import CalcTable from '/@/component/practice/CalcTable';
+// import ExcelTable from '/@/component/practice/ExcelTable';
 
 import ReactUseState from '../component/react/ReactUseState';
 import LayoutEffect from '/@/component/react/LayoutEffect';
@@ -99,6 +100,7 @@ export const sidebarConfig = {
   ],
   '/practice': [
     { text: 'practice默认的', link: '/index', component: CalcTable },
+    // { text: 'excelTable', link: '/excelTable', component: ExcelTable },
   ],
   '/react': [
     {
