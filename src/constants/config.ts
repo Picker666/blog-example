@@ -33,6 +33,8 @@ import TestAlgorithm from '/@/component/algorithm/TestAlgorithm';
 import MaxDuplication from '/@/component/algorithm/MaxDuplication';
 import Fibonacci from '/@/component/algorithm/Fibonacci';
 import Palindrome from '/@/component/algorithm/Palindrome';
+import VersionSorting from '/@/component/algorithm/VersionSorting';
+
 
 import NewFunction from '/@/component/newFunction';
 import CallApply from '/@/component/newFunction/CallApply';
@@ -146,5 +148,6 @@ export const sidebarConfig = {
     },
     { text: '斐波那契数列', link: '/fibonacci', component: Fibonacci },
     { text: '回文', link: '/palindrome', component: Palindrome },
+    { text: '版本号排序', link: '/versionSorting', component: VersionSorting },
   ],
 };
