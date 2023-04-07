@@ -1,11 +1,11 @@
 const VersionSorting = () => {
-  const arr = ['0.1.1', '2.3.3', '0.302.1', '4.2', '4.3.5', '4.3.4.5', '0.1.1'];
+  const arr = ["0.1.1", "2.3.3", "0.302.1", "4.2", "4.3.5", "4.3.4.5", "0.1.1"];
 
   const sorting = () => {
     const sortingArr = arr.slice();
     sortingArr.sort((a, b) => {
-      const arrA = a.split('.');
-      const arrB = b.split('.');
+      const arrA = a.split(".");
+      const arrB = b.split(".");
 
       let i = 0;
       while (true) {
@@ -26,8 +26,8 @@ const VersionSorting = () => {
   const sorting2 = () => {
     const sortingArr = arr.slice();
     sortingArr.sort((a, b) => {
-      const arrA = a.split('.');
-      const arrB = b.split('.');
+      const arrA = a.split(".");
+      const arrB = b.split(".");
 
       let i = 0;
       while (true) {
@@ -44,8 +44,8 @@ const VersionSorting = () => {
   };
 
   const compare = (a, b) => {
-    const arrA = a.split('.');
-    const arrB = b.split('.');
+    const arrA = a.split(".");
+    const arrB = b.split(".");
 
     let i = 0;
     while (true) {

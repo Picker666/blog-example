@@ -9,7 +9,7 @@ const Home = () => {
         arr.push(arr[i - 1] + arr[i - 2]);
       }
     }
-    console.log(arr, '============');
+    console.log(arr, "============");
   };
 
   const MySort = (arr, start, end) => {

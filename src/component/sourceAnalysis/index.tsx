@@ -4,7 +4,7 @@ const Index = () => {
       this is
       <b>sourceAnalysis</b>index page
     </h1>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

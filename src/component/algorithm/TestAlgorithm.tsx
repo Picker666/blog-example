@@ -21,7 +21,7 @@ const Home = () => {
       j++;
     }
     nums1 = temp;
-    console.log('temp: ', nums1);
+    console.log("temp: ", nums1);
   };
 
   const mergeArray1 = (nums1, m, nums2, n) => {
@@ -48,7 +48,7 @@ const Home = () => {
       j--;
       index--;
     }
-    console.log('temp: ', nums1);
+    console.log("temp: ", nums1);
   };
 
   // mergeArray([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3);

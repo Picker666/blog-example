@@ -3,11 +3,11 @@ const Index = () => {
     let set = new Set();
     //a,b属于object 值完全相同
     let a: { name: string; age: number } | string = {
-      name: 'cc',
+      name: "cc",
       age: 28,
     };
     let b = {
-      name: 'cc',
+      name: "cc",
       age: 28,
     };
 
@@ -27,9 +27,9 @@ const Index = () => {
     set.add(f);
     set.add(g);
 
-    a = 'abc';
+    a = "abc";
     b = {
-      name: 'cc',
+      name: "cc",
       age: 30,
     };
     set.add(a);
@@ -81,11 +81,11 @@ const Index = () => {
     console.log(set.entries());
 
     set.forEach((value, key) => {
-      console.log(key, ': ', value);
+      console.log(key, ": ", value);
     });
 
     console.log(
-      ' Set.prototype[Symbol.iterator] === Set.prototype.values;',
+      " Set.prototype[Symbol.iterator] === Set.prototype.values;",
       Set.prototype[Symbol.iterator] === Set.prototype.values
     );
   };
@@ -120,40 +120,40 @@ const Index = () => {
 
   const mapExample = () => {
     const set = new Set([
-      ['foo', 1],
-      ['bar', 2],
+      ["foo", 1],
+      ["bar", 2],
     ]);
     const m1 = new Map(set);
-    m1.get('foo'); // 1
+    m1.get("foo"); // 1
 
-    const m2 = new Map([['baz', 3]]);
+    const m2 = new Map([["baz", 3]]);
     const m3 = new Map(m2);
-    m3.get('baz'); // 3
+    m3.get("baz"); // 3
 
-    new Map().get('asfddfsasadf'); // undefined
+    new Map().get("asfddfsasadf"); // undefined
   };
 
   const mapKey = () => {
     const map = new Map();
 
-    map.set(['a'], 555);
-    const map1 = map.get(['a']); // undefined
+    map.set(["a"], 555);
+    const map1 = map.get(["a"]); // undefined
 
-    let arr = ['aa'];
+    let arr = ["aa"];
     map.set(arr, 666);
     const map2 = map.get(arr); // 666
 
-    console.log(map1, '==============', map2);
+    console.log(map1, "==============", map2);
   };
 
   const compareObject = () => {
     let map = new Map();
     let s = {
-      name: 'cc',
-      job: 'programmer',
+      name: "cc",
+      job: "programmer",
     };
     let m = {
-      dd: 'cdcdcd',
+      dd: "cdcdcd",
       do: function (str) {
         console.log(str);
       },
@@ -194,10 +194,10 @@ const Index = () => {
       return Person;
     })();
 
-    let ssf = new Person('picker', 19);
+    let ssf = new Person("picker", 19);
     console.log(ssf.getName());
     console.log(ssf.getAge());
-    ssf.setName('ren');
+    ssf.setName("ren");
     ssf.setAge(18);
     console.log(ssf.getName());
     console.log(ssf.getAge());

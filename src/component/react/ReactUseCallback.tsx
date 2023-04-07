@@ -1,15 +1,15 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from "react";
 
 const set = new Set();
 
 function Callback() {
   const [count, setCount] = useState(1);
-  const [val, setVal] = useState('');
+  const [val, setVal] = useState("");
 
   const callback = () => {
-    console.log(count, '-----------------');
+    console.log(count, "-----------------");
     return () => {
-      console.log(count, '======================');
+      console.log(count, "======================");
     };
   };
   set.add(callback);
@@ -30,7 +30,7 @@ function Callback() {
 
 function Parent() {
   const [count, setCount] = useState(1);
-  const [val, setVal] = useState('');
+  const [val, setVal] = useState("");
 
   const callback = useCallback(() => {
     return count;

@@ -38,6 +38,8 @@ const Home = () => {
     return goodsList;
   }, [goodsList]);
 
+  debugger;
+
   return (
     <div className="container">
       <div className="good">A</div>

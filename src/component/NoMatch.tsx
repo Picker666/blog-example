@@ -1,5 +1,5 @@
 const NoMatch = () => {
-  return <h1>this is 404 page</h1>
-}
+  return <h1>this is 404 page</h1>;
+};
 
-export default NoMatch
+export default NoMatch;

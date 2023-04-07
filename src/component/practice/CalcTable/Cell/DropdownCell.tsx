@@ -1,6 +1,6 @@
-import { useState, memo, useMemo, useEffect } from 'react';
+import { useState, memo, useMemo, useEffect } from "react";
 
-import { Select } from 'antd';
+import { Select } from "antd";
 
 const { Option } = Select;
 
@@ -15,7 +15,7 @@ const DropdownCell = (props: dropdownProps) => {
   const { value, updateToData, options = [], onBlur } = props;
   const [selecteOptions, setSelecteOptions] = useState(options);
 
-  console.log('=============Dropdown Cell================');
+  console.log("=============Dropdown Cell================");
 
   useEffect(() => {
     setSelecteOptions(options);
@@ -30,7 +30,7 @@ const DropdownCell = (props: dropdownProps) => {
   return (
     <Select
       value={value}
-      style={{ width: '100%' }}
+      style={{ width: "100%" }}
       onChange={handleChange}
       options={selecteOptions}
       onBlur={onBlur}

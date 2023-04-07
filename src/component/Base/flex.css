@@ -28,7 +28,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexDefault .flexLeft {
   width: 300px;
@@ -49,7 +48,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexDefault .flexContainer1 .flexLeft {
   width: 300px;
@@ -78,7 +76,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexNone .flexContainer .flexLeft {
   width: 300px;
@@ -99,7 +96,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexNone .flexContainer1 .flexLeft {
   width: 300px;
@@ -127,7 +123,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexN .flexContainer .flexLeft {
   width: 300px;
@@ -148,7 +143,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexN .flexContainer1 .flexLeft {
   width: 300px;
@@ -176,7 +170,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexBasisN .flexContainer .flexLeft {
   width: 300px;
@@ -186,7 +179,7 @@
 .flexBasisN .flexContainer .flexRight {
   width: 200px;
   background: blue;
-  flex: 1 1 300px;;
+  flex: 1 1 300px;
 }
 
 /* 宽度不足 */
@@ -197,7 +190,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexBasisN .flexContainer1 .flexLeft {
   width: 300px;
@@ -225,7 +217,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexLast .flexContainer .flexLeft {
   width: 300px;
@@ -235,7 +226,7 @@
 .flexLast .flexContainer .flexRight {
   width: 200px;
   background: blue;
-  flex: 2 3 300px;;
+  flex: 2 3 300px;
 }
 
 /* 宽度不足 */
@@ -246,7 +237,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexLast .flexContainer1 .flexLeft {
   width: 300px;
@@ -256,7 +246,7 @@
 .flexLast .flexContainer1 .flexRight {
   width: 200px;
   background: blue;
-  flex: 2 3 300px;;
+  flex: 2 3 300px;
 }
 
 /* =============================== */
@@ -274,7 +264,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexGrowDecimal .flexContainer .flexLeft {
   width: 300px;
@@ -295,7 +284,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexGrowDecimal .flexContainer1 .flexLeft {
   width: 300px;
@@ -323,7 +311,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexShrinkDecimal .flexContainer .flexLeft {
   width: 300px;
@@ -344,7 +331,6 @@
   background-color: #aaa;
   border: solid 10px orange;
   box-sizing: content-box;
-  
 }
 .flexShrinkDecimal .flexContainer1 .flexLeft {
   width: 300px;

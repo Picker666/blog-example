@@ -74,7 +74,7 @@ const Sorting = () => {
     for (k = left; k <= right; k++) {
       formatArr[k] = tempArray[k];
     }
-    console.log(`二路归并排序===result===`, formatArr, 'tempArray', tempArray);
+    console.log(`二路归并排序===result===`, formatArr, "tempArray", tempArray);
     return formatArr;
   }
 

@@ -1,28 +1,28 @@
 const Index = () => {
   function formalParameter() {
     function changeObjProperty(o) {
-      o.siteUrl = 'http://www.baidu.com';
+      o.siteUrl = "http://www.baidu.com";
       o = new Object();
-      o.siteUrl = 'http://www.google.com';
+      o.siteUrl = "http://www.google.com";
 
       console.log(o); // {siteUrl: 'http://www.google.com'}
     }
 
     let webSite = new Object();
     changeObjProperty(webSite);
-    console.log(webSite.siteUrl, '=========='); // http://www.baidu.com
+    console.log(webSite.siteUrl, "=========="); // http://www.baidu.com
   }
 
   function formalParameter2() {
     function changeObjProperty(webSite) {
-      webSite = 'http://www.google.com';
+      webSite = "http://www.google.com";
 
       console.log(webSite); // {siteUrl: 'http://www.google.com'}
     }
 
-    let webSite = 'http://www.baidu.com';
+    let webSite = "http://www.baidu.com";
     changeObjProperty(webSite);
-    console.log(webSite, '=========='); // http://www.baidu.com
+    console.log(webSite, "=========="); // http://www.baidu.com
   }
 
   function prototypeAndInstance() {
@@ -56,19 +56,19 @@ const Index = () => {
   }
 
   function scopeA(b) {
-    console.log(b, '===a===');
+    console.log(b, "===a===");
     function b() {
       console.log(b);
     }
     b();
     b = 1;
 
-    console.log(b, '=====last=====');
+    console.log(b, "=====last=====");
   }
 
   function scopeT3(greet) {
     console.log(greet); //?
-    var greet = 'hello';
+    var greet = "hello";
     console.log(greet); //?
     function greet() {}
     console.log(greet); //?

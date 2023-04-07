@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState, useRef, useEffect } from 'react';
+import { useLayoutEffect, useState, useRef, useEffect } from "react";
 
 const LayoutEffect1 = () => {
   const [n, setN] = useState(0);
@@ -6,11 +6,11 @@ const LayoutEffect1 = () => {
     setN((i) => i + 1);
   };
   useEffect(() => {
-    console.log('useEffect');
+    console.log("useEffect");
   });
   useLayoutEffect(() => {
     // 改成 useEffect 试试
-    console.log('useLayoutEffect');
+    console.log("useLayoutEffect");
   });
   return (
     <div className="App">

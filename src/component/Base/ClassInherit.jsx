@@ -1,5 +1,5 @@
 class Patent {
-  constructor(name = 'Picker') {
+  constructor(name = "Picker") {
     this.name = name;
   }
 }
@@ -11,7 +11,7 @@ class Child extends Patent {
 }
 
 const ClassInherit = () => {
-  const child = new Child('Picker 666');
+  const child = new Child("Picker 666");
 
   console.log(child);
 

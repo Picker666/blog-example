@@ -1,4 +1,4 @@
-import './flex.css';
+import "./flex.css";
 
 const Flex = () => {
   return (

@@ -12,7 +12,7 @@ const Throttle = () => {
   };
 
   const handleClick = throttle((event) => {
-    console.log('event: ', event);
+    console.log("event: ", event);
   }, 1000);
 
   return (

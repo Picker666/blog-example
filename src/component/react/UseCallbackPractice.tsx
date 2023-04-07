@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
 const useCount = () => {
   const [count, setCount] = useState({ val: 0 });
@@ -11,7 +11,7 @@ const useCount = () => {
   }, []);
 
   const getLatestCount = useCallback(() => {
-    console.log('this is the value of count: ', count);
+    console.log("this is the value of count: ", count);
   }, [count]);
 
   return { count, getLatestCount };

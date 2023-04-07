@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 class Counter extends React.Component {
   constructor(props) {
@@ -54,7 +54,7 @@ const Counter1 = () => {
     setTimeout(() => {
       setCount(count + 1);
       setCount(count + 1);
-      console.log(count, '========');
+      console.log(count, "========");
     }, 0);
   };
 

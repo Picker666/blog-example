@@ -13,7 +13,7 @@ const Testing = () => {
           changed = true;
         }
       }
-      console.log(i, '========');
+      console.log(i, "========");
     }
 
     console.log(arr);
@@ -31,7 +31,7 @@ const Testing = () => {
           arr[j] = current;
         }
       }
-      console.log(i, '========');
+      console.log(i, "========");
     }
 
     console.log(arr);
@@ -84,7 +84,7 @@ const Testing = () => {
       arr[k] = mergedArr[k];
     }
 
-    console.log(arr, '===========================');
+    console.log(arr, "===========================");
     return arr;
   };
 

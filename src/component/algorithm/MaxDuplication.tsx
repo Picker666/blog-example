@@ -13,7 +13,7 @@ const MaxDuplication = () => {
         charObj[current]++;
       }
     }
-    let maxChar = '',
+    let maxChar = "",
       maxNum = 0;
 
     for (let i of Object.keys(charObj)) {
@@ -24,7 +24,7 @@ const MaxDuplication = () => {
       }
     }
 
-    console.log(maxChar, '=======', maxNum);
+    console.log(maxChar, "=======", maxNum);
   };
 
   const maxDuplication2 = (str: string) => {
@@ -32,7 +32,7 @@ const MaxDuplication = () => {
       return str;
     }
 
-    let maxChar = '',
+    let maxChar = "",
       maxNum = 0;
 
     const charObj = {};
@@ -50,7 +50,7 @@ const MaxDuplication = () => {
       }
     }
 
-    console.log(maxChar, '=======', maxNum);
+    console.log(maxChar, "=======", maxNum);
   };
 
   return (
@@ -58,14 +58,14 @@ const MaxDuplication = () => {
       <h1>this is Max Duplication page</h1>
       <button
         onClick={() => {
-          maxDuplication('fdadsf');
+          maxDuplication("fdadsf");
         }}
       >
         Max Duplication
       </button>
       <button
         onClick={() => {
-          maxDuplication2('fdadsf');
+          maxDuplication2("fdadsf");
         }}
       >
         Max Duplication2

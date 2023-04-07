@@ -1,9 +1,9 @@
 const InterviewIndex = () => {
   const objWithArray = () => {
     var obj = {
-      '6': 3,
-      '1': 5,
-      '2': 2,
+      "6": 3,
+      "1": 5,
+      "2": 2,
       length: 2,
       splice: Array.prototype.splice,
       push: Array.prototype.push,
@@ -20,7 +20,7 @@ const InterviewIndex = () => {
     var a = { n: 1 };
     var b = a;
     a.x = a = { n: 2 };
-    console.log(a, '====', b);
+    console.log(a, "====", b);
   };
 
   const forAndForEach = (arrLength: number) => {
@@ -36,57 +36,57 @@ const InterviewIndex = () => {
   };
 
   const arrayInsertTime = () => {
-    console.time('======array create');
+    console.time("======array create");
     let arr = new Array(10000000);
     for (var i = 0; i < 10000000; i++) {
       arr[i] = i;
     }
-    console.timeEnd('======array create');
+    console.timeEnd("======array create");
 
-    console.time('======array1 create');
+    console.time("======array1 create");
     let arr1 = new Array(10000000);
     arr1.push([{ a: 1 }]);
     for (var i = 0; i < 10000000; i++) {
       arr1[i] = i;
     }
-    console.timeEnd('======array1 create');
+    console.timeEnd("======array1 create");
 
     console.log(arr.length, arr1.length);
 
-    console.time('arr======0');
+    console.time("arr======0");
     arr[0];
-    console.timeEnd('arr======0');
+    console.timeEnd("arr======0");
 
-    console.time('arr1======0');
+    console.time("arr1======0");
     arr1[0];
-    console.timeEnd('arr1======0');
+    console.timeEnd("arr1======0");
 
-    console.time('arr-------10000000');
+    console.time("arr-------10000000");
     arr[10000000];
-    console.timeEnd('arr-------10000000');
+    console.timeEnd("arr-------10000000");
 
-    console.time('arr1-------10000000');
+    console.time("arr1-------10000000");
     arr1[10000000];
-    console.timeEnd('arr1-------10000000');
+    console.timeEnd("arr1-------10000000");
   };
 
   const arrayReadTime = () => {
     let a;
-    console.time('======array create');
+    console.time("======array create");
     let arr = new Array(10000000);
     for (var i = 0; i < 10000000; i++) {
       a = arr[i];
     }
-    console.timeEnd('======array create');
+    console.timeEnd("======array create");
 
     let a1;
-    console.time('======array1 create');
+    console.time("======array1 create");
     let arr1 = new Array(10000000);
     arr1.push([{ a: 1 }]);
     for (var i = 0; i < 10000000; i++) {
       a1 = arr1[i];
     }
-    console.timeEnd('======array1 create');
+    console.timeEnd("======array1 create");
 
     console.log(arr.length, arr1.length);
   };

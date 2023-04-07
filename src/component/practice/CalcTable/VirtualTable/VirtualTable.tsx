@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef, useMemo, memo } from 'react';
-import { VariableSizeGrid as Grid } from 'react-window';
-import ResizeObserver from 'rc-resize-observer';
-import classNames from 'classnames';
-import { Table } from 'antd';
+import React, { useState, useEffect, useRef, useMemo, memo } from "react";
+import { VariableSizeGrid as Grid } from "react-window";
+import ResizeObserver from "rc-resize-observer";
+import classNames from "classnames";
+import { Table } from "antd";
 
-import './index.less';
+import "./index.less";
 
 type tableProps = {
   columns: { [key: string]: string }[];
@@ -32,7 +32,7 @@ const VirtualTable = (props: tableProps) => {
   const gridRef = useRef<any>();
   const [connectObject] = useState<any>(() => {
     const obj = {};
-    Object.defineProperty(obj, 'scrollLeft', {
+    Object.defineProperty(obj, "scrollLeft", {
       get: () => null,
       set: (scrollLeft: number) => {
         if (gridRef.current) {
@@ -54,17 +54,25 @@ const VirtualTable = (props: tableProps) => {
   useEffect(() => resetVirtualGrid, [tableWidth]);
 
   const renderVirtualRow = (rawData) =>
-    function row(rowProps: { columnIndex: number; rowIndex: number; style: React.CSSProperties }) {
+    function row(rowProps: {
+      columnIndex: number;
+      rowIndex: number;
+      style: React.CSSProperties;
+    }) {
       const { columnIndex, rowIndex, style } = rowProps;
-      const { render, dataIndex, fixed } = flatColumns[columnIndex] as { render; dataIndex; fixed };
+      const { render, dataIndex, fixed } = flatColumns[columnIndex] as {
+        render;
+        dataIndex;
+        fixed;
+      };
       const currentRecord = rawData[rowIndex];
 
       const value = currentRecord[dataIndex];
       const lastOne = columnIndex === flatColumns.length - 1;
       return (
         <div
-          className={classNames('virtual-table-cell', {
-            'virtual-table-cell-last-fixed': lastOne && fixed,
+          className={classNames("virtual-table-cell", {
+            "virtual-table-cell-last-fixed": lastOne && fixed,
           })}
           style={style}
           key={`${rowIndex}_${columnIndex}`}
@@ -119,7 +127,7 @@ const VirtualTable = (props: tableProps) => {
       }}
     >
       <Table
-        style={{ marginTop: 24}}
+        style={{ marginTop: 24 }}
         scroll={scroll}
         dataSource={dataSource}
         className="virtual-table"

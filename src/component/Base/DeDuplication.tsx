@@ -17,7 +17,7 @@ const Index = () => {
         newArray.push(value1);
       }
     }
-    console.log(newArray, '=======================');
+    console.log(newArray, "=======================");
   };
 
   const withObject2 = (arr: number[]) => {
@@ -33,7 +33,7 @@ const Index = () => {
         obj[value1] = true;
       }
     }
-    console.log(newArray, '=======================');
+    console.log(newArray, "=======================");
   };
 
   return (

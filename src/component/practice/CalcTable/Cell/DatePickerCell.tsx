@@ -1,7 +1,7 @@
-import { useMemo, memo, useState } from 'react';
-import moment from 'moment';
+import { useMemo, memo, useState } from "react";
+import moment from "moment";
 
-import { DatePicker } from 'antd';
+import { DatePicker } from "antd";
 
 type datePickerProps = {
   value: string | undefined;
@@ -15,7 +15,7 @@ const DatePickerCell = (props: datePickerProps) => {
 
   const date = useMemo(() => (value && moment(value)) || null, [value]);
 
-  console.log('=============DatePickerCell================');
+  console.log("=============DatePickerCell================");
 
   const handleChange = (momentDate, currentDate) => {
     setOpen(false);
@@ -29,7 +29,14 @@ const DatePickerCell = (props: datePickerProps) => {
   };
 
   return (
-    <DatePicker value={date} onChange={handleChange} onBlur={onBlur} autoFocus open={open} onClick={handleClick} />
+    <DatePicker
+      value={date}
+      onChange={handleChange}
+      onBlur={onBlur}
+      autoFocus
+      open={open}
+      onClick={handleClick}
+    />
   );
 };
 

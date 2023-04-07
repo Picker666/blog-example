@@ -14,7 +14,7 @@ const Debounce = () => {
   };
 
   const handleClick = debounce((event) => {
-    console.log('event: ', event);
+    console.log("event: ", event);
   }, 1000);
 
   return (

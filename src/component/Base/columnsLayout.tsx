@@ -1,4 +1,4 @@
-import './columnsLayout.less';
+import "./columnsLayout.less";
 
 const ColumnsLayout = () => {
   return (

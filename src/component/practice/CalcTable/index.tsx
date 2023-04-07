@@ -1,12 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
-import { Button} from 'antd';
+import { useState, useEffect, useRef } from "react";
+import { Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 
-import VirtualTable from './VirtualTable';
+import VirtualTable from "./VirtualTable";
 
-import useColumns from './useColumns';
+import useColumns from "./useColumns";
 
-import './index.less';
+import "./index.less";
 
 type calcTableProps = {
   options: { label: string; value: string }[];
@@ -14,15 +14,15 @@ type calcTableProps = {
 };
 
 const validateFields = [
-  'phaseNo',
-  'buildingNo',
-  'floorNo',
-  'status',
-  'propertyType',
-  'propertySubtype',
-  'tenantAttribute',
-  'isTax',
-  'rentAlternative',
+  "phaseNo",
+  "buildingNo",
+  "floorNo",
+  "status",
+  "propertyType",
+  "propertySubtype",
+  "tenantAttribute",
+  "isTax",
+  "rentAlternative",
 ];
 
 const CalcTable = (props: calcTableProps) => {
@@ -40,11 +40,11 @@ const CalcTable = (props: calcTableProps) => {
         id: 1, // 行id [number]
         index: i + 1,
         tenantNo: `abc_${i + 1}`, // 单元号 [string]
-        phaseNo: '1', // 期数 [string]
-        buildingNo: '1', // 楼栋 [string]
-        floorNo: 'L1', // 楼层 [string]
+        phaseNo: "1", // 期数 [string]
+        buildingNo: "1", // 楼栋 [string]
+        floorNo: "L1", // 楼层 [string]
         status: 1, // 状态 [number] 枚举
-        alternatives: 'xxxxx', // 承租方 [string]
+        alternatives: "xxxxx", // 承租方 [string]
         propertyType: 1, // 业态 [number] 枚举
         propertySubtype: 1, // 物业类型 [number] 枚举
         tenantAttribute: 1, // 租户属性 [number] 枚举
@@ -53,12 +53,12 @@ const CalcTable = (props: calcTableProps) => {
         rentAlternative: 1, // 计租口径 [number] 枚举
         constructionArea: 2000.0, // 建筑面积 [number]
         rentArea: 1000.0, // 租赁面积 [number]
-        rentStartDate: '2018-07-01', // 起租日期 [string]
-        rentEndDate: '2019-06-30', // 终止日期 [string]
+        rentStartDate: "2018-07-01", // 起租日期 [string]
+        rentEndDate: "2019-06-30", // 终止日期 [string]
         termYearYP: 0.42, // YP year [number]
         termYearPV: 1.42, // PV year [number]
-        rentFreeStartDate: '2018-07-01', // 免租起始日 [number]
-        rentFreeEndDate: '2019-06-30', // 免租终止日 [number]
+        rentFreeStartDate: "2018-07-01", // 免租起始日 [number]
+        rentFreeEndDate: "2019-06-30", // 免租终止日 [number]
         rentUnit: 1, // 租金单位 [number] 枚举
         rentUnitPrice: 34.0, // 单位租金 [number]
         annualRent: 12345.0, // 年租 [number]
@@ -87,7 +87,7 @@ const CalcTable = (props: calcTableProps) => {
   const updateToData = (index, key) => (value) => {
     let newData = [...dataRef.current];
     newData[index][key] = value;
-    if (key === 'index') {
+    if (key === "index") {
       if (value > newData) {
         return;
       }
@@ -120,7 +120,7 @@ const CalcTable = (props: calcTableProps) => {
     validateFields.forEach((field: string) => {
       const temp = copiedRow[field];
       preSetData[field] = temp;
-      if ([undefined, null, ''].includes(temp)) {
+      if ([undefined, null, ""].includes(temp)) {
         copiedRow[`${field}Warning`] = true;
         canCopy = false;
       }
@@ -145,16 +145,21 @@ const CalcTable = (props: calcTableProps) => {
 
   const handleAddLease = () => {
     const newData = [...dataRef.current];
-    newData.push({index: newData.length + 1})
+    newData.push({ index: newData.length + 1 });
     setData(newData);
     !lengthChange && setLengthChange(true);
     setTimeout(() => {
-      const dom = document.querySelector('.virtual-grid');
+      const dom = document.querySelector(".virtual-grid");
       dom.scrollTop = dom.scrollHeight;
-    }, 100)
-  }
+    }, 100);
+  };
 
-  const [columns, setColumns] = useColumns(updateToData, handldWithCopy, handldWithDelete, options);
+  const [columns, setColumns] = useColumns(
+    updateToData,
+    handldWithCopy,
+    handldWithDelete,
+    options
+  );
 
   useEffect(() => {
     setColumns(options);
@@ -169,8 +174,16 @@ const CalcTable = (props: calcTableProps) => {
           marginTop: 24,
         }}
       />
-      <VirtualTable columns={columns} dataSource={data} lengthChange={lengthChange} scroll={{ x: '100%', y: 500 }} />
-      <Button type="dashed" block onClick={handleAddLease}><PlusOutlined />添加</Button>
+      <VirtualTable
+        columns={columns}
+        dataSource={data}
+        lengthChange={lengthChange}
+        scroll={{ x: "100%", y: 500 }}
+      />
+      <Button type="dashed" block onClick={handleAddLease}>
+        <PlusOutlined />
+        添加
+      </Button>
     </div>
   );
 };

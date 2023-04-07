@@ -1,13 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useState, useMemo, memo } from 'react';
-import { areEqual } from 'react-window';
+import { useState, useMemo, memo } from "react";
+import { areEqual } from "react-window";
 
-import InputCell from './InputCell';
-import InputNumberCell from './InputNumberCell';
-import DatePickerCell from './DatePickerCell';
-import DropdownCell from './DropdownCell';
+import InputCell from "./InputCell";
+import InputNumberCell from "./InputNumberCell";
+import DatePickerCell from "./DatePickerCell";
+import DropdownCell from "./DropdownCell";
 
-import './index.less';
+import "./index.less";
 
 type cellProps = {
   type: string;
@@ -22,7 +22,15 @@ type cellProps = {
 let sign = false;
 
 const Cell = (props: cellProps) => {
-  const { type, value, updateToData, disabled = false, warning = false, options = [], ...rest } = props;
+  const {
+    type,
+    value,
+    updateToData,
+    disabled = false,
+    warning = false,
+    options = [],
+    ...rest
+  } = props;
 
   const [fouse, setFouse] = useState(false);
 
@@ -33,7 +41,7 @@ const Cell = (props: cellProps) => {
     }
   };
 
-  console.log('==============cell==============');
+  console.log("==============cell==============");
 
   const handleCellBlur = () => {
     fouse && setFouse(false);
@@ -55,7 +63,7 @@ const Cell = (props: cellProps) => {
   };
 
   const spanCls = useMemo(() => {
-    let cls = 'cellInner';
+    let cls = "cellInner";
     if (warning) {
       cls = `${cls} warning`;
     }
@@ -68,7 +76,7 @@ const Cell = (props: cellProps) => {
   let spanProps = {};
   let compProps = {};
 
-  if (type === 'number' || type === 'text') {
+  if (type === "number" || type === "text") {
     spanProps = {
       onMouseOver: handleMouseOver,
       onmouseenter: handleMouseOver,
@@ -86,22 +94,24 @@ const Cell = (props: cellProps) => {
       onBlur: handleCellBlur,
       ...rest,
     };
-    if (type === 'text') {
+    if (type === "text") {
       return <InputCell {...commonProps} {...compProps} />;
     }
-    if (type === 'number') {
+    if (type === "number") {
       return <InputNumberCell {...commonProps} {...compProps} />;
     }
-    if (type === 'date') {
+    if (type === "date") {
       return <DatePickerCell {...commonProps} />;
     }
-    if (type === 'select') {
+    if (type === "select") {
       return <DropdownCell {...commonProps} options={options} />;
     }
   }
 
-  if (type === 'select') {
-    const selectOption = options.find((option) => option.value === value) || { label: value };
+  if (type === "select") {
+    const selectOption = options.find((option) => option.value === value) || {
+      label: value,
+    };
     return (
       <span className={spanCls} onClick={handleCellClick} role="cell">
         {selectOption.label}
@@ -110,7 +120,12 @@ const Cell = (props: cellProps) => {
   }
 
   return (
-    <span className={spanCls} onClick={handleCellClick} role="cell" {...spanProps}>
+    <span
+      className={spanCls}
+      onClick={handleCellClick}
+      role="cell"
+      {...spanProps}
+    >
       {value}
     </span>
   );

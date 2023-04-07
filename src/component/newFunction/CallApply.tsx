@@ -1,8 +1,8 @@
 const NewFunction = () => {
   const newCall = () => {
     Function.prototype.newCall = function (_this) {
-      if (typeof this !== 'function') {
-        throw new Error('must be a function!!!');
+      if (typeof this !== "function") {
+        throw new Error("must be a function!!!");
       }
 
       let context = _this ? _this : window;
@@ -15,8 +15,8 @@ const NewFunction = () => {
     };
 
     Function.prototype.newApply = function (_this) {
-      if (typeof this !== 'function') {
-        throw new Error('must be a function!!!');
+      if (typeof this !== "function") {
+        throw new Error("must be a function!!!");
       }
 
       let context = _this ? _this : window;
@@ -29,8 +29,8 @@ const NewFunction = () => {
     };
 
     Function.prototype.newBind = function (context) {
-      if (typeof this !== 'function') {
-        throw new Error('must be a function!!!');
+      if (typeof this !== "function") {
+        throw new Error("must be a function!!!");
       }
 
       const _this = this;
@@ -49,7 +49,7 @@ const NewFunction = () => {
   const testNewCall = () => {
     const tester = function (num: number) {
       const result = num + 1;
-      console.log(result, '======', this);
+      console.log(result, "======", this);
     };
     newCall();
     tester.newCall([1, 2], 66);
@@ -59,7 +59,7 @@ const NewFunction = () => {
   const testNewApply = () => {
     const tester = function (num: number) {
       const result = num + 1;
-      console.log(result, '======', this);
+      console.log(result, "======", this);
     };
     newCall();
     tester.newApply([1, 2], [66]);

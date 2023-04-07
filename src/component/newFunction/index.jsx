@@ -1,7 +1,7 @@
 const STATE = {
-  PENDING: 'pending',
-  FULFILLED: 'fulfilled',
-  REJECTED: 'rejected',
+  PENDING: "pending",
+  FULFILLED: "fulfilled",
+  REJECTED: "rejected",
 };
 
 const PromiseComponent = () => {
@@ -53,10 +53,10 @@ const PromiseComponent = () => {
   P.prototype.then = function (onFulfilled, onRejected) {
     const _this = this;
     const handleFulfilled =
-      typeof onFulfilled === 'function' ? onFulfilled : (val) => val;
+      typeof onFulfilled === "function" ? onFulfilled : (val) => val;
 
     const handleRejected =
-      typeof onRejected === 'function'
+      typeof onRejected === "function"
         ? onRejected
         : (err) => {
             throw err;
@@ -90,9 +90,9 @@ const PromiseComponent = () => {
     new MP((resolve, reject) => {
       setTimeout(() => {
         if (Math.random() > 0.5) {
-          resolve('成功了。。。。');
+          resolve("成功了。。。。");
         } else {
-          reject('失败了。。。');
+          reject("失败了。。。");
         }
       }, 1000);
       // if (Math.random() > 0.1) {
@@ -105,63 +105,63 @@ const PromiseComponent = () => {
       .then()
       .then(
         (value) => {
-          console.log('1、成功', value);
+          console.log("1、成功", value);
           return value;
         },
         (err) => {
-          console.log('1、失败', err);
+          console.log("1、失败", err);
         }
       )
       .then(
         (value) => {
-          console.log('2、成功', value);
+          console.log("2、成功", value);
         },
         (err) => {
-          console.log('2、失败', err);
+          console.log("2、失败", err);
         }
       )
       .then(
         (value) => {
-          console.log('3、成功', value);
+          console.log("3、成功", value);
           return new MP((resolve, reject) => {
             setTimeout(() => {
               if (Math.random() > 0) {
-                resolve('3resolve。。。。');
+                resolve("3resolve。。。。");
               } else {
-                reject('3reject');
+                reject("3reject");
               }
             }, 2000);
           });
         },
         (err) => {
-          console.log('3、失败', err);
+          console.log("3、失败", err);
         }
       )
       .then(
         (value) => {
-          console.log('3.1、成功', value);
+          console.log("3.1、成功", value);
           return new MP((resolve, reject) => {
             setTimeout(() => {
               if (Math.random() > 0) {
-                resolve('3.1resolve。。。。');
+                resolve("3.1resolve。。。。");
               } else {
-                reject('3.1reject');
+                reject("3.1reject");
               }
             }, 1000);
           });
         },
         (err) => {
-          console.log('3.1、失败', err);
+          console.log("3.1、失败", err);
         }
       )
       .then(
         (value) => {
-          console.log('4、成功' + value);
+          console.log("4、成功" + value);
 
           return 9;
         },
         (err) => {
-          console.log('4、失败', err);
+          console.log("4、失败", err);
         }
       )
       // .finally((v) => {
@@ -191,7 +191,7 @@ const PromiseComponent = () => {
       //   );
       // })
       .then((v) => {
-        console.log('======', v);
+        console.log("======", v);
         lastResolved && lastResolved();
       });
 

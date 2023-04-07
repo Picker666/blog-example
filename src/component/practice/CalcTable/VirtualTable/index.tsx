@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo, useCallback, memo } from 'react';
-import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
+import React, { useState, useEffect, useMemo, useCallback, memo } from "react";
+import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 
-import VirtualTable from './VirtualTable';
+import VirtualTable from "./VirtualTable";
 
-import './index.less';
+import "./index.less";
 
 type tableProps = {
   columns: { [key: string]: string }[];
@@ -18,35 +18,45 @@ const VirtualTableContainer = (props: tableProps) => {
   const [showArrow, setShowArrow] = useState(false);
 
   const fixedColumnExecutor = (right, currentShow) => {
-    const fixedCells = document.querySelectorAll('.tableContainer .virtual-table-cell-last-fixed');
-    const fixedHeaderCell = document.querySelector('.tableContainer .ant-table-cell-fix-right-first');
+    const fixedCells = document.querySelectorAll(
+      ".tableContainer .virtual-table-cell-last-fixed"
+    );
+    const fixedHeaderCell = document.querySelector(
+      ".tableContainer .ant-table-cell-fix-right-first"
+    );
 
     if (currentShow) {
       fixedCells.forEach((cell) => {
         const replacement = cell as HTMLElement;
         replacement.style.right = right;
-        replacement.classList.remove('cell-last-fixed-slide');
+        replacement.classList.remove("cell-last-fixed-slide");
       });
-      fixedHeaderCell.classList.replace('ant-table-cell-fix-right', 'ant-table-cell-fix-right-static');
+      fixedHeaderCell.classList.replace(
+        "ant-table-cell-fix-right",
+        "ant-table-cell-fix-right-static"
+      );
     } else {
       fixedCells.forEach((cell) => {
         const replacement = cell as HTMLElement;
         replacement.style.right = right;
-        replacement.classList.add('cell-last-fixed-slide');
+        replacement.classList.add("cell-last-fixed-slide");
       });
-      fixedHeaderCell.classList.replace('ant-table-cell-fix-right-static', 'ant-table-cell-fix-right');
+      fixedHeaderCell.classList.replace(
+        "ant-table-cell-fix-right-static",
+        "ant-table-cell-fix-right"
+      );
     }
     setShowOperateBtn(!currentShow);
   };
 
   const getScrollPosition = () => {
-    const dom = document.querySelector('.virtual-grid');
+    const dom = document.querySelector(".virtual-grid");
     const { scrollLeft } = dom;
     return scrollLeft;
   };
 
   const handleArrowClick = () => {
-    let right = 'auto';
+    let right = "auto";
     if (!showOperateBtn) {
       const currentPostion = getScrollPosition();
       right = `-${currentPostion}px`;
@@ -56,15 +66,15 @@ const VirtualTableContainer = (props: tableProps) => {
 
   const scrollExecutor = (e) => {
     if (showOperateBtn) {
-      fixedColumnExecutor('auto', showOperateBtn);
+      fixedColumnExecutor("auto", showOperateBtn);
     }
 
     const { scrollLeft: cuttent, clientWidth } = e.target;
 
     const {
       style: { width },
-    } = document.querySelector('.virtual-grid > div') as HTMLElement;
-    const w = Number(width.replace('px', ''));
+    } = document.querySelector(".virtual-grid > div") as HTMLElement;
+    const w = Number(width.replace("px", ""));
 
     if (w - clientWidth - cuttent >= 180) {
       setShowArrow(true);
@@ -91,7 +101,7 @@ const VirtualTableContainer = (props: tableProps) => {
   const handleScroll = useCallback(handleScrollThrottle(), [showOperateBtn]);
 
   const handleScrollInitial = () => {
-    const dom = document.querySelector('.virtual-grid');
+    const dom = document.querySelector(".virtual-grid");
     handleScroll({ target: dom });
   };
 
@@ -100,10 +110,10 @@ const VirtualTableContainer = (props: tableProps) => {
   }, []);
 
   useEffect(() => {
-    const dom = document.querySelector('.virtual-grid');
-    dom.addEventListener('scroll', handleScroll, false);
+    const dom = document.querySelector(".virtual-grid");
+    dom.addEventListener("scroll", handleScroll, false);
     return () => {
-      dom.removeEventListener('scroll', handleScroll, false);
+      dom.removeEventListener("scroll", handleScroll, false);
     };
   }, [showOperateBtn]);
 
@@ -111,7 +121,7 @@ const VirtualTableContainer = (props: tableProps) => {
     if (lengthChange) {
       if (showOperateBtn) {
         setTimeout(() => {
-          const dom = document.querySelector('.virtual-grid');
+          const dom = document.querySelector(".virtual-grid");
           const { scrollLeft: cuttent } = dom;
 
           const right = `-${cuttent}px`;
@@ -128,7 +138,7 @@ const VirtualTableContainer = (props: tableProps) => {
   // const columnsInfo = useMemo(() => columns, [columns]);
 
   const arrowCls = useMemo(() => {
-    let cls = 'arrowContainer';
+    let cls = "arrowContainer";
     if (showArrow) {
       cls = `${cls} arrowShow`;
     }
@@ -138,7 +148,11 @@ const VirtualTableContainer = (props: tableProps) => {
   return (
     <>
       <div className={arrowCls} onClick={handleArrowClick} role="alert">
-        {showOperateBtn ? <DoubleRightOutlined className="arrow" /> : <DoubleLeftOutlined className="arrow" />}
+        {showOperateBtn ? (
+          <DoubleRightOutlined className="arrow" />
+        ) : (
+          <DoubleLeftOutlined className="arrow" />
+        )}
       </div>
       <VirtualTable scroll={scroll} dataSource={dataSource} columns={columns} />
     </>

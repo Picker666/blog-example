@@ -1,8 +1,8 @@
 const Inherit = () => {
   const inherit1 = function () {
     function Parent() {
-      this.name = 'Picker';
-      this.property = 'Parent';
+      this.name = "Picker";
+      this.property = "Parent";
     }
 
     Parent.prototype.getParentValue = function () {
@@ -10,8 +10,8 @@ const Inherit = () => {
     };
 
     function Child() {
-      this.name = 'sub - Picker';
-      this.subproperty = 'Child';
+      this.name = "sub - Picker";
+      this.subproperty = "Child";
     }
 
     // 继承Parent
@@ -23,7 +23,7 @@ const Inherit = () => {
 
     const instance = new Child();
     const instance1 = new Parent();
-    instance1.name = 'Picker 666';
+    instance1.name = "Picker 666";
     console.log(instance.getParentValue()); // Parent
     console.log(instance.getChildValue()); // Child
 
@@ -33,7 +33,7 @@ const Inherit = () => {
 
   const inherit2 = function () {
     function Parent1() {
-      this.name = 'Picker';
+      this.name = "Picker";
     }
 
     Parent1.prototype.getName = function () {
@@ -42,7 +42,7 @@ const Inherit = () => {
 
     function Child1() {
       Parent1.call(this);
-      this.type = 'child';
+      this.type = "child";
     }
 
     const child1 = new Child1();

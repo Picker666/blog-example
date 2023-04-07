@@ -79,9 +79,9 @@ const Palindrome = () => {
     },
   });
 
-  console.log(result, '================');
+  console.log(result, "================");
 
-  palindrome('f.dadaD.f');
+  palindrome("f.dadaD.f");
 
   return (
     <div>
