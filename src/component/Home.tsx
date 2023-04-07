@@ -45,8 +45,6 @@ const Home = () => {
       <div className="good">C</div>
       <div className="good">D</div>
       <div className="good">E</div>
-      {/* <h1>this is home page</h1>
-      <div>{goodsDomsList}</div> */}
     </div>
   );
 };
