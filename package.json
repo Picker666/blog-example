@@ -37,14 +37,6 @@
     "vite": "^2.7.2"
   },
   "lint-staged": {
-    "src/**/*.{css,less}": [
-      "npm run lint",
-      "git commit"
-    ],
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "npm run lint",
-      "git commit"
-    ],
     "src/**/*.{js,jsx,tsx}": "eslint --cache --fix"
   }
 }
