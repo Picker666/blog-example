@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import Home from "/@/component/Home";
-import NoMatch from "/@/component/NoMatch";
+import Home from '/@/component/Home';
+import NoMatch from '/@/component/NoMatch';
 
-import { navConfig, sidebarConfig } from "/@/constants/config";
+import { navConfig, sidebarConfig } from '/@/constants/config';
 
 const generateRouter = () => {
-  let routers: any[] = [];
+  const routers: any[] = [];
   navConfig.forEach((config: { link: string; component: string }) => {
     const { link, component } = config;
     if (component) {
@@ -21,17 +21,10 @@ const generateRouter = () => {
         sidebarLink = `${link}${sidebarLink}`;
         if (!sidebarComp) {
           sidebarComp = NoMatch;
-          console.log(link, c, "no component to match...");
+          console.log(link, c, 'no component to match...');
         }
 
-        routers.push(
-          <Route
-            path={sidebarLink}
-            key={sidebarLink}
-            exact
-            component={sidebarComp}
-          />
-        );
+        routers.push(<Route path={sidebarLink} key={sidebarLink} exact component={sidebarComp} />);
       });
     }
   });
