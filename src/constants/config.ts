@@ -42,6 +42,7 @@ import Bind from '/@/component/newFunction/Bind';
 import Throttle from '/@/component/newFunction/Throttle';
 import Debounce from '/@/component/newFunction/Debounce';
 import AsyncAwait from '/@/component/newFunction/AsyncAwait';
+import DeepCopy from '/@/component/newFunction/DeepCopy';
 
 export const navConfig = [
   { text: '基础梳理', link: '/base' },
@@ -93,6 +94,7 @@ export const sidebarConfig = {
     { text: 'throttle', link: '/throttle', component: Throttle },
     { text: 'debounce', link: '/debounce', component: Debounce },
     { text: 'asyncAwait', link: '/asyncAwait', component: AsyncAwait },
+    { text: 'deepCopy', link: '/deepCopy', component: DeepCopy },
   ],
   '/sourceAnalysis': [{ text: 'sourceAnalysis默认的', link: '/index', component: SourceAnalysis }],
   '/designPattern': [
