@@ -1,0 +1,49 @@
+.triangle {
+    display: inline-block;
+    border-width: 40px 20px 0px;
+    border-style: solid;
+    border-color: orange transparent transparent;
+    width: 40px;
+}
+
+.triangle1::before{
+    content: " ";
+    display: inline-block;
+    border-width: 40px 20px 0px;
+    border-style: solid;
+    border-color: orange transparent transparent;
+    width: 40px;
+}
+
+.ladderShaped {
+   display: inline-block;
+    border-width: 40px 20px 0px;
+    border-style: solid;
+    border-color: orange transparent transparent;
+    width: 60px;
+}
+.ladderShaped1 {
+  overflow: hidden;
+  height: 30px;
+
+   &::before{
+    content: " ";
+    display: inline-block;
+    border-width: 40px 20px 0px;
+    border-style: solid;
+    border-color: orange transparent transparent;
+    width: 40px;
+  }
+}
+
+.ladderShaped2 {
+
+   &::before{
+    content: " ";
+    display: inline-block;
+    border-width: 40px 20px 0px;
+    border-style: solid;
+    border-color: orange transparent transparent;
+    width: 60px;
+  }
+}
