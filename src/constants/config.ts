@@ -9,6 +9,7 @@ import Inherit from '/@/component/Base/inherit';
 import ClassInherit from '/@/component/Base/classInherit';
 import TriangleStyle from '/@/component/Base/triangleStyle';
 import ImageLazyLoading from '/@/component/Base/ImageLazyLoading';
+import Position from '/@/component/Base/Position';
 
 import TypescriptBase from '/@/component/typescript';
 import TypescriptAdvanced from '/@/component/typescript';
@@ -76,6 +77,7 @@ export const sidebarConfig = {
     { text: 'classInherit', link: '/classInherit', component: ClassInherit },
     { text: 'triangleStyle', link: '/triangleStyle', component: TriangleStyle },
     { text: 'imageLazyLoading', link: '/imageLazyLoading', component: ImageLazyLoading },
+    { text: 'position', link: '/position', component: Position },
   ],
   '/typescript': [
     { text: 'typescript基础', link: '/index', component: TypescriptBase },
