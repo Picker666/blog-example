@@ -1,8 +1,15 @@
 const Inherit = () => {
+  function Parent() {
+    this.name = 'Picker';
+  }
+
+  Parent.prototype.getName = function () {
+    return this.name;
+  };
   const inherit1 = function () {
     function Parent() {
-      this.name = "Picker";
-      this.property = "Parent";
+      this.name = 'Picker';
+      this.property = 'Parent';
     }
 
     Parent.prototype.getParentValue = function () {
@@ -10,8 +17,8 @@ const Inherit = () => {
     };
 
     function Child() {
-      this.name = "sub - Picker";
-      this.subproperty = "Child";
+      this.name = 'sub - Picker';
+      this.subproperty = 'Child';
     }
 
     // 继承Parent
@@ -23,7 +30,7 @@ const Inherit = () => {
 
     const instance = new Child();
     const instance1 = new Parent();
-    instance1.name = "Picker 666";
+    instance1.name = 'Picker 666';
     console.log(instance.getParentValue()); // Parent
     console.log(instance.getChildValue()); // Child
 
@@ -32,28 +39,91 @@ const Inherit = () => {
   };
 
   const inherit2 = function () {
-    function Parent1() {
-      this.name = "Picker";
+    function Child() {
+      Parent.call(this);
+      this.type = 'child';
     }
 
-    Parent1.prototype.getName = function () {
-      return this.name;
-    };
+    const child = new Child();
+    console.log('child', child); //  Child {name: 'Picker', type: 'child'}
+    // console.log('child.getName()', child.getName()); //  child.getName is not a function
+    console.log('child instanceof Child', child instanceof Child); // false
+  };
 
-    function Child1() {
-      Parent1.call(this);
-      this.type = "child";
+  const inherit3 = function () {
+    function Child() {
+      const instance = new Parent();
+      instance.name = 'child';
+      return instance;
     }
 
-    const child1 = new Child1();
-    console.log(child1); //  { name: 'Picker', type: 'child' }
-    console.log(child1.getName()); //  child1.getName is not a function
+    const child = new Child();
+    console.log('child', child); //  Parent {name: 'child'}
+    console.log('child.getName()', child.getName()); //  child
+    console.log('child instanceof Child', child instanceof Child); // false
+    console.log('child instanceof Parent', child instanceof Parent); // true
+  };
+
+  const inherit4 = function () {
+    function Child() {
+      const instance = new Parent();
+      for (let attr in instance) {
+        this[attr] = instance[attr];
+      }
+      this.name = 'child';
+    }
+
+    const child = new Child();
+    console.log('child', child); //  Child {name: 'child', getName: ƒ}
+    console.log('child.getName()', child.getName()); //  child
+    console.log('child instanceof Child', child instanceof Child); // true
+  };
+
+  const inherit5 = function () {
+    function Child() {
+      Parent.call(this);
+      this.name = 'child';
+    }
+    Child.prototype = new Parent();
+    Child.prototype.constructor = Child;
+
+    const child = new Child();
+
+    console.log('child', child); //  Child {name: 'child', getName: ƒ}
+    console.log('child.getName()', child.getName()); //  child
+    console.log('child instanceof Child', child instanceof Child); // true
+  };
+
+  const inherit6 = function () {
+    function Child() {
+      Parent.call(this);
+      this.name = 'child';
+    }
+
+    function Temp() {
+      console.log('======');
+    }
+
+    Temp.prototype = new Parent();
+    Child.prototype = new Temp();
+
+    Child.prototype.constructor = Child;
+
+    const child = new Child();
+
+    console.log('child', child); //  Child {name: 'child', getName: ƒ}
+    console.log('child.getName()', child.getName()); //  child
+    console.log('child instanceof Child', child instanceof Child); // true
   };
 
   return (
     <div>
-      <button onClick={inherit1}>inherit1</button>
-      <button onClick={inherit2}>1nherit2</button>
+      <button onClick={inherit1}>原型链继承</button>
+      <button onClick={inherit2}>构造函数继承</button>
+      <button onClick={inherit3}>实例继承</button>
+      <button onClick={inherit4}>复制继承</button>
+      <button onClick={inherit5}>组合继承</button>
+      <button onClick={inherit6}>寄生组合继承</button>
     </div>
   );
 };

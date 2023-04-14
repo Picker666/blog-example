@@ -1,26 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const ReactUseEffect = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log("useEffect with null");
+    console.log('useEffect with null', count);
     return () => {
-      console.log("useEffect with null === return");
+      console.log('useEffect with null === return', count);
     };
   });
 
   useEffect(() => {
-    console.log("useEffect with []");
+    console.log('useEffect with []');
     return () => {
-      console.log("useEffect with [] === return");
+      console.log('useEffect with [] === return');
     };
   }, []);
 
   useEffect(() => {
-    console.log("useEffect with [dependencies]");
+    console.log('useEffect with [dependencies]', count);
     return () => {
-      console.log("useEffect with [dependencies] === return");
+      console.log('useEffect with [dependencies] === return', count);
     };
   }, [count]);
 

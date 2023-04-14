@@ -5,7 +5,7 @@ import SetMap from '/@/component/Base/SetMap';
 import ColumnsLayout from '/@/component/Base/columnsLayout';
 import DeDuplication from '/@/component/Base/deDuplication';
 import Flex from '/@/component/Base/Flex';
-import Inherit from '/@/component/Base/inherit';
+import Inherit from '/@/component/Base/Inherit';
 import ClassInherit from '/@/component/Base/classInherit';
 import TriangleStyle from '/@/component/Base/triangleStyle';
 import ImageLazyLoading from '/@/component/Base/ImageLazyLoading';
