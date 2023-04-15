@@ -1,4 +1,5 @@
 import Base from '/@/component/Base';
+import EventLoop from '/@/component/Base/EventLoop';
 import InterviewIndex from '/@/component/Base/interview';
 import InterviewScope from '/@/component/Base/interview/scope';
 import SetMap from '/@/component/Base/SetMap';
@@ -38,6 +39,7 @@ import Fibonacci from '/@/component/algorithm/Fibonacci';
 import Palindrome from '/@/component/algorithm/Palindrome';
 import VersionSorting from '/@/component/algorithm/VersionSorting';
 import FindMin from '/@/component/algorithm/FindMin';
+import ArrayDistrub from '/@/component/algorithm/ArrayDistrub';
 
 import NewFunction from '/@/component/newFunction';
 import CallApply from '/@/component/newFunction/CallApply';
@@ -62,7 +64,8 @@ export const navConfig = [
 
 export const sidebarConfig = {
   '/base': [
-    { text: 'envent loop', link: '/index', component: Base },
+    { text: 'testing', link: '/testing', component: Base },
+    { text: 'envent loop', link: '/eventLoop', component: EventLoop },
     { text: 'interview', link: '/interview/index', component: InterviewIndex },
     {
       text: 'interviewScope',
@@ -158,5 +161,6 @@ export const sidebarConfig = {
     { text: '回文', link: '/palindrome', component: Palindrome },
     { text: '版本号排序', link: '/versionSorting', component: VersionSorting },
     { text: '找出最小值', link: '/findMin', component: FindMin },
+    { text: '打乱数据', link: '/arrayDistrub', component: ArrayDistrub },
   ],
 };
