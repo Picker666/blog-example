@@ -1,268 +1,85 @@
 const STATE = {
-  PENDING: "pending",
-  FULFILLED: "fulfilled",
-  REJECTED: "rejected",
+  PENDING: 'pending',
+  FULFILLED: 'fulfilled',
+  REJECTED: 'rejected',
 };
 
 const PromiseComponent = () => {
-  function P(cb) {
-    const _this = this;
-    _this.currentState = STATE.PENDING;
-    _this.value = null;
+  const deepCopy = (data, mp = new Map()) => {
+    let copyedData;
 
-    _this.fulfilleds = [];
-    _this.rejecteds = [];
-
-    _this.resolve = function (value) {
-      if (_this.currentState === STATE.PENDING) {
-        _this.currentState = STATE.FULFILLED;
-        _this.value = value;
-
-        _this.fulfilleds.forEach((item) => {
-          item(value);
-        });
+    if (typeof data === 'object' && data !== null) {
+      const dataValue = mp.get(data);
+      if (dataValue) {
+        return dataValue;
       }
-    };
 
-    _this.reject = function (err) {
-      if (_this.currentState === STATE.PENDING) {
-        _this.currentState = STATE.REJECTED;
-        _this.value = err;
-        _this.rejecteds.forEach((item) => {
-          item(err);
-        });
-      }
-    };
+      mp.set(data, data);
+      copyedData = new data.constructor();
 
-    cb(_this.resolve, _this.reject);
-  }
-
-  const handleNext = function (value, cb, resolve, reject) {
-    try {
-      const lastResult = cb(value);
-      if (lastResult instanceof P) {
-        lastResult.then(resolve, reject);
+      if (Array.isArray(data)) {
+        copyedData = data.map((item) => deepCopy(item, mp));
       } else {
-        resolve(lastResult);
+        const reflectKeys = Reflect.ownKeys(data);
+        reflectKeys.forEach((attr) => {
+          copyedData[attr] = deepCopy(data[attr], mp);
+
+          if (!Object.propertyIsEnumerable.call(data, attr)) {
+            Object.defineProperty(copyedData, attr, {
+              enumerable: false,
+            });
+          }
+        });
       }
-    } catch (err) {
-      reject(err);
+    } else {
+      copyedData = data;
     }
+
+    return copyedData;
   };
 
-  P.prototype.then = function (onFulfilled, onRejected) {
-    const _this = this;
-    const handleFulfilled =
-      typeof onFulfilled === "function" ? onFulfilled : (val) => val;
-
-    const handleRejected =
-      typeof onRejected === "function"
-        ? onRejected
-        : (err) => {
-            throw err;
-          };
-
-    return new P((resolve, reject) => {
-      if (_this.currentState === STATE.FULFILLED) {
-        handleNext(_this.value, handleFulfilled, resolve, reject);
-      }
-
-      if (_this.currentState === STATE.REJECTED) {
-        handleNext(_this.value, handleRejected, resolve, reject);
-      }
-
-      if (_this.currentState === STATE.PENDING) {
-        _this.fulfilleds.push((val) => {
-          handleNext(val, handleFulfilled, resolve, reject);
-        });
-
-        _this.rejecteds.push((err) => {
-          err;
-          handleNext(err, handleRejected, resolve, reject);
-        });
-      }
-    });
-  };
-
-  //================================================================
-
-  const testing = (MP, lastResolved) =>
-    new MP((resolve, reject) => {
-      setTimeout(() => {
-        if (Math.random() > 0.5) {
-          resolve("成功了。。。。");
-        } else {
-          reject("失败了。。。");
-        }
-      }, 1000);
-      // if (Math.random() > 0.1) {
-      //   resolve('成功了。。。。');
-      // } else {
-      //   reject('失败了。。。');
-      // }
-    })
-      .then()
-      .then()
-      .then(
-        (value) => {
-          console.log("1、成功", value);
-          return value;
-        },
-        (err) => {
-          console.log("1、失败", err);
-        }
-      )
-      .then(
-        (value) => {
-          console.log("2、成功", value);
-        },
-        (err) => {
-          console.log("2、失败", err);
-        }
-      )
-      .then(
-        (value) => {
-          console.log("3、成功", value);
-          return new MP((resolve, reject) => {
-            setTimeout(() => {
-              if (Math.random() > 0) {
-                resolve("3resolve。。。。");
-              } else {
-                reject("3reject");
-              }
-            }, 2000);
-          });
-        },
-        (err) => {
-          console.log("3、失败", err);
-        }
-      )
-      .then(
-        (value) => {
-          console.log("3.1、成功", value);
-          return new MP((resolve, reject) => {
-            setTimeout(() => {
-              if (Math.random() > 0) {
-                resolve("3.1resolve。。。。");
-              } else {
-                reject("3.1reject");
-              }
-            }, 1000);
-          });
-        },
-        (err) => {
-          console.log("3.1、失败", err);
-        }
-      )
-      .then(
-        (value) => {
-          console.log("4、成功" + value);
-
-          return 9;
-        },
-        (err) => {
-          console.log("4、失败", err);
-        }
-      )
-      // .finally((v) => {
-      //   console.log('================================', v);
-      //   setTimeout(() => {
-      //     console.log('=========倒计时=======================');
-      //   }, 1000);
-      // })
-      // .then(
-      //   (v) => {
-      //     console.log('=====================vv===========', v);
-      //     console.log('测试开始啦!!!=========================================');
-      //     return MP.resolve('88');
-      //   },
-      //   (err) => {
-      //     console.log('======================err==========', err);
-      //   }
-      // )
-      // .then((v) => {
-      //   console.log(v);
-      //   return MP.resolve(
-      //     new PM((resolve, reject) => {
-      //       setTimeout(() => {
-      //         resolve('999');
-      //       }, 1000);
-      //     })
-      //   );
-      // })
-      .then((v) => {
-        console.log("======", v);
-        lastResolved && lastResolved();
-      });
-
-  const handleClick = () => testing(Promise, () => testing(P));
-  // const handleClick1 = () => forRace(Promise, () => forRace(PM));
-  // const handleClick2 = () => forAll(Promise, () => forAll(PM));
-  // const handleClick3 = () => forAllSettled(Promise, () => forAllSettled(PM));
-
-  Function.prototype.newCall = function (_this, ...rest) {
-    const obj = Object.create(_this);
-    obj.fn = this;
-    const result = obj.fn(...rest);
-
-    return result;
-  };
-
-  Function.prototype.newApply = function (_this, rest) {
-    const obj = Object.create(_this);
-    obj.fn = this;
-    const result = obj.fn(...rest);
-
-    return result;
-  };
-
-  Function.prototype.newBind = function (_this, ...rest) {
-    const obj = Object.create(_this);
-    obj.fn = this;
-
-    return (...r) => {
-      const result = obj.fn(...rest, ...r);
-      return result;
+  const handleClick = () => {
+    const obj = {
+      name: 'picker666',
+      age: 22,
+      sex: '男',
+      hobby: ['跑步', '读书', '睡觉'],
+      fn: function () {
+        console.log(this.name);
+      },
+      friends: [11, 2, 3, { name: 'picker', age: 18 }],
+      time: new Date(),
+      reg: new RegExp(/D{9,19}/gi),
+      id: Symbol('picker'),
     };
-  };
 
-  const add = function (a, b) {
-    console.log(this.c);
-    return a + b;
+    function People(name) {
+      this.name = name;
+    }
+    People.prototype.eat = function () {
+      console.log(`${this.name} eat any thing!`);
+    };
+    obj[Symbol('picker666')] = 'picker666';
+    obj.love = new People('Christine');
+
+    Object.defineProperty(obj, 'learning', {
+      enumerable: false,
+      value: 666,
+    });
+
+    obj.other = obj;
+
+    console.log('obj: ', obj, Object.keys(obj));
+    const targetData = deepCopy(obj);
+    console.log('targetData: ', targetData, Object.keys(targetData));
+    console.log(new Date(targetData.time).getTime());
+    console.log();
   };
 
   return (
     <div>
       <h1>this is 404 page</h1>
-      <button onClick={handleClick}>promise.then执行</button>
-      {/* <button onClick={handleClick1}>race执行</button>
-      <button onClick={handleClick2}>all执行</button>
-      <button onClick={handleClick3}>all settled执行</button> */}
-      <button
-        onClick={() => {
-          const res = add.newCall({ c: 8 }, 1, 2);
-          console.log(res);
-        }}
-      >
-        newcall
-      </button>
-      <button
-        onClick={() => {
-          const res = add.newApply({ c: 8 }, [1, 2]);
-          console.log(res);
-        }}
-      >
-        newapply
-      </button>
-      <button
-        onClick={() => {
-          const addbind = add.newBind({ c: 8 }, 1);
-          const result = addbind(2);
-          console.log(result);
-        }}
-      >
-        newbind
-      </button>
+      <button onClick={handleClick}>goo</button>
     </div>
   );
 };

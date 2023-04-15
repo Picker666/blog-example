@@ -52,23 +52,123 @@ const DeepCopy = () => {
     return newData;
   };
 
+  const deepCopy3 = (data, mp = new Map()) => {
+    let copyedData;
+
+    if (typeof data === 'object' && data !== null) {
+      const dataValue = mp.get(data);
+      if (dataValue) {
+        return dataValue;
+      }
+
+      mp.set(data, data);
+      copyedData = new data.constructor();
+
+      if (Array.isArray(data)) {
+        copyedData = data.map((item) => deepCopy(item, mp));
+      } else {
+        const normalAttrs = Object.getOwnPropertyNames(data);
+        const symbalAttrs = Object.getOwnPropertySymbols(data);
+        [...normalAttrs, ...symbalAttrs].forEach((attr) => {
+          copyedData[attr] = deepCopy(data[attr], mp);
+        });
+      }
+    } else {
+      copyedData = data;
+    }
+
+    return copyedData;
+  };
+
+  const deepCopy4 = (data, mp = new Map()) => {
+    let copyedData;
+
+    if (typeof data === 'object' && data !== null) {
+      const dataValue = mp.get(data);
+      if (dataValue) {
+        return dataValue;
+      }
+
+      mp.set(data, data);
+      copyedData = new data.constructor();
+
+      if (Array.isArray(data)) {
+        copyedData = data.map((item) => deepCopy(item, mp));
+      } else {
+        const reflectKeys = Reflect.ownKeys(data);
+        reflectKeys.forEach((attr) => {
+          copyedData[attr] = deepCopy(data[attr], mp);
+        });
+      }
+    } else {
+      copyedData = data;
+    }
+
+    return copyedData;
+  };
+
+  const deepCopy5 = (data, mp = new Map()) => {
+    let copyedData;
+
+    if (typeof data === 'object' && data !== null) {
+      const dataValue = mp.get(data);
+      if (dataValue) {
+        return dataValue;
+      }
+
+      mp.set(data, data);
+      copyedData = new data.constructor();
+
+      if (Array.isArray(data)) {
+        copyedData = data.map((item) => deepCopy(item, mp));
+      } else {
+        const reflectKeys = Reflect.ownKeys(data);
+        reflectKeys.forEach((attr) => {
+          copyedData[attr] = deepCopy(data[attr], mp);
+
+          if (!Object.propertyIsEnumerable.call(data, attr)) {
+            Object.defineProperty(copyedData, attr, {
+              enumerable: false,
+            });
+          }
+        });
+      }
+    } else {
+      copyedData = data;
+    }
+
+    return copyedData;
+  };
   const handleDeepCopy = () => {
     const obj = {
-      name: '微信公众号: Code程序人生',
+      name: 'picker666',
       age: 22,
       sex: '男',
       hobby: ['跑步', '读书', '睡觉'],
       fn: function () {
         console.log(this.name);
       },
+      friends: [11, 2, 3, { name: 'picker', age: 18 }],
       time: new Date(),
       reg: new RegExp(/D{9,19}/gi),
+      id: Symbol('picker'),
     };
 
-    const obj1 = {};
+    function People(name) {
+      this.name = name;
+    }
+    People.prototype.eat = function () {
+      console.log(`${this.name} eat any thing!`);
+    };
+    obj[Symbol('picker666')] = 'picker666';
+    obj.love = new People('Christine');
 
-    obj.obj1 = obj1;
-    obj1.obj = obj;
+    Object.defineProperty(obj, 'learning', {
+      enumerable: false,
+      value: 666,
+    });
+
+    obj.other = obj;
 
     // const data = deepCopy(obj);
     // console.log('data: ', data);

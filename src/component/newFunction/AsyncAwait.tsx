@@ -127,6 +127,7 @@ const AsyncAwait = () => {
   // --
 
   function MyAsync(func) {
+    // async 关键字的转化
     return function (...rest) {
       const next = (result, resolve, reject, value) => {
         const res = result.next(value);
