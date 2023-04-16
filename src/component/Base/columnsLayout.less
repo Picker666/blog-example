@@ -1,95 +1,195 @@
 // 两栏
 .box {
   display: flex;
-}
-.left {
-  width: 100px;
-  background: coral;
-}
-.right {
-  flex: 1;
-  background: lightblue;
+  
+  .left {
+    width: 100px;
+    background: coral;
+  }
+  .right {
+    flex: 1;
+    background: lightblue;
+  }
 }
 
 // 三栏
 
-// .wrap {
-//         background: #eee;
-//         overflow: hidden; // <!-- 生成BFC，计算高度时考虑浮动的元素 -->
-//         padding: 20px;
-//         height: 200px;
-//     }
-//     .left {
-//         width: 200px;
-//         height: 200px;
-//         float: left;
-//         background: coral;
-//     }
-//     .right {
-//         width: 120px;
-//         height: 200px;
-//         float: right;
-//         background: lightblue;
-//     }
-//     .middle {
-//         margin-left: 220px;
-//         height: 200px;
-//         background: lightpink;
-//         margin-right: 140px;
-//     }
+.wrap1 {
+  background: #eee;
+  overflow: hidden; // <!-- 生成BFC，计算高度时考虑浮动的元素 -->
+  height: 200px;
 
-// .left,
-//   .right,
-//   .main {
-//     height: 200px;
-//     line-height: 200px;
-//     text-align: center;
-//   }
+  .left {
+        width: 200px;
+        height: 200px;
+        float: left;
+        background: coral;
+    }
+    .right {
+        width: 120px;
+        height: 200px;
+        float: right;
+        background: lightblue;
+    }
+    .middle {
+        margin-left: 200px;
+        height: 200px;
+        background: lightpink;
+        margin-right: 120px;
+    }
+}
+    
+.wrap2 {
+  overflow: hidden;
+  
+  .left,
+  .right,
+  .main {
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+  }
 
-//   .main-wrapper {
-//     float: left;
-//     width: 100%;
-//   }
+  .main-wrapper {
+    float: left;
+    width: 100%;
+  }
 
-//   .main {
-//     margin: 0 110px;
-//     background: black;
-//     color: white;
-//   }
+  .main {
+    margin: 0 110px;
+    background: black;
+    color: white;
+  }
 
-//   .left,
-//   .right {
-//     float: left;
-//     width: 100px;
-//     margin-left: -100%;
-//     background: green;
-//   }
+  .left,
+  .right {
+    float: left;
+    width: 100px;
+    background: green;
+  }
 
-//   .right {
-//     margin-left: -100px; /* 同自身宽度 */
-//   }
+  .left {
+    margin-right: -100%;
+  }
 
-// .wrap {
-//         display: grid;
-//         width: 100%;
-//         grid-template-columns: 300px auto 300px;
-//     }
+  .right {
+    margin-left: -100px; /* 同自身宽度 */
+  }
+}
 
-//     .left,
-//     .right,
-//     .middle {
-//         height: 100px;
-//     }
+.wrap3 {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 300px auto 300px;
 
-//     .left {
-//         background: coral;
-//     }
+  .left,
+  .right,
+  .middle {
+      height: 100px;
+  }
 
-//     .right {
-//         width: 300px;
-//         background: lightblue;
-//     }
+  .left {
+      background: coral;
+  }
 
-//     .middle {
-//         background: #555;
-//     }
+  .right {
+      // width: 300px;
+      background: lightblue;
+  }
+
+  .middle {
+      background: #555;
+  }
+}
+
+.wrap4 {
+  width: 100%;
+  column-count: 3;
+
+  .left,
+  .right,
+  .middle {
+      height: 100px;
+  }
+
+  .left {
+      background: coral;
+  }
+
+  .right {
+      // width: 300px;
+      background: lightblue;
+  }
+
+  .middle {
+      background: #555;
+  }
+}
+
+.wrap5 {
+  padding-left: 200px;
+  padding-right: 150px;
+  overflow: auto;
+
+  .left,
+  .right,
+  .middle {
+      height: 100px;
+      float: left;
+  }
+
+  .left {
+    width: 200px;
+    position: relative;
+    left: -200px;
+    margin-right: -100%;
+    background: coral;
+  }
+
+  .right {
+      width: 150px;
+      margin-right: -150px;
+      background: lightblue;
+  }
+
+  .middle {
+      background: #555;
+      width: 100%;
+  }
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.wrap6 {
+   overflow: auto;
+   padding: 0 200px;
+
+  .left,
+  .right,
+  .middle {
+      height: 100px;
+      float: left;
+  }
+
+  .left {
+    background: coral;
+    width: 200px;
+    margin-left: -200px;
+  }
+
+  .right {
+      background: lightblue;
+      width: 200px;
+      margin-right: -200px;
+  }
+
+  .middle {
+      background: #555;
+      width: 100%;
+  }
+
+}
