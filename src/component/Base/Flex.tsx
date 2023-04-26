@@ -1,4 +1,4 @@
-import "./flex.css";
+import './flex.css';
 
 const Flex = () => {
   return (
@@ -127,7 +127,7 @@ const Flex = () => {
             <br />
             flex: 1 1 300px;
             <br />
-            拉伸后的宽度：300px
+            拉伸后的宽度：350px
           </div>
         </div>
         <div className="instruction">
@@ -285,6 +285,24 @@ const Flex = () => {
         </div>
         <div className="instruction">
           <div>黄框：content为 400px</div>
+        </div>
+      </div>
+
+      <h2>14: </h2>
+      <div className="flexLayout">
+        <div className="father">
+          <div className="son"></div>
+          <div className="son"></div>
+          <div className="son"></div>
+        </div>
+      </div>
+
+      <h2>15: </h2>
+      <div className="flexLayout1">
+        <div className="father">
+          <div className="son"></div>
+          <div className="son"></div>
+          <div className="son"></div>
         </div>
       </div>
     </div>

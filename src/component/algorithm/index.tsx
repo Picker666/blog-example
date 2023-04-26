@@ -13,7 +13,7 @@ const Testing = () => {
           changed = true;
         }
       }
-      console.log(i, "========");
+      console.log(i, '========');
     }
 
     console.log(arr);
@@ -31,7 +31,7 @@ const Testing = () => {
           arr[j] = current;
         }
       }
-      console.log(i, "========");
+      console.log(i, '========');
     }
 
     console.log(arr);
@@ -84,7 +84,7 @@ const Testing = () => {
       arr[k] = mergedArr[k];
     }
 
-    console.log(arr, "===========================");
+    console.log(arr, '===========================');
     return arr;
   };
 
@@ -121,23 +121,13 @@ const Testing = () => {
   return (
     <div>
       <h1>this is algorithm home page</h1>
-      <button onClick={() => sorting1([12, 3, 5, 74, 2, 8, 90, 0, -90])}>
-        sorting1
-      </button>
-      <button onClick={() => sorting2([12, 3, 5, 74, 2, 8, 90, 0, -90])}>
-        选择排序
-      </button>
-      <button onClick={() => sorting3([12, 3, 5, 74, 2, 8, 90, 0, -90])}>
-        插入排序
-      </button>
+      <button onClick={() => sorting1([12, 3, 5, 74, 2, 8, 90, 0, -90])}>sorting1</button>
+      <button onClick={() => sorting2([12, 3, 5, 74, 2, 8, 90, 0, -90])}>选择排序</button>
+      <button onClick={() => sorting3([12, 3, 5, 74, 2, 8, 90, 0, -90])}>插入排序</button>
 
-      <button onClick={() => sorting4([12, 3, 5, 74, 2, 8, 90, 0, -90], 0, 8)}>
-        二路归并排序
-      </button>
+      <button onClick={() => sorting4([12, 3, 5, 74, 2, 8, 90, 0, -90], 0, 8)}>二路归并排序</button>
 
-      <button onClick={() => sorting5([12, 3, 5, 74, 2, 8, 90, 0, -90], 0, 8)}>
-        快速排序
-      </button>
+      <button onClick={() => sorting5([12, 3, 5, 74, 2, 8, 90, 0, -90], 0, 8)}>快速排序</button>
     </div>
   );
 };

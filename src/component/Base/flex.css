@@ -342,3 +342,46 @@
   background: blue;
   flex: 3 0.3 300px;
 }
+
+.flexLayout {
+
+  .father {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .son {
+      background-color: orange;
+      border: solid 1px #fff;
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+.flexLayout1 {
+
+  .father {
+    display: flex;
+    flex-direction: column;
+
+    .son {
+      background-color: orange;
+      border: solid 1px #fff;
+      width: 100px;
+      height: 100px;
+    }
+
+    .son:nth-child(1) {
+      align-self: flex-start;
+    }
+
+    .son:nth-child(2) {
+      align-self: center;
+    }
+
+    .son:nth-child(3) {
+      align-self: flex-end;
+    }
+  }
+}
