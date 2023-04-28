@@ -65,12 +65,12 @@ const DeepCopy = () => {
       copyedData = new data.constructor();
 
       if (Array.isArray(data)) {
-        copyedData = data.map((item) => deepCopy(item, mp));
+        copyedData = data.map((item) => deepCopy3(item, mp));
       } else {
         const normalAttrs = Object.getOwnPropertyNames(data);
         const symbalAttrs = Object.getOwnPropertySymbols(data);
         [...normalAttrs, ...symbalAttrs].forEach((attr) => {
-          copyedData[attr] = deepCopy(data[attr], mp);
+          copyedData[attr] = deepCopy3(data[attr], mp);
         });
       }
     } else {
@@ -93,11 +93,11 @@ const DeepCopy = () => {
       copyedData = new data.constructor();
 
       if (Array.isArray(data)) {
-        copyedData = data.map((item) => deepCopy(item, mp));
+        copyedData = data.map((item) => deepCopy4(item, mp));
       } else {
         const reflectKeys = Reflect.ownKeys(data);
         reflectKeys.forEach((attr) => {
-          copyedData[attr] = deepCopy(data[attr], mp);
+          copyedData[attr] = deepCopy4(data[attr], mp);
         });
       }
     } else {
@@ -107,7 +107,7 @@ const DeepCopy = () => {
     return copyedData;
   };
 
-  const deepCopy5 = (data, mp = new Map()) => {
+  const deepCopy5 = (data, mp = new WeakMap()) => {
     let copyedData;
 
     if (typeof data === 'object' && data !== null) {
@@ -116,15 +116,15 @@ const DeepCopy = () => {
         return dataValue;
       }
 
-      mp.set(data, data);
       copyedData = new data.constructor();
+      mp.set(data, copyedData);
 
       if (Array.isArray(data)) {
-        copyedData = data.map((item) => deepCopy(item, mp));
+        copyedData = data.map((item) => deepCopy5(item, mp));
       } else {
         const reflectKeys = Reflect.ownKeys(data);
         reflectKeys.forEach((attr) => {
-          copyedData[attr] = deepCopy(data[attr], mp);
+          copyedData[attr] = deepCopy5(data[attr], mp);
 
           if (!Object.propertyIsEnumerable.call(data, attr)) {
             Object.defineProperty(copyedData, attr, {
@@ -172,8 +172,10 @@ const DeepCopy = () => {
 
     // const data = deepCopy(obj);
     // console.log('data: ', data);
-    const data1 = deepCopy2(obj);
+    const data1 = deepCopy5(obj);
+    obj.temp = '999';
     console.log('data1: ', data1);
+    console.log('obj: ', obj);
   };
 
   return (
