@@ -89,7 +89,7 @@ const DeepCopy = () => {
         return dataValue;
       }
 
-      mp.set(data, data);
+      mp.set(data, copyedData);
       copyedData = new data.constructor();
 
       if (Array.isArray(data)) {
