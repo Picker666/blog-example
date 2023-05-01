@@ -139,6 +139,43 @@ const DeepCopy = () => {
 
     return copyedData;
   };
+
+  const deepCopy6 = (data, mp = new Map()) => {
+    let newData = data;
+    if (typeof data === 'object' && data !== null) {
+      const cd = mp.get(data);
+      if (cd) {
+        return cd;
+      }
+
+      let copyObj = new data.constructor();
+      if (data instanceof RegExp) {
+        copyObj = new data.constructor(data);
+      }
+
+      mp.set(data, copyObj);
+      if (Array.isArray(data)) {
+        newData = data.map((item) => deepCopy6(item, mp));
+      } else {
+        const keys = Reflect.ownKeys(data);
+
+        keys.forEach((item) => {
+          const copyValue = deepCopy6(data[item], mp);
+          copyObj[item] = copyValue;
+          // eslint-disable-next-line no-prototype-builtins
+          if (!data.propertyIsEnumerable(item)) {
+            Object.defineProperty(copyObj, item, {
+              enumerable: false,
+            });
+          }
+        });
+
+        newData = copyObj;
+      }
+    }
+
+    return newData;
+  };
   const handleDeepCopy = () => {
     const obj = {
       name: 'picker666',
@@ -154,25 +191,30 @@ const DeepCopy = () => {
       id: Symbol('picker'),
     };
 
+    // 构造函数
     function People(name) {
       this.name = name;
     }
     People.prototype.eat = function () {
       console.log(`${this.name} eat any thing!`);
     };
+
+    // symbal key
     obj[Symbol('picker666')] = 'picker666';
     obj.love = new People('Christine');
 
+    // 不可枚举对象
     Object.defineProperty(obj, 'learning', {
       enumerable: false,
       value: 666,
     });
 
+    // 循环引用
     obj.other = obj;
 
     // const data = deepCopy(obj);
     // console.log('data: ', data);
-    const data1 = deepCopy5(obj);
+    const data1 = deepCopy6(obj);
     obj.temp = '999';
     console.log('data1: ', data1);
     console.log('obj: ', obj);
