@@ -93,29 +93,30 @@ const Testing = () => {
     if (left >= right) {
       return arr;
     }
+
     let i = left;
     let j = right;
-    const current = arr[i];
 
-    while (j > i) {
-      if (j > i && current <= arr[j]) {
+    const base = arr[i];
+    while (i < j) {
+      while (i < j && arr[j] >= base) {
         j--;
       }
       arr[i] = arr[j];
 
-      if (j > i && current >= arr[i]) {
+      while (i < j && arr[i] <= base) {
         i++;
       }
       arr[j] = arr[i];
     }
 
-    arr[i] = current;
+    arr[i] = base;
 
-    let formatArr = sorting5(arr, left, i);
-    formatArr = sorting5(formatArr, i + 1, right);
+    arr = sorting5(arr, left, i);
+    arr = sorting5(arr, i + 1, right);
+    console.log('arr: ', arr);
 
-    console.log(formatArr);
-    return formatArr;
+    return arr;
   };
 
   return (

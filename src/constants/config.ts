@@ -41,6 +41,7 @@ import Palindrome from '/@/component/algorithm/Palindrome';
 import VersionSorting from '/@/component/algorithm/VersionSorting';
 import FindMin from '/@/component/algorithm/FindMin';
 import ArrayDistrub from '/@/component/algorithm/ArrayDistrub';
+import ArraryFlat from '/@/component/algorithm/ArraryFlat';
 
 import NewFunction from '/@/component/newFunction';
 import CallApply from '/@/component/newFunction/CallApply';
@@ -164,5 +165,6 @@ export const sidebarConfig = {
     { text: '版本号排序', link: '/versionSorting', component: VersionSorting },
     { text: '找出最小值', link: '/findMin', component: FindMin },
     { text: '打乱数据', link: '/arrayDistrub', component: ArrayDistrub },
+    { text: '数组扁平化', link: '/arraryFlat', component: ArraryFlat },
   ],
 };

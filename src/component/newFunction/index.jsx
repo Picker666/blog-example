@@ -5,75 +5,214 @@ const STATE = {
 };
 
 const PromiseComponent = () => {
-  const deepCopy = (data, mp = new Map()) => {
-    let copyedData;
+  function NewPromise(callback) {
+    const _this = this;
+    _this.value = null;
+    _this.reason = null;
+    _this.state = STATE.PENDING;
+    _this.fulfillCallback = [];
+    _this.rejectCallback = [];
 
-    if (typeof data === 'object' && data !== null) {
-      const dataValue = mp.get(data);
-      if (dataValue) {
-        return dataValue;
+    _this.resolved = (value) => {
+      // setTimeout(() => {
+      if (_this.state === STATE.PENDING) {
+        _this.value = value;
+        _this.state = STATE.FULFILLED;
+        _this.fulfillCallback.forEach((cb) => {
+          cb(value);
+        });
       }
+      // });
+    };
 
-      mp.set(data, data);
-      copyedData = new data.constructor();
+    _this.rejected = (reason) => {
+      // setTimeout(() => {
+      if (_this.state === STATE.PENDING) {
+        _this.reason = reason;
+        _this.state = STATE.REJECTED;
+        _this.rejectCallback.forEach((cb) => {
+          cb(reason);
+        });
+      }
+      // });
+    };
 
-      if (Array.isArray(data)) {
-        copyedData = data.map((item) => deepCopy(item, mp));
-      } else {
-        const reflectKeys = Reflect.ownKeys(data);
-        reflectKeys.forEach((attr) => {
-          copyedData[attr] = deepCopy(data[attr], mp);
+    callback(_this.resolved, _this.rejected);
+  }
 
-          if (!Object.propertyIsEnumerable.call(data, attr)) {
-            Object.defineProperty(copyedData, attr, {
-              enumerable: false,
-            });
+  NewPromise.prototype.then = function (fulfilled, rejected) {
+    if (typeof fulfilled !== 'function') {
+      fulfilled = (val) => val;
+    }
+
+    if (typeof rejected !== 'function') {
+      rejected = (reason) => {
+        throw new Error(reason);
+      };
+    }
+
+    const _this = this;
+    return new NewPromise((resolve, reject) => {
+      if (_this.state === STATE.PENDING) {
+        _this.fulfillCallback.push((val) => {
+          try {
+            const value = fulfilled(val);
+            if (value instanceof NewPromise) {
+              value.then(resolve, reject);
+            } else {
+              resolve(value);
+            }
+          } catch (err) {
+            reject(err);
+          }
+        });
+
+        _this.rejectCallback.push((reason) => {
+          try {
+            const value = rejected(reason);
+            if (value instanceof NewPromise) {
+              value.then(resolve, reject);
+            } else {
+              resolve(value);
+            }
+          } catch (err) {
+            reject(err);
           }
         });
       }
-    } else {
-      copyedData = data;
-    }
-
-    return copyedData;
+      if (_this.state === STATE.FULFILLED) {
+        try {
+          const value = fulfilled(_this.value);
+          if (value instanceof NewPromise) {
+            value.then(resolve, rejected);
+          } else {
+            resolve(value);
+          }
+        } catch (err) {
+          reject(err);
+        }
+      }
+      if (_this.state === STATE.REJECTED) {
+        try {
+          const value = rejected(_this.reason);
+          if (value instanceof NewPromise) {
+            value.then(resolve, rejected);
+          } else {
+            resolve(value);
+          }
+        } catch (err) {
+          reject(err);
+        }
+      }
+    });
   };
 
-  const handleClick = () => {
-    const obj = {
-      name: 'picker666',
-      age: 22,
-      sex: '男',
-      hobby: ['跑步', '读书', '睡觉'],
-      fn: function () {
-        console.log(this.name);
-      },
-      friends: [11, 2, 3, { name: 'picker', age: 18 }],
-      time: new Date(),
-      reg: new RegExp(/D{9,19}/gi),
-      id: Symbol('picker'),
-    };
-
-    function People(name) {
-      this.name = name;
+  NewPromise.prototype.resolve = function resolve(value) {
+    if (value instanceof NewPromise) {
+      return value;
     }
-    People.prototype.eat = function () {
-      console.log(`${this.name} eat any thing!`);
-    };
-    obj[Symbol('picker666')] = 'picker666';
-    obj.love = new People('Christine');
+    return new NewPromise((resolve, reject) => resolve(value));
+  };
 
-    Object.defineProperty(obj, 'learning', {
-      enumerable: false,
-      value: 666,
-    });
+  NewPromise.prototype.reject = function resolve(reason) {
+    return new NewPromise((resolve, reject) => reject(reason));
+  };
 
-    obj.other = obj;
+  const testing = (MP, lastResolved) =>
+    new MP((resolve, reject) => {
+      setTimeout(() => {
+        if (Math.random() > 0.5) {
+          resolve('成功了。。。。');
+        } else {
+          reject('失败了。。。');
+        }
+      }, 1000);
+      // if (Math.random() > 0.1) {
+      //   resolve('成功了。。。。');
+      // } else {
+      //   reject('失败了。。。');
+      // }
+    })
+      // .then()
+      // .then()
+      .then(
+        (value) => {
+          console.log('1、成功', value);
+          // return value;
+          return new MP((resolve, reject) => {
+            setTimeout(() => {
+              if (Math.random() > 1) {
+                resolve('0成功了。。。。');
+              } else {
+                reject('0失败了。。。');
+              }
+            }, 1000);
+          });
+        },
+        (err) => {
+          console.log('1、失败', err);
+        }
+      )
+      .then(
+        (value) => {
+          console.log('2、成功', value);
+        },
+        (err) => {
+          console.log('2、失败', err);
+        }
+      )
+      .then(
+        (value) => {
+          console.log('3、成功', value);
+          return new MP((resolve, reject) => {
+            setTimeout(() => {
+              if (Math.random() > 0) {
+                resolve('3resolve。。。。');
+              } else {
+                reject('3reject');
+              }
+            }, 2000);
+          });
+        },
+        (err) => {
+          console.log('3、失败', err);
+        }
+      )
+      .then(
+        (value) => {
+          console.log('3.1、成功', value);
+          return new MP((resolve, reject) => {
+            setTimeout(() => {
+              if (Math.random() > 0) {
+                resolve('3.1resolve。。。。');
+              } else {
+                reject('3.1reject');
+              }
+            }, 1000);
+          });
+        },
+        (err) => {
+          console.log('3.1、失败', err);
+        }
+      )
+      .then(
+        (value) => {
+          console.log('4、成功' + value);
 
-    console.log('obj: ', obj, Object.keys(obj));
-    const targetData = deepCopy(obj);
-    console.log('targetData: ', targetData, Object.keys(targetData));
-    console.log(new Date(targetData.time).getTime());
-    console.log();
+          return 9;
+        },
+        (err) => {
+          console.log('4、失败', err);
+        }
+      )
+      .then((v) => {
+        console.log('======', v);
+        lastResolved && lastResolved();
+      });
+
+  const handleClick = () => {
+    testing(Promise, () => testing(NewPromise));
+    // testing(NewPromise);
   };
 
   return (
