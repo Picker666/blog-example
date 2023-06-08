@@ -31,6 +31,7 @@ import UseCallbackPractice from '/@/component/react/UseCallbackPractice';
 import StrategyPattern from '/@/component/designPattern/StrategyPattern';
 import FactoryPattern from '/@/component/designPattern/FactoryPattern';
 import Observer from '/@/component/designPattern/Observer';
+import PublishSubscriber from '/@/component/designPattern/PublishSubscriber';
 
 import Algorithm from '/@/component/algorithm';
 import Sorting from '/@/component/algorithm/Sorting';
@@ -115,6 +116,7 @@ export const sidebarConfig = {
     { text: '策略模式', link: '/strategyPattern', component: StrategyPattern },
     { text: '工厂模式', link: '/factoryPattern', component: FactoryPattern },
     { text: '观察者模式', link: '/observer', component: Observer },
+    { text: '观察者模式', link: '/publishSubscriber', component: PublishSubscriber },
   ],
   '/practice': [
     { text: 'practice默认的', link: '/index', component: CalcTable },
