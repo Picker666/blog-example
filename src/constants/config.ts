@@ -12,6 +12,7 @@ import TriangleStyle from '/@/component/Base/triangleStyle';
 import ImageLazyLoading from '/@/component/Base/ImageLazyLoading';
 import Position from '/@/component/Base/Position';
 import Center from '/@/component/Base/Center';
+import WebWorker from '/@/component/Base/WebWorker';
 
 import TypescriptBase from '/@/component/typescript';
 import TypescriptAdvanced from '/@/component/typescript';
@@ -87,6 +88,7 @@ export const sidebarConfig = {
     { text: 'imageLazyLoading', link: '/imageLazyLoading', component: ImageLazyLoading },
     { text: 'position', link: '/position', component: Position },
     { text: 'center', link: '/center', component: Center },
+    { text: 'webWorker', link: '/webWorker', component: WebWorker },
   ],
   '/typescript': [
     { text: 'typescript基础', link: '/index', component: TypescriptBase },
