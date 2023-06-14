@@ -1,5 +1,6 @@
 import Base from '/@/component/Base';
 import Var from '/@/component/Base/var';
+import RegExp from '/@/component/Base/RegExp';
 import EventLoop from '/@/component/Base/EventLoop';
 import InterviewIndex from '/@/component/Base/interview';
 import InterviewScope from '/@/component/Base/interview/scope';
@@ -73,7 +74,8 @@ export const sidebarConfig = {
   '/base': [
     { text: 'testing', link: '/testing', component: Base },
     { text: 'var', link: '/var', component: Var },
-    { text: 'envent loop', link: '/eventLoop', component: EventLoop },
+    { text: 'regExp', link: '/regExp', component: RegExp },
+    { text: 'event loop', link: '/eventLoop', component: EventLoop },
     { text: 'interview', link: '/interview/index', component: InterviewIndex },
     {
       text: 'interviewScope',
