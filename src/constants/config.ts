@@ -1,4 +1,5 @@
 import Base from '/@/component/Base';
+import Var from '/@/component/Base/var';
 import EventLoop from '/@/component/Base/EventLoop';
 import InterviewIndex from '/@/component/Base/interview';
 import InterviewScope from '/@/component/Base/interview/scope';
@@ -15,7 +16,7 @@ import Center from '/@/component/Base/Center';
 import WebWorker from '/@/component/Base/WebWorker';
 
 import TypescriptBase from '/@/component/typescript';
-import KeyOf from '/@/component/keyof';
+import KeyOf from '/@/component/typescript/keyof';
 import TypescriptAdvanced from '/@/component/typescript';
 import SourceAnalysis from '/@/component/sourceAnalysis';
 import Infer from '/@/component/typescript/Infer';
@@ -71,6 +72,7 @@ export const navConfig = [
 export const sidebarConfig = {
   '/base': [
     { text: 'testing', link: '/testing', component: Base },
+    { text: 'var', link: '/var', component: Var },
     { text: 'envent loop', link: '/eventLoop', component: EventLoop },
     { text: 'interview', link: '/interview/index', component: InterviewIndex },
     {
