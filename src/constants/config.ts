@@ -15,6 +15,7 @@ import Center from '/@/component/Base/Center';
 import WebWorker from '/@/component/Base/WebWorker';
 
 import TypescriptBase from '/@/component/typescript';
+import KeyOf from '/@/component/keyof';
 import TypescriptAdvanced from '/@/component/typescript';
 import SourceAnalysis from '/@/component/sourceAnalysis';
 import Infer from '/@/component/typescript/Infer';
@@ -92,6 +93,7 @@ export const sidebarConfig = {
   ],
   '/typescript': [
     { text: 'typescript基础', link: '/index', component: TypescriptBase },
+    { text: 'KeyOf', link: '/keyOf', component: KeyOf },
     {
       text: 'typescript进阶',
       link: '/advanced',
