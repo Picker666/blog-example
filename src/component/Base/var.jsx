@@ -14,8 +14,6 @@ const Var = () => {
     console.log(a); //100
     var a = 300;
     console.log(a); //300
-
-    console.log(a == 1 && a == 300);
   };
 
   const handler2 = () => {
