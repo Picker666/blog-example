@@ -84,6 +84,13 @@ const RegExp = () => {
     console.log('result: ', result, reg.test(a)); // ["3.1Windows"] true
   }
 
+  const handler7 = () => {
+    let a = '1234567890.88';
+    let reg = /(?=(\B\d{3})+(\.|$))/g;
+    let result = a.replace(reg, ',');
+    console.log('result: ', result);
+  }
+
   return (
     <div>
       <p>非捕获分组：</p>
@@ -98,6 +105,8 @@ const RegExp = () => {
       <button onClick={handler5}>5、正向后行断言...</button>
       <p>反向后行断言</p>
       <button onClick={handler6}>6、反向后行断言...</button>
+      <p>千分符</p>
+      <button onClick={handler7}>7、千分符...</button>
     </div>
   )
 };
