@@ -48,6 +48,7 @@ import VersionSorting from '/@/component/algorithm/VersionSorting';
 import FindMin from '/@/component/algorithm/FindMin';
 import ArrayDistrub from '/@/component/algorithm/ArrayDistrub';
 import ArraryFlat from '/@/component/algorithm/ArraryFlat';
+import NumberToLetter from '/@/component/algorithm/NumberToLetter';
 
 import NewFunction from '/@/component/newFunction';
 import CallApply from '/@/component/newFunction/CallApply';
@@ -59,6 +60,8 @@ import AsyncAwait from '/@/component/newFunction/AsyncAwait';
 import DeepCopy from '/@/component/newFunction/DeepCopy';
 import Compose from '/@/component/newFunction/Compose';
 
+import ExceptionCatch from '/@/component/sundry/ExceptionCatch';
+
 export const navConfig = [
   { text: '基础梳理', link: '/base' },
   { text: 'Typescript', link: '/typescript' },
@@ -69,6 +72,7 @@ export const navConfig = [
   { text: '设计模式', link: '/designPattern' },
   { text: 'Practice', link: '/practice' },
   { text: '算法', link: '/algorithm' },
+  { text: '其他', link: '/sundry' },
 ];
 
 export const sidebarConfig = {
@@ -180,5 +184,7 @@ export const sidebarConfig = {
     { text: '找出最小值', link: '/findMin', component: FindMin },
     { text: '打乱数据', link: '/arrayDistrub', component: ArrayDistrub },
     { text: '数组扁平化', link: '/arraryFlat', component: ArraryFlat },
+    { text: '数字转化成字母', link: '/numberToLetter', component: NumberToLetter },
   ],
+  '/sundry': [{ text: '异常捕获', link: '/exceptionCatch', component: ExceptionCatch }],
 };
