@@ -49,6 +49,7 @@ import FindMin from '/@/component/algorithm/FindMin';
 import ArrayDistrub from '/@/component/algorithm/ArrayDistrub';
 import ArraryFlat from '/@/component/algorithm/ArraryFlat';
 import NumberToLetter from '/@/component/algorithm/NumberToLetter';
+import Query from '/@/component/algorithm/Query';
 
 import NewFunction from '/@/component/newFunction';
 import CallApply from '/@/component/newFunction/CallApply';
@@ -185,6 +186,7 @@ export const sidebarConfig = {
     { text: '打乱数据', link: '/arrayDistrub', component: ArrayDistrub },
     { text: '数组扁平化', link: '/arraryFlat', component: ArraryFlat },
     { text: '数字转化成字母', link: '/numberToLetter', component: NumberToLetter },
+    { text: '链式query', link: '/query', component: Query },
   ],
   '/sundry': [{ text: '异常捕获', link: '/exceptionCatch', component: ExceptionCatch }],
 };

@@ -5,5 +5,5 @@ module.exports = {
   "parser": "flow",
   printWidth: 120,
   semi: true,
-  trailingComma:'es5'
+  trailingComma: 'es5'
 };

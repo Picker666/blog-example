@@ -8,6 +8,7 @@ const KeyOf = () => {
       age: number;
     };
 
+    // eslint-disable-next-line prettier/prettier
     type uniteType = keyof KeyOfType;
 
     let nameStr: uniteType = 'name';
