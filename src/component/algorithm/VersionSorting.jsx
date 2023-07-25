@@ -1,5 +1,5 @@
 const VersionSorting = () => {
-  const arr = ["0.1.1", "2.3.3", "0.302.1", "4.2", "4.3.5", "4.3.4.5", "0.1.1"];
+  const arr = ["0.1.1", "2.3.3", "0.302.1", "4.2", "0.4", "4.3.5", "4.3.4.5", "0.1.1"];
 
   const sorting = () => {
     const sortingArr = arr.slice();
@@ -101,7 +101,40 @@ const VersionSorting = () => {
     let newData = sorting3(data, left, i);
     newData = sorting3(data, i + 1, right);
     console.log(newData);
-    return newData;
+    console.log("newData: ", newData);
+  };
+
+  const sort4 = function sorting() {
+    const result = arr.sort((a, b) => {
+      const _a = a.split(".");
+      const _b = b.split(".");
+
+      let i = 0;
+      while (i < _a.length) {
+        let aCrt = _a[i];
+        let bCrt = _b[i];
+        if (aCrt === undefined && bCrt === undefined) {
+          return 0;
+        }
+        if (aCrt === undefined) {
+          return -1;
+        }
+        if (bCrt === undefined) {
+          return 1;
+        }
+
+        aCrt = Number(_a[i]);
+        bCrt = Number(_b[i]);
+
+        if (aCrt !== bCrt) {
+          return aCrt - bCrt;
+        }
+
+        i++;
+      }
+    });
+
+    console.log("result: ", result);
   };
 
   return (
@@ -109,7 +142,7 @@ const VersionSorting = () => {
       <button onClick={sorting}>g1</button>
       <button onClick={sorting2}>go2</button>
       <button onClick={() => sorting3(arr, 0, arr.length - 1)}>go3</button>
-      {/* <button onClick={sorting4}>go4</button>? */}
+      <button onClick={sort4}>go4</button>
     </div>
   );
 };
