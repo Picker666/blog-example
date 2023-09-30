@@ -11,12 +11,14 @@ const PromiseComponent = () => {
         // PM.resolve 时候，参数肯能是PM实例
         return val.then(_this.resolve, _this.reject);
       } else {
-        if (_this.currentState === 'pending') {
-          // PM.race 时候存在多个PM 实例在同一个 PM中resolve
-          _this.value = val;
-          _this.currentState = 'fulfilled';
-          _this.resolveSolutions?.forEach((cb) => cb(_this.value));
-        }
+        setTimeout(() => {
+          if (_this.currentState === 'pending') {
+            // PM.race 时候存在多个PM 实例在同一个 PM中resolve
+            _this.value = val;
+            _this.currentState = 'fulfilled';
+            _this.resolveSolutions?.forEach((cb) => cb(_this.value));
+          }
+        });
       }
     };
 
@@ -398,10 +400,46 @@ const PromiseComponent = () => {
       });
   };
 
+  const testing2 = (MP, lastResolved) => {
+    MP.resolve(0)
+      .then((v) => {
+        console.log(0);
+        return MP.resolve(4);
+      })
+      .then((res) => {
+        console.log(res);
+      });
+
+    MP.resolve(1)
+      .then((v) => {
+        console.log(1);
+        return 2;
+      })
+      .then((v) => {
+        console.log(2);
+        return 3;
+      })
+      .then((v) => {
+        console.log(3);
+        return 5;
+      })
+      .then((v) => {
+        console.log(5);
+        return 6;
+      })
+      .then((v) => {
+        console.log(6);
+
+        lastResolved && lastResolved();
+      });
+  };
+
   const handleClick = () => testing(Promise, () => testing(PM));
   const handleClick1 = () => forRace(Promise, () => forRace(PM));
   const handleClick2 = () => forAll(Promise, () => forAll(PM));
   const handleClick3 = () => forAllSettled(Promise, () => forAllSettled(PM));
+
+  const handleClick4 = () => testing2(Promise, () => testing2(PM));
 
   return (
     <div>
@@ -410,6 +448,7 @@ const PromiseComponent = () => {
       <button onClick={handleClick1}>race执行</button>
       <button onClick={handleClick2}>all执行</button>
       <button onClick={handleClick3}>all settled执行</button>
+      <button onClick={handleClick4}>promise.resolve</button>
     </div>
   );
 };

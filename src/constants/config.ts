@@ -32,6 +32,7 @@ import ReactUseCallback from "/@/component/react/ReactUseCallback";
 import ReactUseRef from "/@/component/react/ReactUseRef";
 import UseCallbackPractice from "/@/component/react/UseCallbackPractice";
 import Ticket from "/@/component/react/Ticket";
+import ReactCycle from "/@/component/react/ReactCycle";
 
 import StrategyPattern from "/@/component/designPattern/StrategyPattern";
 import FactoryPattern from "/@/component/designPattern/FactoryPattern";
@@ -141,38 +142,43 @@ export const sidebarConfig = {
   "/react": [
     {
       text: "useState",
-      link: "useState",
+      link: "/useState",
       component: ReactUseState,
     },
     {
       text: "useLayoutEffect",
-      link: "useLayoutEffect",
+      link: "/useLayoutEffect",
       component: LayoutEffect,
     },
     {
       text: "useEffect",
-      link: "useEffect",
+      link: "/useEffect",
       component: ReactUseEffect,
     },
     {
       text: "useCallback",
-      link: "useCallback",
+      link: "/useCallback",
       component: ReactUseCallback,
     },
     {
       text: "useRef",
-      link: "useRef",
+      link: "/useRef",
       component: ReactUseRef,
     },
     {
       text: "useCallbackPractice",
-      link: "useCallbackPractice",
+      link: "/useCallbackPractice",
       component: UseCallbackPractice,
     },
     {
       text: "ticket",
-      link: "ticket",
+      link: "/ticket",
       component: Ticket,
+    },
+    {
+      text: "reactCycle",
+      link: "/reactCycle",
+      component: ReactCycle,
     },
   ],
   "/algorithm": [
