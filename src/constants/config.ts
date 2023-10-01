@@ -71,10 +71,10 @@ export const navConfig = [
   { text: "手写", link: "/newFunction" },
   { text: "源码分析", link: "/sourceAnalysis" },
   { text: "React", link: "/react" },
-  { text: "Git", link: "/git" },
   { text: "设计模式", link: "/designPattern" },
   { text: "Practice", link: "/practice" },
   { text: "算法", link: "/algorithm" },
+  { text: "Git", link: "/git" },
   { text: "其他", link: "/sundry" },
 ];
 

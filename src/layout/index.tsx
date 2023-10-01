@@ -113,6 +113,7 @@ const LayoutRoot = (props: any) => {
           style={{
             overflow: "auto",
             height: "calc(100vh - 64px)",
+            backgroundColor: "#24272F",
           }}
           className="site-layout-background"
         >
